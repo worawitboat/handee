@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function BoatPage() {
+export default function HomeworkPage() {
     return (
         <div>
-            boat
+            xxx
         </div>
     )
 }
