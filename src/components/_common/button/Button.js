@@ -1,16 +1,15 @@
 import React from 'react'
-import {
-    Button,
-    Card
-} from 'antd';
+import { Button } from 'antd'
 import styled from '@emotion/styled';
 
-const StyledButton = styled(Button)`
-  width: 500px
+const Buttonn = styled(Button)`
+    width: 500px
 `
 
-export default function styledButton() {
+export default function StyledButton(props) {
+    const { btnName } = props
+
     return (
-        <StyledButton>AUN</StyledButton>
+        <Buttonn>{btnName}</Buttonn>
     )
 }
