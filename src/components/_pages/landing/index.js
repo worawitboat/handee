@@ -14,7 +14,6 @@ export default function LandingPage(props) {
             <h1 onClick={() => router.push(`/home`)}>{appName}</h1>
             <Flex justifyContent="center" style={{ marginTop: 500 }}>
                 <Button btnName="PAM"></Button>
-                
             </Flex>
         </>
     )
