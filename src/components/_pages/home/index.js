@@ -4,7 +4,7 @@ export default function homePage() {
     const router = useRouter()
     return (
         <div>
-            <h1 onClick={() => router.push('/')}>Pam</h1>
+            <h1 onClick={() => router.push('/pam')}>Pam</h1>
         </div>
     )
 }
