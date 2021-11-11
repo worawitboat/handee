@@ -1,47 +1,44 @@
-import React, { useState } from 'react'
-import { Flex, Box } from 'reflexbox'
-import { Button, Input } from 'antd';
+import React , {useState} from 'react'
+import { Flex , Box } from 'reflexbox'
+import {Button, Input} from 'antd';
 import router from 'next/router'
-import styled from '@emotion/styled';
 
 
 export default function SelectHandOrder(props) {
-    const [firstName, setFirstName] = useState("")
-    const [lastName, setLastName] = useState("")
-    const [address, setAddress] = useState("")
-    const [phone, setPhone] = useState("")
+const [firstName , setFirstName] = useState();
+const [lastName , setLastName] = useState();
+const [address , setAddress] = useState();
+const [phone , setPhone] = useState();
 
-    function submit() {
-        const data = {
-            firstName: firstName,
-            lastName: lastName,
-            address: address,
-            phone: phone
+function CommitForm(){
+    const data = {
+        firstName: firstName,
+        lastName: lastName,
+        address: address,
+        phone: phone
         }
         console.log(data);
+        router.push('/DetailProHand')
     }
 
 
-    return (
+return (
         <>
-            <Flex justifyContent="center" style={{ paddingTop: 100 }}>
-                <Flex flexDirection="column" textAlign="center">
-                    <h2>กรอกข้อมูลสำหรับคนฝากหิ้ว</h2>
-                    <Input placeholder="ชื่อ" style={{ marginTop: 20, borderRadius: 50}} onChange={(e)=> setFirstName(e.target.value)}/>
-                    <Input placeholder="นามสกุล" style={{ marginTop: 20, borderRadius: 50 }} onChange={(e)=> setLastName(e.target.value)}/>
-                    <Input placeholder="ที่อยู่" style={{ marginTop: 20, borderRadius: 50 }} onChange={(e)=> setAddress(e.target.value)}/>
-                    <Input placeholder="เบอร์โทรศัพท์" style={{ marginTop: 20, borderRadius: 50 }} onChange={(e)=> setPhone(e.target.value)}/>
-                    <Flex justifyContent="center" style={{ marginTop: 20, borderRadius: 50 }} >
-                        <Box width={1/3}>
-                            <Button type="primary" style={{ borderRadius: 20 }} onClick={()=> submit()}>ยืนยัน</Button>
+            <Flex justifyContent="center" style={{marginTop: 100}}> 
+                <Flex  flexDirection="column" textAlign="center">
+                <h2><b>กรอกข้อมูลสำหรับคนฝากหิ้ว</b></h2>             
+                   <Input type="text" placeholder="ชื่อ" style={{marginTop:20 , width:"100%",fontsize:"12px",borderRadius:" 50px", padding:"10px 10px 10px 20px"}} onChange={(e)=> setFirstName(e.target.value)} />
+                   <Input type="text" placeholder="นามสกุล" style={{marginTop:20 , width:"100%",fontsize:"12px",borderRadius:" 50px", padding:"10px 10px 10px 20px"}} onChange={(e)=> setLastName(e.target.value)} />
+                   <Input type="text" placeholder="ที่อยู่" style={{marginTop:20 , width:"100%",fontsize:"12px",borderRadius:" 50px", padding:"10px 10px 10px 20px"}} onChange={(e)=> setAddress(e.target.value)} />
+                   <Input type="text" placeholder="เบอร์โทรศัพท์" style={{marginTop:20 , width:"100%",fontsize:"12px",borderRadius:" 50px", padding:"10px 10px 10px 20px"}} onChange={(e)=> setPhone(e.target.value)} />
+                   <Flex justifyContent="center"style={{marginTop: 40}}>
+                       <Box style={{paddingRight:25}}>
+                       <Button style={{width:"130px",height:"40px",fontWeight:"bold",fontSize:"15px",borderRadius: "50px"}} onClick={()=>{CommitForm()}} type="primary">ยืนยัน</Button>
+                       </Box>
+                        <Box>
+                        <Button style={{width:"130px",height:"40px",fontWeight:"bold",fontSize:"15px",borderRadius: "50px"}} onClick={()=>{router.push('/')}} type="danger">ยกเลิก</Button>
                         </Box>
-                        <Box width={1/3}>
-
-                        </Box>
-                        <Box width={1/3}>
-                            <Button type="primary" danger style={{ borderRadius: 20 }} onClick={()=> router.push('/')}>ยกเลิก</Button>
-                        </Box>
-                    </Flex>
+                   </Flex>
                 </Flex>
 
             </Flex>

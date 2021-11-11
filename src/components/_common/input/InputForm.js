@@ -1,18 +1,19 @@
-import React from 'react'
-import {Input, Button} from 'antd'
-import styled from '@emotion/styled';
-import router from 'next/router';
+import React, {useState} from 'react';
+import {Input} from 'antd';
+import styled from '@emotion/styled';;
 
 const Inputer = styled(Input)`
-    width:100%;    
+    width:100%;
+    margin-Top:20px;    
     font-size:12px;
     border-radius: 50px;
-    padding:5px 5px 5px 70px;
+    padding:5px 5px 5px 85px;
 `
 
 
 const Div = styled.div `
     position:relative;
+    
     `
 
 const Labels = styled.label
@@ -22,17 +23,19 @@ const Labels = styled.label
 	font-weight:bold;
 	font-size:0.75em;
 	color:#444;
-	top:7px;
+	top:28px;
 `
 
 
 export default function StyledButton(props) {
-    const {id} = props;
     const {labelName} = props;
 
     return (
     <Div>
-        <Inputer type="text" id={id}/>
+        <Inputer type="text"/>
+        <Inputer type="text"/>
+        <Inputer type="text"/>
+        <Inputer type="text"/>
         <Labels>{labelName} : </Labels>
     </Div>
     )
