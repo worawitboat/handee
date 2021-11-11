@@ -8,7 +8,7 @@ import SelectHandOrder from '../SelectHandOrder'
 
 const { TabPane } = Tabs;
 
-export default function homePage() {
+export default function OrderHandee() {
 
     const [tabPosition, setTabPosition] = useState('bottom')
 
@@ -20,12 +20,12 @@ export default function homePage() {
                     tab={
                         <span>
                             <AppleOutlined />
-                            ฝากหิ้ว
+                            รับหิ้ว
                         </span>
                     }
                     key="1"
                 >
-                    <SelectHandOrder />
+                    รับหิ้ว
                 </TabPane>
                 <TabPane
                     tab={
