@@ -5,7 +5,7 @@ import router from 'next/router';
 
 const BTN = styled(Button)`
     height:150px;
-    width:120px;    
+    width:150px;    
     font-size:20px;
     border-radius: 25px;
 `
