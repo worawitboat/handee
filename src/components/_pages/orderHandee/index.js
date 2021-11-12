@@ -10,7 +10,7 @@ const { TabPane } = Tabs;
 
 export default function OrderHandee() {
 
-    const [tabPosition, setTabPosition] = useState('bottom')
+    const [tabPosition, setTabPosition] = useState('top')
 
     const router = useRouter()
     return (

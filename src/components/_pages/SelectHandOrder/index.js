@@ -18,7 +18,12 @@ function CommitForm(){
         phone: phone
         }
         console.log(data);
-        router.push('/DetailProHand')
+        
+        router.push({
+            pathname: '/handee',
+            query: 'error'
+        })
+        
     }
 
 

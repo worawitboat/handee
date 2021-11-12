@@ -19,10 +19,10 @@ export default function HistoryProHand(props) {
 return (
         <>
         <Flex style={{marginTop: 10}}>
-            <Button style={{fontSize:20}} type="text" onClick={()=> {router.push('/DetailProHand')}}><LeftOutlined /></Button>
+            <Button style={{fontSize:20}} type="text" onClick={()=> {router.push('/handee')}}><LeftOutlined /></Button>
         </Flex>
         
-            <Flex justifyContent="center" style={{marginTop: 100}}> 
+            <Flex justifyContent="center" style={{marginTop: 50 , marginBottom:50}}> 
                 <Flex  flexDirection="column" textAlign="center">
                     <h1><b>ประวัติคนรับหิ้ว</b></h1>
                     <Flex textAlign="Left">
@@ -60,5 +60,6 @@ return (
         </>
     )
 }
+
 
 

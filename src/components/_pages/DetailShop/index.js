@@ -5,15 +5,14 @@ import {LeftOutlined} from '@ant-design/icons'
 import router from 'next/router';
 
 export default function DetailShop(props) {
-    const {Meta} = Card
     const Price = "100,000";
     const Delivery = "200";
     const ATM = "11445789524";
     const PromptPay = "0855555555";
     return (
         <>
-        <Flex style={{marginTop: 10}}>
-            <Button style={{fontSize:20}} type="text" onClick={()=> {router.push('/HistoryProHand')}}><LeftOutlined /></Button>
+        <Flex style={{marginTop: 10, marginBottom:50}}>
+            <Button style={{fontSize:20}} type="text" onClick={()=> {router.push('/handee')}}><LeftOutlined /></Button>
         </Flex>
         <Flex justifyContent="center" style={{marginTop: 50}}>
         <Flex  flexDirection="column" textAlign="center">

@@ -1,21 +1,23 @@
-import React, { useState } from 'react'
-import { useRouter } from 'next/router'
+import React , {useState} from 'react';
 import { Tabs } from 'antd';
-import styled from '@emotion/styled';
 import { AppleOutlined, AndroidOutlined } from '@ant-design/icons';
 
-import SelectHandOrder from '../SelectHandOrder'
-
+import HistoryProHand from '../HistoryProHand';
+import DetailHistory from '../DetailHistory';
+import DetailProHand from '../DetailProHand';
 const { TabPane } = Tabs;
 
-export default function homePage() {
 
-    const [tabPosition, setTabPosition] = useState('bottom')
 
-    const router = useRouter()
+export default function homePage(props) {
+
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [tabPosition, setTabPosition] = useState('top');  
+
     return (
         <div>
-            <Tabs tabPosition={tabPosition} defaultActiveKey="1" style={{ alignItems: "center", position: 'relative' }} >
+         
+            <Tabs tabPosition={tabPosition} defaultActiveKey="1" style={{ alignItems: "center", position: 'relative'  , width:"100%"}} >
                 <TabPane
                     tab={
                         <span>
@@ -25,8 +27,11 @@ export default function homePage() {
                     }
                     key="1"
                 >
-                    <SelectHandOrder />
+                   <DetailProHand />
+                   
                 </TabPane>
+
+
                 <TabPane
                     tab={
                         <span>
@@ -36,18 +41,20 @@ export default function homePage() {
                     }
                     key="2"
                 >
-                    Tab 2
+                <HistoryProHand />
                 </TabPane>
+
+
                 <TabPane
                     tab={
                         <span>
                             <AndroidOutlined />
-                            ประวัติออเดอร์
+                            ประวัติการใช้งาน
                         </span>
                     }
                     key="3"
                 >
-                    Tab 2
+                    <DetailHistory />
                 </TabPane><TabPane
                     tab={
                         <span>
@@ -60,6 +67,7 @@ export default function homePage() {
                     Tab 2
                 </TabPane>
             </Tabs>
+            
         </div>
     )
 }

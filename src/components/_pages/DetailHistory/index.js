@@ -1,8 +1,6 @@
-import React , {useState} from 'react'
+import React  from 'react'
 import { Flex , Box } from 'reflexbox'
-import {Button , Card , Image } from 'antd'
-import {LeftOutlined, HeartOutlined } from '@ant-design/icons'
-import router from 'next/router';
+import {Card , Image } from 'antd'
 
 export default function DetailHistory(props) {
     const showDetail = () =>{
@@ -10,12 +8,12 @@ export default function DetailHistory(props) {
     }
     return (
         <>
-        <Flex justifyContent="center" style={{marginTop: 50}}>
+        <Flex justifyContent="center" style={{marginTop: 50 , marginBottom:50}}>
         <Flex  flexDirection="column" textAlign="center">
             <h1><b>ประวัติการใช้งาน</b></h1>
             <Flex textAlign="Left">
-                <a onClick={()=>{showDetail()}}>
-                    <Card  style={{ width:300 , height:130, marginTop: 20 ,boxShadow:"0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }} >
+                <a onClick={()=>{showDetail()}} >
+                    <Card  style={{ width:300 , height:"100%", marginTop: 20 ,boxShadow:"0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }} >
                         <Flex>
                             <Flex>
                                 <Box>
