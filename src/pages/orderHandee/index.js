@@ -1,4 +1,4 @@
-export { default } from '../../components/_pages/orderhandee'
+export { default } from '../../components/_pages/orderHandee'
 
 export async function getStaticProps(context) {
 
