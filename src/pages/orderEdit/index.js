@@ -1,6 +1,6 @@
 export { default } from '../../components/_pages/orderEdit'
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
 
   return { props: { appName: "handee" } }
 
