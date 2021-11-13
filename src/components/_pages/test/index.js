@@ -1,27 +1,44 @@
 import React, { useState } from 'react'
-import { Button } from 'antd'
-import { getTest, createTest, deleteTest } from '../../../modules/_test/services'
-import { Flex, Box } from 'reflexbox'
-
+import { Upload } from 'antd';
+import ImgCrop from 'antd-img-crop';
 
 export default function TestPage() {
-    const [user, setuser] = useState()
-    const get = async () => {
-        await getTest().then(res => {
-            setuser(res.data.data);
-        })
-    }
 
+    const [fileList, setFileList] = useState([
+
+    ]);
+
+    const onChange = ({ fileList: newFileList }) => {
+        setFileList(newFileList);
+    };
+
+    const onPreview = async file => {
+        let src = file.url;
+        if (!src) {
+            src = await new Promise(resolve => {
+                const reader = new FileReader();
+                reader.readAsDataURL(file.originFileObj);
+                reader.onload = () => resolve(reader.result);
+            });
+        }
+        const image = new Image();
+        image.src = src;
+        const imgWindow = window.open(src);
+        imgWindow.document.write(image.outerHTML);
+    };
     return (
         <div>
-            <Flex justifyContent="center" flexDirection="column">
-                <h4>{user?.name}</h4>
-                <p>{user?.email}</p>
-                <Button onClick={() => get()}>Get Test</Button>
-                <Button onClick={() => createTest()}>Create Test</Button>
-                <Button onClick={() => deleteTest('61781c72c686f150284a9196')}>Delete Test</Button>
-            </Flex>
-
+            <ImgCrop>
+                <Upload
+                    listType="picture-card"
+                    fileList={fileList}
+                    onChange={onChange}
+                    onPreview={onPreview}
+                >
+                    {fileList.length < 2 && '+ Upload'}
+                </Upload>
+            </ImgCrop>
         </div>
     )
 }
+
