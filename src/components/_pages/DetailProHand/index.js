@@ -51,8 +51,9 @@ const x = props.router
 
     return (
         <>
-        {x}
-        <Flex justifyContent="center" style={{marginTop: 50}}>
+        <Flex width={1/15}></Flex>
+        <Flex width={1} style={{marginTop: 50}} justifyContent="center" textAlign="center">
+         
         <Flex  flexDirection="column" textAlign="center">
             <h2><b>รายละเอียดสินค้าที่ต้องการฝากหิ้ว</b></h2>
             <Flex justifyContent="center" style={{marginTop:30}}>
@@ -75,10 +76,10 @@ const x = props.router
             <Flex justifyContent="center" style={{marginTop:60}}>
             <Box width={1/2}><Button onClick={()=>{Deal()}} type="primary" style={{borderRadius:50, width:120, height:40, fontWeight:"bold"}}>ยืนยัน</Button></Box>
             <Box width={1/2}><Button onClick={()=>{router.push('/edit')}} type="primary" danger style={{borderRadius:50, width:120, height:40, fontWeight:"bold"}}>ยกเลิก</Button></Box> 
-            </Flex>
         </Flex>
-        </Flex> 
-                
+        </Flex>
+            </Flex>
+        <Flex width={1/15}></Flex>  
         </>
     )
 }

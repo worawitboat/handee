@@ -11,10 +11,10 @@ export default function DetailShop(props) {
     const PromptPay = "0855555555";
     return (
         <>
-        <Flex style={{marginTop: 10, marginBottom:50}}>
-            <Button style={{fontSize:20}} type="text" onClick={()=> {router.push('/handee')}}><LeftOutlined /></Button>
+        <Flex style={{marginTop: 10, marginBottom:25}}>
+            <Button style={{fontSize:20}} type="text" onClick={()=> {router.push('/HistoryProHand')}}><LeftOutlined /></Button>
         </Flex>
-        <Flex justifyContent="center" style={{marginTop: 50}}>
+        <Flex justifyContent="center">
         <Flex  flexDirection="column" textAlign="center">
             <h1><b>รายละเอียดการชำระเงิน</b></h1>
             <Flex textAlign="Left">

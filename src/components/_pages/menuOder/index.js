@@ -4,10 +4,7 @@ import {Button, Card , Image } from 'antd'
 import { LeftOutlined } from '@ant-design/icons'
 import router from 'next/router'
 
-export default function DetailHistory(props) {
-    const showDetail = () =>{
-        alert('fff')
-    }
+export default function menuOder(props) {
     return (
         <>
         <Flex style={{marginTop: 10, marginBottom:50}}>
@@ -15,10 +12,10 @@ export default function DetailHistory(props) {
         </Flex>
         <Flex justifyContent="center" style={{marginTop: 50 , marginBottom:50}}>
         <Flex  flexDirection="column" textAlign="center">
-            <h1><b>ประวัติการใช้งาน</b></h1>
+            <h1><b>ออเดอร์</b></h1>
             <Flex textAlign="Left">
-                <a onClick={()=>{showDetail()}} >
-                    <Card  style={{ width:300 , height:"100%", marginTop: 20 ,boxShadow:"0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }} >
+                <a >
+                    <Card  style={{ width:"100%" , height:"100%", marginTop: 20 ,boxShadow:"0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }} >
                         <Flex>
                             <Flex>
                                 <Box>
@@ -34,7 +31,17 @@ export default function DetailHistory(props) {
                                     </p>
                                 </Box>    
                             </Flex>
-                        </Flex>             
+                        </Flex>
+                        <Flex justifyContent="left" style={{marginTop:30}}>
+                            <Box width={1/2}>
+                            <Button type="primary">รับออเดอร์</Button>
+                            <Box width={1}></Box>
+                            </Box>
+                            <Box width={1/2}>
+                            <Button type="primary">ยกเลิก</Button>
+                            </Box>
+                            
+                            </Flex>           
                     </Card>
                 </a>
             </Flex>

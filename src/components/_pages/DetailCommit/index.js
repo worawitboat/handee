@@ -12,7 +12,7 @@ const Delivery = "200"
         <Flex style={{marginTop: 10}}>
             <Button style={{fontSize:20}} type="text" onClick={()=> {router.push('/DetailShop')}}><LeftOutlined /></Button>
         </Flex>
-        <Flex justifyContent="center" style={{marginTop: 50}}>
+        <Flex justifyContent="center" style={{marginTop: 30}}>
         <Flex  flexDirection="column" textAlign="center">
             <h1><b>ยืนยันการชำระเงิน</b></h1>
             <Flex justifyContent="center" style={{marginTop:20}}>
@@ -30,7 +30,7 @@ const Delivery = "200"
                 </Box>    
             </Flex>
             <Flex justifyContent="center" style={{marginTop:30}}>
-                <Button style={{borderRadius:50 , width: 80}} type="primary" onClick={()=>{router.push('/DetailCommit')}}>ตกลง</Button>
+                <Button style={{borderRadius:50 , width: 80}} type="primary" onClick={()=>{router.push('/history')}}>ตกลง</Button>
             </Flex>
         </Flex>
         </Flex> 

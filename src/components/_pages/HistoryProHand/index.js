@@ -21,13 +21,14 @@ return (
         <Flex style={{marginTop: 10}}>
             <Button style={{fontSize:20}} type="text" onClick={()=> {router.push('/handee')}}><LeftOutlined /></Button>
         </Flex>
-        
-            <Flex justifyContent="center" style={{marginTop: 50 , marginBottom:50}}> 
+        <Flex width={1/15}></Flex>
+            <Flex width={1} justifyContent="center">
+                <Flex justifyContent="center" style={{marginTop: 50 , marginBottom:50}}> 
                 <Flex  flexDirection="column" textAlign="center">
                     <h1><b>ประวัติคนรับหิ้ว</b></h1>
                     <Flex textAlign="Left">
                         <a onClick={()=>{ShowDetail()}}>
-                        <Card  style={{ width:400 , height:130, marginTop: 20 ,boxShadow:"0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }} >
+                        <Card  style={{ width:"100%" , height:130, marginTop: 20 ,boxShadow:"0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }} >
                         <Flex>
                             <Flex>
                             <Box>
@@ -36,7 +37,7 @@ return (
                             </Flex>
                             
                         <Flex justifyContent="center" textAlign="Left">
-                            <Box style={{marginTop:10 , marginLeft:20}}>
+                            <Box style={{marginLeft:10}}>
                             <p>
                                 <h5><b>ชื่อ-สกุล : {detail.fullname}</b></h5>
                                 <h5><b>เบอร์โทรศัพท์ : {detail.phoneNum}</b></h5>
@@ -57,6 +58,9 @@ return (
                    
                 </Flex>
             </Flex>
+            </Flex>
+        <Flex width={1/15}></Flex>
+            
         </>
     )
 }

@@ -1,4 +1,4 @@
-export { default } from '../../components/_pages/Menuhandee'
+export { default } from '../../components/_pages/orderContent'
 
 export async function getServerSideProps(context) {
 

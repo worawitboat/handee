@@ -8,8 +8,6 @@ export default function SelectPerson(props) {
             <Box width={1/2}><BtnSelectPerson btnName="คนฝากหิ้ว" RouterWay="/SelectHandOrder"/></Box>
             <Box width={1/2}><BtnSelectPerson btnName="คนรับหิ้ว"  RouterWay="/SelectOrderHand"/>  </Box>    
             </Flex> 
-            
-
         </>
     )
 }
