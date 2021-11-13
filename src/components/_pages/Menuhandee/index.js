@@ -59,6 +59,7 @@ export default function Menuhandee(props) {
 
     return (
         <>
+        {profile}
             <Flex justifyContent="center" textAilgn="center">
                 <Flex width={1 / 15}></Flex>
                 <Flex width={1} justifyContent="center">
