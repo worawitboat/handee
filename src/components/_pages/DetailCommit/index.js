@@ -1,22 +1,61 @@
 import React , {useState} from 'react'
 import { Flex , Box } from 'reflexbox'
-import {Button } from 'antd'
+import {Button, Upload } from 'antd'
 import {LeftOutlined , PlusOutlined} from '@ant-design/icons'
 import router from 'next/router';
 
 export default function DetailCommit(props) {
 const Price = "100,000";
 const Delivery = "200"
+const [fileList, setFileList] = useState([]);
+
+const onChange = ({ fileList: newFileList }) => {
+    setFileList(newFileList);
+};
+
+const onPreview = async file => {
+    console.log(file.type)
+    let src = file.url;
+    if (!src) {
+        src = await new Promise(resolve => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file.originFileObj);
+            reader.onload = () => resolve(reader.result);
+        });
+    }
+    const image = new Image();
+    image.src = src;
+    const imgWindow = window.open(src);
+    imgWindow.document.write(image.outerHTML);
+};
+
+const Success = () => {
+    const premise = {
+        image : fileList
+    }
+    console.log(premise)
+    router.push('DetailCommit/order')
+}
     return (
         <>
         <Flex style={{marginTop: 10}}>
-            <Button style={{fontSize:20}} type="text" onClick={()=> {router.push('/DetailShop')}}><LeftOutlined /></Button>
+            <Button style={{fontSize:20}} type="text" onClick={()=> {router.push('/edit/DetailProHand/HistoryProHand/DetailShop')}}><LeftOutlined /></Button>
         </Flex>
         <Flex justifyContent="center" style={{marginTop: 30}}>
         <Flex  flexDirection="column" textAlign="center">
             <h1><b>ยืนยันการชำระเงิน</b></h1>
             <Flex justifyContent="center" style={{marginTop:20}}>
-            <Box><Button type="dashed" style={{width:120 , height:120, color:"DodgerBlue" ,borderColor:"DodgerBlue"}}><PlusOutlined /><div style={{ marginTop: 8 }}>Upload</div></Button></Box>
+            <Box>
+           
+                <Upload
+                    listType="picture-card"
+                    fileList={fileList}
+                    onChange={onChange}
+                    onPreview={onPreview}
+                >
+                    {fileList.length < 1 && '+ Upload'}
+                </Upload>
+           </Box>
             </Flex>
             <Flex justifyContent="center" style={{marginTop:20}}>
             <h6 style={{color:"red"}}><b>*หมายเหตุ : ใส่หลักฐานการชำระเงินที่นี่</b></h6>
@@ -30,7 +69,7 @@ const Delivery = "200"
                 </Box>    
             </Flex>
             <Flex justifyContent="center" style={{marginTop:30}}>
-                <Button style={{borderRadius:50 , width: 80}} type="primary" onClick={()=>{router.push('/history')}}>ตกลง</Button>
+                <Button style={{borderRadius:50 , width: 80}} type="primary" onClick={()=>{Success()}}>ตกลง</Button>
             </Flex>
         </Flex>
         </Flex> 

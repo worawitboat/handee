@@ -1,4 +1,4 @@
-export { default } from '../../components/_pages/DetailShop'
+export { default } from '../../components/_pages/detailOrder'
 
 export async function getStaticProps(context) {
 

@@ -21,7 +21,7 @@ function CommitForm(){
         console.log(data);
         
         router.push({
-            pathname: '/DetailProHand',
+            pathname: '/edit/DetailProHand',
         })
         
     }
@@ -30,23 +30,23 @@ function CommitForm(){
 return (
         <>
         <Flex width={1/15} justifyContent="center"></Flex>
-            <Flex width={1} justifyContent="center" textAlign="right">
+            <Flex width={1} justifyContent="center" textAlign="center">
                 <Flex justifyContent="center" style={{marginTop: 50}}> 
                 <Flex  flexDirection="column" textAlign="center">
                 <h2><b>กรอกข้อมูลสำหรับคนฝากหิ้ว</b></h2>
                 <Flex justifyContent="center" flexDirection="column" >
-                    <Input type="text" placeholder="ชื่อ" style={{marginTop:20 , width:"100%",fontsize:"12px",borderRadius:" 50px", padding:"10px 10px 10px 25px"}} onChange={(e)=> setFirstName(e.target.value)} />
-                    <Input type="text" placeholder="นามสกุล" style={{marginTop:20 , width:"100%",fontsize:"12px",borderRadius:" 50px", padding:"10px 10px 10px 20px"}} onChange={(e)=> setLastName(e.target.value)} />
-                    <Input type="text" placeholder="ที่อยู่" style={{marginTop:20 , width:"100%",fontsize:"12px",borderRadius:" 50px", padding:"10px 10px 10px 20px"}} onChange={(e)=> setAddress(e.target.value)} />
-                    <Input type="text" placeholder="เบอร์โทรศัพท์" style={{marginTop:20 , width:"100%",fontsize:"12px",borderRadius:" 50px", padding:"10px 10px 10px 20px"}} onChange={(e)=> setPhone(e.target.value)} />
+                    <Input  type="text" placeholder="ชื่อ" style={{marginTop:20 , width:"100%",fontsize:"12px",borderRadius:" 50px", padding:"10px 10px 10px 25px"}} onChange={(e)=> setFirstName(e.target.value)} />
+                    <Input  type="text" placeholder="นามสกุล" style={{marginTop:20 , width:"100%",fontsize:"12px",borderRadius:" 50px", padding:"10px 10px 10px 20px"}} onChange={(e)=> setLastName(e.target.value)} />
+                    <Input  type="text" placeholder="ที่อยู่" style={{marginTop:20 , width:"100%",fontsize:"12px",borderRadius:" 50px", padding:"10px 10px 10px 20px"}} onChange={(e)=> setAddress(e.target.value)} />
+                    <Input  type="text" placeholder="เบอร์โทรศัพท์" style={{marginTop:20 , width:"100%",fontsize:"12px",borderRadius:" 50px", padding:"10px 10px 10px 20px"}} onChange={(e)=> setPhone(e.target.value)} />
                     </Flex>             
-                   <Flex width={1} justifyContent="center" style={{marginTop: 50}}>
-                       <Box width={1}>
+                   <Flex justifyContent="center" style={{marginTop: 50}}>
+                       <Box>
                        <Button style={{width:"130px",height:"40px",fontWeight:"bold",fontSize:"15px",borderRadius: "50px"}} onClick={()=>{CommitForm()}} type="primary">ยืนยัน</Button>
                        </Box>
-                       <Box width={1/3}>
+                       <Box style={{marginLeft:10 , marginRight:10}}>
                        </Box>
-                        <Box width={1}>
+                        <Box>
                         <Button style={{width:"130px",height:"40px",fontWeight:"bold",fontSize:"15px",borderRadius: "50px"}} onClick={()=>{router.push('/handee')}} type="danger">ยกเลิก</Button>
                         </Box>
                    </Flex>
