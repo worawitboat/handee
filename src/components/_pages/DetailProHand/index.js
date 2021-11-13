@@ -3,7 +3,7 @@ import { Flex , Box } from 'reflexbox'
 import { Input , Button , Upload } from 'antd'
 import { PlusOutlined } from '@ant-design/icons'
 import { useRouter } from 'next/router'
-import ImgCrop from 'antd-img-crop';
+// import ImgCrop from 'antd-img-crop';
 
 export default function DetailProHand(props) {
     const [Nameproduct , setNameProduct] = useState();
@@ -52,7 +52,7 @@ export default function DetailProHand(props) {
         <Flex  flexDirection="column" textAlign="center">
             <h2><b>รายละเอียดสินค้าที่ต้องการฝากหิ้ว</b></h2>
             <Flex justifyContent="center" style={{marginTop:30}}>
-            <Box><ImgCrop>
+            {/* <Box><ImgCrop>
                 <Upload
                     listType="picture-card"
                     fileList={fileList}
@@ -61,7 +61,7 @@ export default function DetailProHand(props) {
                 >
                     {fileList.length < 2 && '+ Upload'}
                 </Upload>
-            </ImgCrop></Box>
+            </ImgCrop></Box> */}
             </Flex>
             <Flex justifyContent="center" flexDirection="column" style={{marginTop:20}}>
             <Box><Input type="text" placeholder="ชื่อสินค้า" style={{marginTop:20 , width:"100%",fontsize:"12px",borderRadius:" 50px", padding:"10px 10px 10px 20px"}} onChange={(e)=> {setNameProduct(e.target.value)}} /></Box>
