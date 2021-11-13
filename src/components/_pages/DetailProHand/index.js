@@ -44,11 +44,6 @@ export default function DetailProHand(props) {
         imgWindow.document.write(image.outerHTML);
     };
 
-
-const x = props.router
-
-
-
     return (
         <>
         <Flex width={1/15}></Flex>
