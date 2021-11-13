@@ -5,14 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p $PORT",
+    "start": "next start",
     "lint": "next lint"
-  },
-  "cacheDirectories": [
-    ".next/cache"
-  ],
-  "engines": {
-    "node": "14.17.3"
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
