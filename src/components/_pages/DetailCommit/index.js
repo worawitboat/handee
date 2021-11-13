@@ -38,10 +38,7 @@ const Success = () => {
 }
     return (
         <>
-        <Flex style={{marginTop: 10}}>
-            <Button style={{fontSize:20}} type="text" onClick={()=> {router.push('/edit/DetailProHand/HistoryProHand/DetailShop')}}><LeftOutlined /></Button>
-        </Flex>
-        <Flex justifyContent="center" style={{marginTop: 30}}>
+        <Flex justifyContent="center" style={{marginTop:50}}>
         <Flex  flexDirection="column" textAlign="center">
             <h1><b>ยืนยันการชำระเงิน</b></h1>
             <Flex justifyContent="center" style={{marginTop:20}}>

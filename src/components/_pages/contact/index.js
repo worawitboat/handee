@@ -22,9 +22,6 @@ export default function Contact(props) {
 
     return (
         <>
-            <Flex style={{ marginTop: 10 }}>
-                <Button style={{ fontSize: 20 }} type="text" onClick={() => { router.push('/handee') }}><LeftOutlined /></Button>
-            </Flex>
             <Flex width={1 / 15}></Flex>
             <Flex width={1} justifyContent="center">
                 <Flex justifyContent="center" style={{ marginTop: 50 }}>

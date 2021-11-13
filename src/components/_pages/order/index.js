@@ -34,7 +34,7 @@ export default function order(props) {
         <Flex flexDirection="column" textAlign="center">
           {data.map((item, index) => {
             return (
-            <Card key={index} onClick={()=>{router.push('/rate')}} style={{ width:"100%", height:"90%", marginTop: 20 , marginRight: 140 ,boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)"}}>
+            <Card key={index} onClick={()=>{router.push('order/rate')}} style={{ width:"100%", height:"90%", marginTop: 20 , marginRight: 140 ,boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)"}}>
             <Flex>
               <Image
                   width={150}
@@ -48,8 +48,6 @@ export default function order(props) {
               </p>
             </Flex>
             <Flex justifyContent="row" textAlign="center">
-                
-                <Box width={1}><Button type="primary" style={{borderRadius:50 , width:150 }}>รับออเดอร์</Button></Box>
               </Flex>
           </Card>
 
@@ -80,8 +78,6 @@ export default function order(props) {
               </p>
             </Flex>
             <Flex justifyContent="row" textAlign="center">
-                
-                <Box width={1}><Button type="primary" style={{borderRadius:50 , width:150 }}>รับออเดอร์</Button></Box>
               </Flex>
           </Card>
 
