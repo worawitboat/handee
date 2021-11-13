@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "serve -s build",
+    "lint": "next lint",
+    "heroku-postbuild": "npm run build"
   },
   "engines": {
     "node": "14.17.3"
