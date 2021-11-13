@@ -14,7 +14,7 @@ export default function handee(props) {
         router.push('/edit')
     }
 
-    function menuOrders(){
+    function menuOrders() {
         router.push("/order")
     }
 
@@ -29,28 +29,28 @@ export default function handee(props) {
 
     return (
         <>
-        
-        <Flex justifyContent="center" textAilgn="center">
-            <Flex width={1/15}></Flex>
-            <Flex width={1} justifyContent="center">
-        <Flex justifyContent="center" style={{marginTop: 50}}>
-            <Flex  flexDirection="column" textAlign="center">
-            <Flex onClick={()=>{editOrders()}} justifyContent="center" style={{width:"100%", height:"100%" ,marginTop:20 , marginBottom:20}}>
-                <a ><img style={{width:"100%", height:"100%" }} src={editOrder} /></a>
-            </Flex>
-            <Flex onClick={()=>{menuOrders()}} justifyContent="center" style={{width:"100%", height:"100%" ,marginTop:20 , marginBottom:20}}>
-                <a ><img style={{width:"100%", height:"100%" }} src={menuOrder} /></a>
-            </Flex>
-            <Flex onClick={()=>{historys()}} justifyContent="center" style={{width:"100%", height:"100%" ,marginTop:20 , marginBottom:20}}>
-                <a ><img style={{width:"100%", height:"100%" }} src={History} /></a>
-            </Flex>
-            <Flex onClick={()=>{contacts()}} justifyContent="center" style={{width:"100%", height:"100%" ,marginTop:20 , marginBottom:20}}>
-                <a ><img style={{width:"100%", height:"100%" }} src={Contact} /></a>
-            </Flex>
-        </Flex>
-        </Flex> 
-            </Flex>
 
+            <Flex justifyContent="center" textAilgn="center">
+                <Flex width={1 / 15}></Flex>
+                <Flex width={1} justifyContent="center">
+                    <Flex justifyContent="center" style={{ marginTop: 50 }}>
+                        <Flex flexDirection="column" textAlign="center">
+                            <Flex onClick={() => { editOrders() }} justifyContent="center" style={{ width: "100%", height: "100%", marginTop: 20, marginBottom: 20 }}>
+                                <a ><img style={{ width: "100%", height: "100%" }} src={editOrder} /></a>
+                            </Flex>
+                            <Flex onClick={() => { menuOrders() }} justifyContent="center" style={{ width: "100%", height: "100%", marginTop: 20, marginBottom: 20 }}>
+                                <a ><img style={{ width: "100%", height: "100%" }} src={menuOrder} /></a>
+                            </Flex>
+                            <Flex onClick={() => { historys() }} justifyContent="center" style={{ width: "100%", height: "100%", marginTop: 20, marginBottom: 20 }}>
+                                <a ><img style={{ width: "100%", height: "100%" }} src={History} /></a>
+                            </Flex>
+                            <Flex onClick={() => { contacts() }} justifyContent="center" style={{ width: "100%", height: "100%", marginTop: 20, marginBottom: 20 }}>
+                                <a ><img style={{ width: "100%", height: "100%" }} src={Contact} /></a>
+                            </Flex>
+                        </Flex>
+                    </Flex>
+                </Flex>
+            </Flex>
 
         </>
     )

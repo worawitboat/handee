@@ -17,9 +17,9 @@ export default function History(props) {
             <h1><b>ประวัติการใช้งาน</b></h1>
             <Flex textAlign="Left">
                 <a onClick={()=>{showDetail()}} >
-                    {data.map(item => {
+                    {data.map((item, index) => {
                         return(
-                        <Card  style={{ width:"100%" , height:"100%", marginTop: 20 ,boxShadow:"0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }} >
+                        <Card key={index}  style={{ width:"100%" , height:"100%", marginTop: 20 ,boxShadow:"0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }} >
                         <Flex>
                             <Flex>
                                 <Box>

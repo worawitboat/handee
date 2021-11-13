@@ -32,9 +32,9 @@ export default function order(props) {
     <TabPane tab="progress" key="1">
     <Flex justifyContent="center" style={{ marginTop:20}}>
         <Flex flexDirection="column" textAlign="center">
-          {data.map(item => {
+          {data.map((item, index) => {
             return (
-            <Card onClick={()=>{router.push('/rate')}} style={{ width:"100%", height:"90%", marginTop: 20 , marginRight: 140 ,boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)"}}>
+            <Card key={index} onClick={()=>{router.push('/rate')}} style={{ width:"100%", height:"90%", marginTop: 20 , marginRight: 140 ,boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)"}}>
             <Flex>
               <Image
                   width={150}
@@ -64,9 +64,9 @@ export default function order(props) {
     <TabPane tab="success" key="2">
     <Flex justifyContent="center" style={{ marginTop:20}}>
         <Flex flexDirection="column" textAlign="center">
-          {data.map(item => {
+          {data.map((item, index) => {
             return (
-            <Card onClick={()=>{router.push('order/rate')}} style={{ width:"100%", height:"90%", marginTop: 20 , marginRight: 140 ,boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)"}}>
+            <Card key={index} onClick={()=>{router.push('order/rate')}} style={{ width:"100%", height:"90%", marginTop: 20 , marginRight: 140 ,boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)"}}>
             <Flex>
               <Image
                   width={150}

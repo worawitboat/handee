@@ -27,9 +27,9 @@ export default function DetailShop(props) {
         <Flex  flexDirection="column" textAlign="center">
             <h1><b>รายละเอียดการชำระเงิน</b></h1>
             <Flex textAlign="Left">
-                        {data.map(item=>{
+                        {data.map((item, index)=>{
                             return(
-                                <Card style={{width:400, height:450}} >
+                                <Card key={index} style={{width:400, height:450}} >
                         <Flex justifyContent="center" textAlign="Left" style={{marginTop:10}}>
                             <Flex justifyContent="center" >
                             <Box width={1/2}>

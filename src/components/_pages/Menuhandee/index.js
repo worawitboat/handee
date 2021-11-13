@@ -24,10 +24,7 @@ export default function Menuhandee(props) {
                 // );
             }
         }, err => console.error(err));
-
-      
-
-    }, [])
+    })
 
 
     const editOrder = "https://scontent.fbkk22-8.fna.fbcdn.net/v/t1.15752-9/248081778_943967959548095_5549421379981730155_n.png?_nc_cat=108&ccb=1-5&_nc_sid=ae9488&_nc_eui2=AeGlSP2RTppJXPXOO8aGdSZmWyQePxunfPJbJB4_G6d88k77GobVGotYK3q-S_msHSz8V6iIMPUSLXahPjI2pj-2&_nc_ohc=Bod0uwGP7XAAX-nytFL&_nc_ht=scontent.fbkk22-8.fna&oh=70147e2c360dbb29c3c10a6cfcb6cb12&oe=61B2703C"
