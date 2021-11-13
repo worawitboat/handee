@@ -6,31 +6,26 @@ import router from 'next/router'
 
 export default function Menuhandee(props) {
 
-    const [idToken, setIdToken] = useState("");
-    const [displayName, setDisplayName] = useState("");
-    const [statusMessage, setStatusMessage] = useState("");
-    const [userId, setUserId] = useState("");
+    const [profile, setProfile] = useState()
 
     useEffect(async () => {
         const liff = (await import('@line/liff')).default
-        liff.init({ liffId: '1656624101-Ng7Vpxwd', withLoginOnExternalBrowser: true, }, () => {
-            if (liff.isLoggedIn()) {
-                
-            } else {
+        liff.init({ liffId: '1656624101-Ng7Vpxwd', withLoginOnExternalBrowser: true, }, async () => {
+            if (!liff.isLoggedIn()) {
                 liff.login();
+
+                await liff.ready
+                const profile = await liff.getProfile()
+                setProfile(profile)
+                // liff.getProfile().then(profile => {
+                //     console.log(profile);
+                // }).catch(err =>
+                //     liff.closeWindow()
+                // );
             }
         }, err => console.error(err));
 
-        const idToken = liff.getIDToken();
-        setIdToken(idToken);
-        liff.getProfile().then(profile => {
-            console.log(profile);
-            console.log(profile);
-            setDisplayName(profile.displayName);
-            setPictureUrl(profile.pictureUrl);
-            setStatusMessage(profile.statusMessage);
-            setUserId(profile.userId);
-        }).catch(err => console.error(err));
+      
 
     }, [])
 
@@ -63,13 +58,7 @@ export default function Menuhandee(props) {
 
 
     return (
-        <>  
-            <h3>
-                {idToken}
-                {displayName}
-                {statusMessage}
-                {userId}
-            </h3>
+        <>
             <Flex justifyContent="center" textAilgn="center">
                 <Flex width={1 / 15}></Flex>
                 <Flex width={1} justifyContent="center">
