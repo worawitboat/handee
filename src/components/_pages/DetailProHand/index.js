@@ -22,7 +22,7 @@ export default function DetailProHand(props) {
         }
 
         console.log(DataPassToOrderHand);
-        router.push('/HistoryProHand')
+        router.push('DetailProHand/HistoryProHand')
     }
 
     const onChange = ({ fileList: newFileList }) => {

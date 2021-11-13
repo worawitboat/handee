@@ -3,7 +3,6 @@ import React , {useState} from 'react'
 import { Flex , Box } from 'reflexbox'
 import {Button, Input, Upload} from 'antd';
 import router from 'next/router'
-import ImgCrop from 'antd-img-crop';
 
 
 export default function edit(props) {
@@ -18,12 +17,12 @@ function CommitForm(){
         firstName: firstName,
         lastName: lastName,
         address: address,
-        phone: phone
+        phone: phone,
+        image: fileList
         }
         console.log(data);
-        
         router.push({
-            pathname: '/DetailProHand',
+            pathname: '/orderHandee',
         })
         
     }
@@ -64,7 +63,7 @@ return (
 
                     <Flex justifyContent="center" style={{marginTop:30 , marginBottom:30}}>
                     <Box>
-                        <ImgCrop >
+                        
                             <Upload
                                 listType="picture-card"
                                 fileList={fileList}
@@ -73,7 +72,7 @@ return (
                             >
                             {fileList.length < 2 && '+ Upload'}
                             </Upload>
-                        </ImgCrop></Box>
+                        </Box>
                     </Flex>
 
                     <Flex>
@@ -87,7 +86,7 @@ return (
                        <Box width={1/3}>
                        </Box>
                         <Box width={1}>
-                        <Button style={{width:"130px",height:"40px",fontWeight:"bold",fontSize:"15px",borderRadius: "50px"}} onClick={()=>{router.push('/handee')}} type="danger">ยกเลิก</Button>
+                        <Button style={{width:"130px",height:"40px",fontWeight:"bold",fontSize:"15px",borderRadius: "50px"}} onClick={()=>{router.push('/orderHandee')}} type="danger">ยกเลิก</Button>
                         </Box>
                    </Flex>
                 </Flex>

@@ -1,4 +1,4 @@
-export { default } from '../../components/_pages/handee'
+export { default } from '../../../../../../../../components/_pages/rate'
 
 export async function getServerSideProps(context) {
 
