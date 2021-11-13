@@ -11,6 +11,9 @@
   "cacheDirectories": [
     ".next/cache"
   ],
+  "engines": {
+    "node": ">=v12.22.5"
+  },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@emotion/react": "^11.4.1",
