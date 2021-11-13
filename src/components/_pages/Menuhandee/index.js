@@ -3,31 +3,33 @@ import { Flex, Box } from 'reflexbox'
 import { Input, Button, Upload, Image } from 'antd'
 import router from 'next/router'
 
-import liff from '@line/liff';
+// import liff from '@line/liff';
 
 export default function Menuhandee(props) {
 
-    const initLine = () => {
-        liff.init({ liffId: '1656624101-Ng7Vpxwd', withLoginOnExternalBrowser: true, }, () => {
-            if (liff.isLoggedIn()) {
-                runApp();
-            } else {
-                liff.login();
-            }
-        }, err => console.error(err));
-    }
+    // const initLine = () => {
+    //     liff.init({ liffId: '1656624101-Ng7Vpxwd', withLoginOnExternalBrowser: true, }, () => {
+    //         if (liff.isLoggedIn()) {
+    //             runApp();
+    //         } else {
+    //             liff.login();
+    //         }
+    //     }, err => console.error(err));
+    // }
 
-    const runApp = () => {
-        const idToken = liff.getIDToken();
-        setIdToken(idToken);
-        liff.getProfile().then(profile => {
-          console.log(profile);
-        }).catch(err => console.error(err));
-    }
+    // const runApp = () => {
+    //     const idToken = liff.getIDToken();
+    //     setIdToken(idToken);
+    //     liff.getProfile().then(profile => {
+    //         console.log(profile);
+    //     }).catch(err => console.error(err));
+    // }
 
-    useEffect(() => {
-        initLine();
-    },[])
+    // useEffect(() => {
+    //     if (typeof window !== "undefined") {
+    //         initLine();
+    //     }
+    // }, [])
 
 
     const editOrder = "https://scontent.fbkk22-8.fna.fbcdn.net/v/t1.15752-9/248081778_943967959548095_5549421379981730155_n.png?_nc_cat=108&ccb=1-5&_nc_sid=ae9488&_nc_eui2=AeGlSP2RTppJXPXOO8aGdSZmWyQePxunfPJbJB4_G6d88k77GobVGotYK3q-S_msHSz8V6iIMPUSLXahPjI2pj-2&_nc_ohc=Bod0uwGP7XAAX-nytFL&_nc_ht=scontent.fbkk22-8.fna&oh=70147e2c360dbb29c3c10a6cfcb6cb12&oe=61B2703C"
@@ -52,7 +54,7 @@ export default function Menuhandee(props) {
     }
 
 
-    
+
 
 
 
@@ -66,16 +68,16 @@ export default function Menuhandee(props) {
                     <Flex justifyContent="center" style={{ marginTop: 50 }}>
                         <Flex flexDirection="column" textAlign="center">
                             <Flex onClick={() => { editOrders() }} justifyContent="center" style={{ width: "100%", height: "100%", marginTop: 20, marginBottom: 20 }}>
-                                <a ><img style={{ width: "100%", height: "100%" }} src={editOrder} /></a>
+                                <img style={{ width: "100%", height: "100%" }} src={editOrder} />
                             </Flex>
                             <Flex onClick={() => { menuOrders() }} justifyContent="center" style={{ width: "100%", height: "100%", marginTop: 20, marginBottom: 20 }}>
-                                <a ><img style={{ width: "100%", height: "100%" }} src={menuOrder} /></a>
+                                <img style={{ width: "100%", height: "100%" }} src={menuOrder} />
                             </Flex>
                             <Flex onClick={() => { historys() }} justifyContent="center" style={{ width: "100%", height: "100%", marginTop: 20, marginBottom: 20 }}>
-                                <a ><img style={{ width: "100%", height: "100%" }} src={History} /></a>
+                                <img style={{ width: "100%", height: "100%" }} src={History} />
                             </Flex>
                             <Flex onClick={() => { contacts() }} justifyContent="center" style={{ width: "100%", height: "100%", marginTop: 20, marginBottom: 20 }}>
-                                <a ><img style={{ width: "100%", height: "100%" }} src={Contact} /></a>
+                                <img style={{ width: "100%", height: "100%" }} src={Contact} />
                             </Flex>
                         </Flex>
                     </Flex>

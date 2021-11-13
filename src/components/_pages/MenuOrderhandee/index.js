@@ -1,6 +1,6 @@
-import React , {useState} from 'react'
-import { Flex , Box } from 'reflexbox'
-import { Input , Button , Upload, Image } from 'antd'
+import React, { useState } from 'react'
+import { Flex, Box } from 'reflexbox'
+import Image from 'next/image'
 import router from 'next/router'
 
 export default function Orderhandee(props) {
@@ -10,48 +10,53 @@ export default function Orderhandee(props) {
     const History = "https://scontent.fbkk22-1.fna.fbcdn.net/v/t1.15752-9/253704621_469516127824819_31486693092999933_n.png?_nc_cat=100&ccb=1-5&_nc_sid=ae9488&_nc_eui2=AeH5SeiE0vlIZtr-XT2cmVGCdGfIWj8eyZ90Z8haPx7Jn9VnWy8YWL0he8Y-SmjTgEss-KOkgd_ets1OGzoyDMwK&_nc_ohc=Jdy-E5RM1doAX9oVlok&_nc_ht=scontent.fbkk22-1.fna&oh=cd18a3ffad911e6a24be6d2d45b61f58&oe=61B2BF40"
     const Contact = "https://scontent.fbkk22-6.fna.fbcdn.net/v/t1.15752-9/255010731_3237246086552901_6590496060818331039_n.png?_nc_cat=102&ccb=1-5&_nc_sid=ae9488&_nc_eui2=AeHNgIk3bnIDsNAzE4_MLK5ePeIFLboqZr094gUtuipmvSjamqxmzM8R_lRfyfgDMLgJRsSavtJiApg0R8fF9HZi&_nc_ohc=-5BNIDhKUtwAX88U84i&_nc_ht=scontent.fbkk22-6.fna&oh=38f54eec007e652624fb53a2637c198a&oe=61B32FEB"
 
-    function editOrders(){
+    function editOrders() {
         router.push('/edit')
     }
 
-    function menuOrders(){
+    function menuOrders() {
         router.push('/HistoryProHand')
     }
 
-    function historys(){
+    function historys() {
         router.push('/history')
     }
 
-    function contacts(){
+    function contacts() {
         router.push('/contact')
     }
 
 
     return (
         <>
-        
-        <Flex justifyContent="center" textAilgn="center">
-            <Flex width={1/15}></Flex>
-            <Flex width={1} justifyContent="center">
-        <Flex justifyContent="center" style={{marginTop: 50}}>
-            <Flex  flexDirection="column" textAlign="center">
-            <Flex onClick={()=>{editOrders()}} justifyContent="center" style={{width:"100%", height:"100%" ,marginTop:20 , marginBottom:20}}>
-                <a ><img style={{width:"100%", height:"100%" }} src={editOrder} /></a>
-            </Flex>
-            <Flex onClick={()=>{menuOrders()}} justifyContent="center" style={{width:"100%", height:"100%" ,marginTop:20 , marginBottom:20}}>
-                <a ><img style={{width:"100%", height:"100%" }} src={menuOrder} /></a>
-            </Flex>
-            <Flex onClick={()=>{historys()}} justifyContent="center" style={{width:"100%", height:"100%" ,marginTop:20 , marginBottom:20}}>
-                <a ><img style={{width:"100%", height:"100%" }} src={History} /></a>
-            </Flex>
-        </Flex>
-        </Flex> 
-            </Flex>
-            <Flex width={1/15}></Flex>
 
-        </Flex>
-        
-                
+            <Flex justifyContent="center" textAilgn="center">
+                <Flex width={1 / 15}></Flex>
+                <Flex width={1} justifyContent="center">
+                    <Flex justifyContent="center" style={{ marginTop: 50 }}>
+                        <Flex flexDirection="column" textAlign="center">
+                            <Flex onClick={() => { editOrders() }} justifyContent="center" style={{ width: "100%", height: "100%", marginTop: 20, marginBottom: 20 }}>
+                                <Image
+                                    src="editOrder"
+                                    alt="Picture of the author"
+                                    width={'100%'}
+                                    height={'100%'}
+                                />
+                            </Flex>
+                            <Flex onClick={() => { menuOrders() }} justifyContent="center" style={{ width: "100%", height: "100%", marginTop: 20, marginBottom: 20 }}>
+                                <a ><img style={{ width: "100%", height: "100%" }} src={menuOrder} /></a>
+                            </Flex>
+                            <Flex onClick={() => { historys() }} justifyContent="center" style={{ width: "100%", height: "100%", marginTop: 20, marginBottom: 20 }}>
+                                <a ><img style={{ width: "100%", height: "100%" }} src={History} /></a>
+                            </Flex>
+                        </Flex>
+                    </Flex>
+                </Flex>
+                <Flex width={1 / 15}></Flex>
+
+            </Flex>
+
+
         </>
     )
 }
