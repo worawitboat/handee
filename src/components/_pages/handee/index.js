@@ -33,6 +33,7 @@ export default function Handee() {
 
                 await liff.ready
                 const profile = await liff.getProfile()
+                console.log("profile : ", profile);
                 setProfile(profile)
                 // liff.getProfile().then(profile => {
                 //     console.log(profile);
