@@ -22,8 +22,30 @@ function contacts() {
 
 
 export default function Handee() {
+
+    const [profile, setProfile] = useState()
+
+    useEffect(async () => {
+        const liff = (await import('@line/liff')).default
+        liff.init({ liffId: '1656624101-Ng7Vpxwd', withLoginOnExternalBrowser: true, }, async () => {
+            if (!liff.isLoggedIn()) {
+                liff.login();
+
+                await liff.ready
+                const profile = await liff.getProfile()
+                setProfile(profile)
+                // liff.getProfile().then(profile => {
+                //     console.log(profile);
+                // }).catch(err =>
+                //     liff.closeWindow()
+                // );
+            }
+        }, err => console.error(err));
+    })
+
     return (
         <div>
+            {profile}
             <Flex justifyContent="center">
                 <Flex flexDirection="column" textAlign="center" style={{ marginTop:80 ,boxshadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }}>
                 <h1 style={{ color: "orange" , marginTop: -30 , marginLeft:-190 , fontSize: 45, fontFamily: 'Prompt'}}><b>Handee</b></h1>
