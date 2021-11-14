@@ -66,7 +66,7 @@ const Success = () => {
                 </Box>    
             </Flex>
             <Flex justifyContent="center" style={{marginTop:30}}>
-                <Button style={{borderRadius:50 , width: 80}} type="primary" onClick={()=>{Success()}}>ตกลง</Button>
+                <Button style={{borderRadius:50 , width: 80}} type="primary" onClick={()=>{Success()}}><b>ตกลง</b></Button>
             </Flex>
         </Flex>
         </Flex> 
