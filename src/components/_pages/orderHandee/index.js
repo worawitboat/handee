@@ -14,7 +14,7 @@ export default function Orderhandee(props) {
     }
 
     function historys(){
-        router.push('/history')
+        router.push('/orderHistory')
     }
 
     function contacts(){

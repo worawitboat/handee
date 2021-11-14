@@ -45,7 +45,7 @@ export default function menuOder(props) {
                         </Flex>
 
                         <Flex style={{marginTop:30}} justifyContent="center">
-                        <Button style={{borderRadius:50}} type="primary" onClick={()=>{router.push('/orderMenu')}}><b>รับออเดอร์</b></Button>      
+                        <Button style={{borderRadius:50}} type="primary" onClick={()=>{router.push('menuOrder/orderMenu')}}><b>รับออเดอร์</b></Button>      
                         </Flex>
                                           
                     </Card>

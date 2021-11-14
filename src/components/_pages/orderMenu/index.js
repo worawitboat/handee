@@ -25,7 +25,7 @@ export default function orderMenu(props) {
     <Flex justifyContent="center" flexDirection="column" style={{fontWeight:"bold"}}>
     <Flex justifyContent="center" flexDirection="column" textAlign="center" style={{ marginTop:20}}>
         <Flex flexDirection="column" textAlign="center">
-          <h2><b>รายการออเดอร์</b></h2>
+          <h2><b>ออเดอร์</b></h2>
         </Flex>
       </Flex>
       
@@ -36,7 +36,7 @@ export default function orderMenu(props) {
         <Flex flexDirection="column" textAlign="center">
           {progress.map((item, index) => {
             return (
-            <Card key={index} onClick={()=>{router.push('/orderDetail')}} style={{ width:"100%", height:"90%", marginTop: 20 , marginRight: 140 ,boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)"}}>
+            <Card key={index} onClick={()=>{router.push('orderMenu/orderDetail')}} style={{ width:"100%", height:"90%", marginTop: 20 , marginRight: 140 ,boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)"}}>
             <Flex>
               <img
                   width={150}
@@ -66,7 +66,7 @@ export default function orderMenu(props) {
         <Flex flexDirection="column" textAlign="center">
           {success.map((item, index) => {
             return (
-            <Card key={index} onClick={()=>{router.push('order/rate')}} style={{ width:"100%", height:"90%", marginTop: 20 , marginRight: 140 ,boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)"}}>
+            <Card key={index} onClick={()=>{router.push('orderMenu/orderDetail')}} style={{ width:"100%", height:"90%", marginTop: 20 , marginRight: 140 ,boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)"}}>
             <Flex>
               <Image
                   width={150}
