@@ -39,6 +39,7 @@ export default function Handee() {
         liff.init({ liffId: '1656624101-Ng7Vpxwd' }, async () => {
             if (liff.isLoggedIn()) {
                 liff.getProfile().then(profile => {
+                    console.log(profile);
                     setDisplayName(profile.displayName);
                     setPictureUrl(profile.pictureUrl);
                     setStatusMessage(profile.statusMessage);
@@ -53,8 +54,6 @@ export default function Handee() {
 
     return (
         <div>
-            <p>{displayName}</p>
-            <p>{userId}</p>
             <Flex justifyContent="center">
                 <Flex flexDirection="column" textAlign="center" style={{ marginTop: 80, boxshadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }}>
                     <h1 style={{ color: "orange", marginTop: -30, marginLeft: -190, fontSize: 45, fontFamily: 'Prompt' }}><b>Handee</b></h1>
