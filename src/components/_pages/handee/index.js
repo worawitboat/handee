@@ -23,15 +23,19 @@ function contacts() {
 
 export default function Handee() {
 
-    const [idToken, setIdToken] = useState("");
     const [profile, setProfile] = useState()
+
+    // const logout = async () => {
+
+    //     const liff = (await import('@line/liff')).default
+    //     liff.logout();
+    //     window.location.reload();
+    //   }
 
     useEffect(async () => {
         const liff = (await import('@line/liff')).default
-        liff.init({ liffId: '1656624101-Ng7Vpxwd', withLoginOnExternalBrowser: true, }, async () => {
+        liff.init({ liffId: '1656624101-Ng7Vpxwd'}, async () => {
             if (liff.isLoggedIn()) {
-                const idToken = liff.getIDToken();
-                setIdToken(idToken);
                 liff.getProfile().then(profile => {
                     setProfile(profile)
                 }).catch(err => console.error(err));
@@ -39,18 +43,12 @@ export default function Handee() {
                 liff.login();
             }
 
-
-            // liff.getProfile().then(profile => {
-            //     console.log(profile);
-            // }).catch(err =>
-            //     liff.closeWindow()
-            // );
-
         }, err => console.error(err));
     })
 
     return (
         <div>
+            {/* <button onClick={() => logout()} style={{ width: "100%", height: 30 }}>Logout</button> */}
             {profile}
             <Flex justifyContent="center">
                 <Flex flexDirection="column" textAlign="center" style={{ marginTop: 80, boxshadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }}>
