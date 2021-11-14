@@ -6,25 +6,25 @@ import router from 'next/router'
 
 export default function Menuhandee(props) {
 
-    // const [profile, setProfile] = useState()
+    const [profile, setProfile] = useState()
 
-    // useEffect(async () => {
-    //     const liff = (await import('@line/liff')).default
-    //     liff.init({ liffId: '1656624101-Ng7Vpxwd', withLoginOnExternalBrowser: true, }, async () => {
-    //         if (!liff.isLoggedIn()) {
-    //             liff.login();
+    useEffect(async () => {
+        const liff = (await import('@line/liff')).default
+        liff.init({ liffId: '1656624101-Ng7Vpxwd', withLoginOnExternalBrowser: true, }, async () => {
+            if (!liff.isLoggedIn()) {
+                liff.login();
 
-    //             await liff.ready
-    //             const profile = await liff.getProfile()
-    //             setProfile(profile)
-    //             // liff.getProfile().then(profile => {
-    //             //     console.log(profile);
-    //             // }).catch(err =>
-    //             //     liff.closeWindow()
-    //             // );
-    //         }
-    //     }, err => console.error(err));
-    // })
+                await liff.ready
+                const profile = await liff.getProfile()
+                setProfile(profile)
+                // liff.getProfile().then(profile => {
+                //     console.log(profile);
+                // }).catch(err =>
+                //     liff.closeWindow()
+                // );
+            }
+        }, err => console.error(err));
+    })
 
 
     const editOrder = "https://scontent.fbkk22-8.fna.fbcdn.net/v/t1.15752-9/248081778_943967959548095_5549421379981730155_n.png?_nc_cat=108&ccb=1-5&_nc_sid=ae9488&_nc_eui2=AeGlSP2RTppJXPXOO8aGdSZmWyQePxunfPJbJB4_G6d88k77GobVGotYK3q-S_msHSz8V6iIMPUSLXahPjI2pj-2&_nc_ohc=Bod0uwGP7XAAX-nytFL&_nc_ht=scontent.fbkk22-8.fna&oh=70147e2c360dbb29c3c10a6cfcb6cb12&oe=61B2703C"
@@ -56,7 +56,7 @@ export default function Menuhandee(props) {
 
     return (
         <>
-        {/* {profile} */}
+        {profile}
             <Flex justifyContent="center" textAilgn="center">
                 <Flex width={1 / 15}></Flex>
                 <Flex width={1} justifyContent="center">
