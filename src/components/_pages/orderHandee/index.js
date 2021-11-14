@@ -9,7 +9,7 @@ export default function Orderhandee(props) {
     const Contact = "https://scontent.fbkk22-6.fna.fbcdn.net/v/t1.15752-9/255010731_3237246086552901_6590496060818331039_n.png?_nc_cat=102&ccb=1-5&_nc_sid=ae9488&_nc_eui2=AeHNgIk3bnIDsNAzE4_MLK5ePeIFLboqZr094gUtuipmvSjamqxmzM8R_lRfyfgDMLgJRsSavtJiApg0R8fF9HZi&_nc_ohc=-5BNIDhKUtwAX88U84i&_nc_ht=scontent.fbkk22-6.fna&oh=38f54eec007e652624fb53a2637c198a&oe=61B32FEB"
 
     function menuOrders(){
-        router.push('/order')
+        router.push('/menuOrder')
     }
 
     function historys(){

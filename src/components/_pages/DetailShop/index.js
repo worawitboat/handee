@@ -61,7 +61,7 @@ export default function DetailShop(props) {
 
                             <Flex justifyContent="center">
                             <Box style={{marginTop:20}}>
-                                <Button style={{borderRadius:50 , width:120}} type="primary" onClick={()=>{Nexts()}}>ถัดไป</Button>
+                                <Button style={{borderRadius:50 , width:120}} type="primary" onClick={()=>{Nexts()}}><b>ถัดไป</b></Button>
                             </Box>    
                             </Flex>            
                         </Card>
