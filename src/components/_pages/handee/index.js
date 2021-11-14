@@ -23,24 +23,29 @@ function contacts() {
 
 export default function Handee() {
 
+    const [idToken, setIdToken] = useState("");
     const [profile, setProfile] = useState()
 
     useEffect(async () => {
         const liff = (await import('@line/liff')).default
         liff.init({ liffId: '1656624101-Ng7Vpxwd', withLoginOnExternalBrowser: true, }, async () => {
-            if (!liff.isLoggedIn()) {
+            if (liff.isLoggedIn()) {
+                const idToken = liff.getIDToken();
+                setIdToken(idToken);
+                liff.getProfile().then(profile => {
+                    setProfile(profile)
+                }).catch(err => console.error(err));
+            } else {
                 liff.login();
-
-                await liff.ready
-                const profile = await liff.getProfile()
-                console.log("profile : ", profile);
-                setProfile(profile)
-                // liff.getProfile().then(profile => {
-                //     console.log(profile);
-                // }).catch(err =>
-                //     liff.closeWindow()
-                // );
             }
+
+
+            // liff.getProfile().then(profile => {
+            //     console.log(profile);
+            // }).catch(err =>
+            //     liff.closeWindow()
+            // );
+
         }, err => console.error(err));
     })
 
