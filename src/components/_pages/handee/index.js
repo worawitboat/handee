@@ -3,6 +3,7 @@ import { Flex } from 'reflexbox'
 import { Card } from 'antd';
 import { ContactsOutlined, UserOutlined, UnorderedListOutlined, HistoryOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import router from 'next/router'
+import liff from '@line/liff';
 
 export default function Handee() {
 
@@ -32,7 +33,7 @@ export default function Handee() {
     }
 
     useEffect(async () => {
-        const liff = (await import('@line/liff')).default
+        // const liff = (await import('@line/liff')).default
         liff.init({ liffId: '1656624101-Ng7Vpxwd'}, async () => {
             if (liff.isLoggedIn()) {
                 liff.getProfile().then(profile => {
