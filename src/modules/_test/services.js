@@ -25,3 +25,11 @@ export function deleteTest(id) {
             throw new Error(response.data.message)
         })
 }
+
+export function userorder(data) {
+
+    return axios.post(`${apiUrl}/userorder`,data )
+        .catch(({ response }) => {
+            throw new Error(response.data.message)
+        })
+}

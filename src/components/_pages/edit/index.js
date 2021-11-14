@@ -22,7 +22,8 @@ function CommitForm(){
         
         router.push({
             pathname: '/edit/DetailProHand',
-        })
+            query:{data: JSON.stringify(data) }
+        })  
         
     }
 
@@ -37,7 +38,7 @@ return (
                 <Flex justifyContent="center" flexDirection="column" >
                     <Input  type="text" placeholder="ชื่อ" style={{marginTop:20 , width:"100%",fontsize:"12px",borderRadius:" 50px", padding:"10px 10px 10px 25px"}} onChange={(e)=> setFirstName(e.target.value)} />
                     <Input  type="text" placeholder="นามสกุล" style={{marginTop:20 , width:"100%",fontsize:"12px",borderRadius:" 50px", padding:"10px 10px 10px 20px"}} onChange={(e)=> setLastName(e.target.value)} />
-                    <Input  type="text" placeholder="ที่อยู่" style={{marginTop:20 , width:"100%",fontsize:"12px",borderRadius:" 50px", padding:"10px 10px 10px 20px"}} onChange={(e)=> setAddress(e.target.value)} />
+                    <Input  type="text" placeholder="ที่อยู่จัดส่ง" style={{marginTop:20 , width:"100%",fontsize:"12px",borderRadius:" 50px", padding:"10px 10px 10px 20px"}} onChange={(e)=> setAddress(e.target.value)} />
                     <Input  type="text" placeholder="เบอร์โทรศัพท์" style={{marginTop:20 , width:"100%",fontsize:"12px",borderRadius:" 50px", padding:"10px 10px 10px 20px"}} onChange={(e)=> setPhone(e.target.value)} />
                     </Flex>             
                    <Flex justifyContent="center" style={{marginTop: 50}}>
