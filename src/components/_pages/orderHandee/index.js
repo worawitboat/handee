@@ -32,13 +32,13 @@ export default function Orderhandee(props) {
             <Flex  flexDirection="column" textAlign="center">
                 
             <Flex onClick={()=>{menuOrders()}} justifyContent="center" style={{width:"100%", height:"100%" ,marginTop:20 , marginBottom:20}}>
-                <a ><img style={{width:"100%", height:"100%" }} src={menuOrder} /></a>
+                <img style={{width:"100%", height:"100%" }} src={menuOrder} />
             </Flex>
             <Flex onClick={()=>{historys()}} justifyContent="center" style={{width:"100%", height:"100%" ,marginTop:20 , marginBottom:20}}>
-                <a ><img style={{width:"100%", height:"100%" }} src={History} /></a>
+                <img style={{width:"100%", height:"100%" }} src={History} />
             </Flex>
             <Flex onClick={()=>{contacts()}} justifyContent="center" style={{width:"100%", height:"100%" ,marginTop:20 , marginBottom:20}}>
-                <a ><img style={{width:"100%", height:"100%" }} src={Contact} /></a>
+                <img style={{width:"100%", height:"100%" }} src={Contact} />
             </Flex>
         </Flex>
         </Flex> 
