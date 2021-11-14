@@ -38,20 +38,25 @@ export default function contact() {
           <p style={{ fontFamily: "inherit" , fontSize: 18 , marginTop: -15}}><b>Team</b></p>
         </Flex>
       </Flex>
-      <Flex style={{marginLeft:25}} justifyContent="left">
+      <Flex flexDirection="column" style={{marginLeft:25}} justifyContent="left">
       {data.map((item , index)=>{
                 return(
                    
                     <Flex flexDirection="row" textAlign="left">
+  
                       <Box>
                         <img style={{ width: 60,height: 60,borderRadius: 600}} src={item.image}/>
                       </Box>
+                  
+
+              
                       <Box style={{marginLeft:20 , marginTop:10}}>
                         <p style={{ fontSize: 15 , fontFamily: "inherit"}}>
                           <p style={{ fontFamily: "inherit" ,marginTop : -5}}><b>{item.name}</b></p>
                           <p style={{ fontFamily: "inherit" , color:'gray' , marginTop : -10}}>{item.facebook}</p>
                         </p>
                       </Box>
+                     
                     </Flex>
                   
                 )

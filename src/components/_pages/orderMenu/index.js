@@ -1,14 +1,15 @@
 import React , {useState} from 'react'
 import { Box, Flex } from 'reflexbox'
-import { Button , Card ,Image, Tabs } from 'antd';
+import { Button , Card ,Image, Tabs, Tag } from 'antd';
 import router from 'next/router'
+import { ClockCircleOutlined, CloseCircleOutlined, MoneyCollectFilled, SyncOutlined } from '@ant-design/icons';
 
 const { TabPane } = Tabs;
 
 export default function orderMenu(props) {
   const progress = [
-    {img:'https://ci.lnwfile.com/cupnjk.jpg', productName: 'hh', addressProduct: 'qqq' , price: '100'},
-    {img:'https://ci.lnwfile.com/cupnjk.jpg', productName: 'hฟ', addressProduct: 'qเดเ' , price: '10000'},
+    {img:'https://ci.lnwfile.com/cupnjk.jpg', productName: 'hh', addressProduct: 'qqq' , price: '100' , status:"payment" },
+    {img:'https://ci.lnwfile.com/cupnjk.jpg', productName: 'hฟ', addressProduct: 'qเดเ' , price: '10000' , status:"progress"},
     {img:'https://ci.lnwfile.com/cupnjk.jpg', productName: 'หฟกh', addressProduct: 'เดq' , price: '1000'}
   ]
 
@@ -39,6 +40,15 @@ export default function orderMenu(props) {
           {progress.map((item, index) => {
             return (
             <Card key={index} onClick={()=>{router.push('orderMenu/orderDetail')}} style={{ width:"100%", height:"90%", marginTop: 20 , marginRight: 140 ,boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)"}}>
+            <Flex justifyContent="right">
+              {item.status === 'wait' ?<Tag icon={<ClockCircleOutlined />} color="warning">waiting</Tag>
+              : item.status === 'progress'? <Tag icon={<SyncOutlined spin />} color="processing">progress</Tag>
+              : item.status === 'payment'? <Tag  icon={<MoneyCollectFilled />} color="purple">Payment</Tag>
+              : item.status === 'rejected'? <Tag icon={<CloseCircleOutlined />} color="error">rejected</Tag>
+              : <></>
+            }
+            </Flex>
+            
             <Flex>
               <img
                   width={150}

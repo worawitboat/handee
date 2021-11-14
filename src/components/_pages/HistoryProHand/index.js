@@ -10,15 +10,7 @@ export default function HistoryProHand(props) {
         fullname: '@@@@@ @@@@@@@@@',
         phoneNum: '##########',
         address: '!@#$%&*!@#$%$#{!@'
-    }, {
-        fullname: '@@@@@ @@@@@@@@@',
-        phoneNum: '##########',
-        address: '!@#$%&*!@#$%$#{!@'
-    }]
-
-    const ShowDetail = () => {
-        alert("I see detail")
-    }
+    }, ]
 
     const Pay = () => {
         router.push('HistoryProHand/DetailShop')

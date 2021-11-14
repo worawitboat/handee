@@ -45,7 +45,7 @@ export default function order(props) {
             }
               </Flex>
             <Flex>
-              <Image
+              <img
                   width={150}
                   height={120}
                   src={item.img}

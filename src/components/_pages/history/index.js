@@ -23,7 +23,7 @@ export default function History(props) {
                         <Flex>
                             <Flex>
                                 <Box>
-                                    <Image style={{width:80 , borderRadius:10}} src="https://www.top13.net/wp-content/uploads/2017/03/cat-puss-boots-6.jpg"/>
+                                    <img style={{width:80 , borderRadius:10}} src="https://www.top13.net/wp-content/uploads/2017/03/cat-puss-boots-6.jpg"/>
                                 </Box>
                             </Flex>
                             

@@ -3,6 +3,7 @@ import { Flex , Box } from 'reflexbox'
 import {Button, Card , Image, Select } from 'antd'
 import { LeftOutlined, PlusOutlined } from '@ant-design/icons'
 import router from 'next/router'
+import { getSortedRoutes } from 'next/dist/shared/lib/router/utils'
 
 
 const { Option } = Select;
@@ -39,6 +40,11 @@ export default function menuOder(props) {
     function handleChange(value) {
         console.log(value); // { value: "lucy", key: "lucy", label: "Lucy (101)" }
       }
+
+    
+    function getOrder(){
+        router.push('orderMenu')
+    }
     return (
         <>
         <Flex justifyContent="center"   style={{marginTop: 50}}>
@@ -83,7 +89,7 @@ export default function menuOder(props) {
                         </Flex>
 
                         <Flex style={{marginTop:30 , marginBottom:10}} justifyContent="center">
-                        <Button style={{borderRadius:50 , backgroundColor:"orange", borderColor:"orange"}} type="primary" onClick={()=>{router.push('menuOrder/orderMenu')}}><b>รับออเดอร์</b></Button>      
+                        <Button style={{borderRadius:50 , backgroundColor:"orange", borderColor:"orange"}} type="primary" onClick={()=>{getOrder()}}><b>รับออเดอร์</b></Button>      
                         </Flex>
                                           
                     </Card>

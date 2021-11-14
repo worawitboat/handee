@@ -24,7 +24,7 @@ export default function Handee() {
     }
 
     function menuOrders() {
-        router.push("edit/DetailProHand/HistoryProHand/DetailShop/DetailCommit/order")
+        router.push("/order")
     }
 
     function historys() {

@@ -10,6 +10,10 @@ export default function index(props) {
         router.push('/menuOrder')
     }
 
+    function getOrder(){
+        router.push('/orderMenu')
+    }
+
     function historys(){
         router.push('/history')
     }
@@ -30,6 +34,13 @@ export default function index(props) {
                         <UnorderedListOutlined />
                      </div>
                     <h1 style={{ marginTop: -100 , marginLeft:75}}>ออเดอร์</h1>
+                </Card>
+
+                <Card onClick={()=>{getOrder()}} style={{ width: 405 , height: 190 , backgroundColor: 'rgba(235, 107, 86, 86)' }}>
+                    <div style={{ fontSize: "90px" , marginLeft:-230 }}>
+                        <ContactsOutlined />
+                     </div>
+                    <h1 style={{ marginTop: -100 , marginLeft:100}}>ออเดอร์ที่รับ</h1>
                 </Card>
 
                 <Card onClick={()=>{historys()}} style={{ width: 405 , height: 190 , backgroundColor: 'rgba(235, 107, 86, 86)' }}>
