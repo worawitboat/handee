@@ -32,17 +32,17 @@ export default function Handee() {
     }
 
     useEffect(async () => {
-        const liff = (await import('@line/liff')).default
-        liff.init({ liffId: '1656624101-Ng7Vpxwd'}, async () => {
-            if (liff.isLoggedIn()) {
-                liff.getProfile().then(profile => {
-                    setProfile(profile)
-                }).catch(err => console.error(err));
-            } else {
-                liff.login();
-            }
+        // const liff = (await import('@line/liff')).default
+        // liff.init({ liffId: '1656624101-Ng7Vpxwd'}, async () => {
+        //     if (liff.isLoggedIn()) {
+        //         liff.getProfile().then(profile => {
+        //             setProfile(profile)
+        //         }).catch(err => console.error(err));
+        //     } else {
+        //         liff.login();
+        //     }
 
-        }, err => console.error(err));
+        // }, err => console.error(err));
     })
 
     return (
