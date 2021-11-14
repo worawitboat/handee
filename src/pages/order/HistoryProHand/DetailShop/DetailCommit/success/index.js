@@ -1,4 +1,4 @@
-export { default } from '../../../../components/_pages/HistoryProHand'
+export { default } from '../../../../../../components/_pages/success'
 
 export async function getServerSideProps(context) {
 

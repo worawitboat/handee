@@ -2,15 +2,16 @@ import React , {useState} from 'react'
 import { Box, Flex } from 'reflexbox'
 import { Button , Card ,Image, Tabs, Tag } from 'antd';
 import router from 'next/router'
-import { ClockCircleOutlined, CloseCircleOutlined, SyncOutlined } from '@ant-design/icons';
+import { ClockCircleOutlined, CloseCircleOutlined, MoneyCollectFilled, SyncOutlined } from '@ant-design/icons';
 
 const { Meta } = Card;
 const { TabPane } = Tabs;
 export default function order(props) {
   const data = [
     {img:'https://ci.lnwfile.com/cupnjk.jpg', productName: 'hh', addressProduct: 'qqq' , price: '100' , status:'progress'},
+    {img:'https://ci.lnwfile.com/cupnjk.jpg', productName: 'hh', addressProduct: 'qqq' , price: '100' , status:'payment'},
     {img:'https://ci.lnwfile.com/cupnjk.jpg', productName: 'hh', addressProduct: 'qqq' , price: '100' , status:'wait'},
-    {img:'https://ci.lnwfile.com/cupnjk.jpg', productName: 'hh', addressProduct: 'qqq' , price: '100' , status:'rejected'}
+    {img:'https://ci.lnwfile.com/cupnjk.jpg', productName: 'hh', addressProduct: 'qqq' , price: '100' , status:'rejected'},
   ]
 
   function callback(key) {
@@ -34,10 +35,11 @@ export default function order(props) {
         <Flex flexDirection="column">
           {data.map((item, index) => {
             return (
-            <Card key={index} onClick={()=>{router.push('order/rate')}} style={{ width:"100%", height:"90%", marginTop: 20, marginBottom: 30, marginRight: 140 ,boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)"}}>
+            <Card key={index} onClick={()=>{router.push('order/HistoryProHand')}} style={{ width:"100%", height:"90%", marginTop: 20, marginBottom: 30, marginRight: 140 ,boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)"}}>
              <Flex justifyContent="right">
                 {item.status === 'wait' ?<Tag icon={<ClockCircleOutlined />} color="warning">waiting</Tag>
-              : item.status === 'progress'? <Tag icon={<SyncOutlined spin />} color="success">processing</Tag>
+              : item.status === 'progress'? <Tag icon={<SyncOutlined spin />} color="processing">progress</Tag>
+              : item.status === 'payment'? <Tag  icon={<MoneyCollectFilled />} color="purple">Payment</Tag>
               : item.status === 'rejected'? <Tag icon={<CloseCircleOutlined />} color="error">rejected</Tag>
               : <></>
             }

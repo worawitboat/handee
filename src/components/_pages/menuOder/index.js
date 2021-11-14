@@ -1,9 +1,11 @@
 import React  from 'react'
 import { Flex , Box } from 'reflexbox'
-import {Button, Card , Image } from 'antd'
+import {Button, Card , Image, Select } from 'antd'
 import { LeftOutlined, PlusOutlined } from '@ant-design/icons'
 import router from 'next/router'
 
+
+const { Option } = Select;
 export default function menuOder(props) {
     const  data = [{
         nameproduct : "แมวพันธ์ุดูไบ (แรร์)",
@@ -16,11 +18,47 @@ export default function menuOder(props) {
         phonenumber : "...",
         locationproduct : "..."
     }]
+
+    const select = [
+        {
+            namecounty:'โปรดเลือกจังหวัดของคุณ',
+            county:'อุบลฯ'
+        },
+        {
+            namecounty:'โปรดเลือกจังหวัดของคุณ',
+            county:'บุรีรัมย์'
+        },
+        {
+            namecounty:'โปรดเลือกจังหวัดของคุณ',
+            county:'นนบุรี'
+        },
+]
+
+
+
+    function handleChange(value) {
+        console.log(value); // { value: "lucy", key: "lucy", label: "Lucy (101)" }
+      }
     return (
         <>
         <Flex justifyContent="center"   style={{marginTop: 50}}>
         <Flex  flexDirection="column" textAlign="center">
             <h1><b>ออเดอร์</b></h1>
+            <Flex style={{marginBottom:20}} justifyContent="center">
+                        <Select placeholder="โปรดเลือกจังหวัดของคุณ" labelInValue defaultValue={{ value: select.namecounty }} style={{ width: 200 }} onChange={handleChange} >
+                            {select.map((item , index)=>{
+                                return(
+                                    <Option value={item.county}>
+                                        {item.county}
+                                    </Option>
+                                )
+                                })}
+                                 
+                        </Select>
+</Flex> 
+                
+            
+            
             {data.map((item,index)=>{
                 return(
                   

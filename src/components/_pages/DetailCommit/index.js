@@ -34,7 +34,7 @@ const Success = () => {
         image : fileList
     }
     console.log(premise)
-    router.push('DetailCommit/order')
+    router.push('DetailCommit/success')
 }
     return (
         <>

@@ -4,6 +4,7 @@ import { Button , Card ,Image, Tabs } from 'antd';
 import router from 'next/router'
 
 const { TabPane } = Tabs;
+
 export default function orderMenu(props) {
   const progress = [
     {img:'https://ci.lnwfile.com/cupnjk.jpg', productName: 'hh', addressProduct: 'qqq' , price: '100'},
@@ -34,6 +35,7 @@ export default function orderMenu(props) {
     <TabPane tab="progress" key="1">
     <Flex justifyContent="center">
         <Flex flexDirection="column" textAlign="center">
+          
           {progress.map((item, index) => {
             return (
             <Card key={index} onClick={()=>{router.push('orderMenu/orderDetail')}} style={{ width:"100%", height:"90%", marginTop: 20 , marginRight: 140 ,boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)"}}>
