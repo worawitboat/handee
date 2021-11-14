@@ -1,4 +1,4 @@
-export { default } from '../../components/_pages/SuccessPage'
+export { default } from '../../../../../components/_pages/SuccessPage'
 
 export async function getStaticProps(context) {
 

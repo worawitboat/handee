@@ -2,7 +2,7 @@ import React , {useState} from 'react'
 import { Flex , Box } from 'reflexbox'
 import { Input , Button , Upload, Card } from 'antd'
 import { PlusOutlined } from '@ant-design/icons'
-import { useRouter } from 'next/router'
+import router from 'next/router'
 import ImgCrop from 'antd-img-crop';
 
 export default function DetailOrder(props) {
@@ -44,7 +44,7 @@ export default function DetailOrder(props) {
                 )})}
 
                         <Flex flexDirection="row" style={{marginTop:30}} justifyContent="center">
-                            <Box width={1/3}><Button style={{borderRadius:50}} type="primary" onClick={()=>{router.push('/orderMenu')}}><b>ส่งออเดอร์สำเร็จ</b></Button></Box>
+                            <Box width={1/3}><Button style={{borderRadius:50}} type="primary" onClick={()=>{router.push('orderDetail/SuccessPage')}}><b>ส่งออเดอร์สำเร็จ</b></Button></Box>
                         </Flex>
             </Flex>
         <Flex width={1/15}></Flex>  
