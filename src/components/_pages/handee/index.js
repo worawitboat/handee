@@ -4,23 +4,6 @@ import { Card } from 'antd';
 import { ContactsOutlined, UserOutlined, UnorderedListOutlined, HistoryOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import router from 'next/router'
 
-function editOrders() {
-    router.push('/edit')
-}
-
-function menuOrders() {
-    router.push("edit/DetailProHand/HistoryProHand/DetailShop/DetailCommit/order")
-}
-
-function historys() {
-    router.push('/history')
-}
-
-function contacts() {
-    router.push('/contact')
-}
-
-
 export default function Handee() {
 
     const [profile, setProfile] = useState()
@@ -31,6 +14,22 @@ export default function Handee() {
     //     liff.logout();
     //     window.location.reload();
     //   }
+
+    function editOrders() {
+        router.push('/edit')
+    }
+    
+    function menuOrders() {
+        router.push("edit/DetailProHand/HistoryProHand/DetailShop/DetailCommit/order")
+    }
+    
+    function historys() {
+        router.push('/history')
+    }
+    
+    function contacts() {
+        router.push('/contact')
+    }
 
     useEffect(async () => {
         const liff = (await import('@line/liff')).default
@@ -48,8 +47,7 @@ export default function Handee() {
 
     return (
         <div>
-            {/* <button onClick={() => logout()} style={{ width: "100%", height: 30 }}>Logout</button> */}
-            {profile}
+            <p>{profile}</p>
             <Flex justifyContent="center">
                 <Flex flexDirection="column" textAlign="center" style={{ marginTop: 80, boxshadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }}>
                     <h1 style={{ color: "orange", marginTop: -30, marginLeft: -190, fontSize: 45, fontFamily: 'Prompt' }}><b>Handee</b></h1>
