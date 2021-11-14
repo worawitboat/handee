@@ -7,6 +7,7 @@ import router from 'next/router'
 export default function Handee() {
 
     const [idToken, setIdToken] = useState("");
+    const [pictureUrl, setPictureUrl] = useState("");
     const [displayName, setDisplayName] = useState("");
     const [statusMessage, setStatusMessage] = useState("");
     const [userId, setUserId] = useState("");
