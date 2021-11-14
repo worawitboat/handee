@@ -3,11 +3,13 @@ import { Flex } from 'reflexbox'
 import { Card } from 'antd';
 import { ContactsOutlined, UserOutlined, UnorderedListOutlined, HistoryOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import router from 'next/router'
-import liff from '@line/liff';
 
 export default function Handee() {
 
-    const [profile, setProfile] = useState()
+    const [idToken, setIdToken] = useState("");
+    const [displayName, setDisplayName] = useState("");
+    const [statusMessage, setStatusMessage] = useState("");
+    const [userId, setUserId] = useState("");
 
     // const logout = async () => {
 
@@ -19,25 +21,28 @@ export default function Handee() {
     function editOrders() {
         router.push('/edit')
     }
-    
+
     function menuOrders() {
         router.push("edit/DetailProHand/HistoryProHand/DetailShop/DetailCommit/order")
     }
-    
+
     function historys() {
         router.push('/history')
     }
-    
+
     function contacts() {
         router.push('/contact')
     }
 
     useEffect(async () => {
-        // const liff = (await import('@line/liff')).default
-        liff.init({ liffId: '1656624101-Ng7Vpxwd'}, async () => {
+        const liff = (await import('@line/liff')).default
+        liff.init({ liffId: '1656624101-Ng7Vpxwd' }, async () => {
             if (liff.isLoggedIn()) {
                 liff.getProfile().then(profile => {
-                    setProfile(profile)
+                    setDisplayName(profile.displayName);
+                    setPictureUrl(profile.pictureUrl);
+                    setStatusMessage(profile.statusMessage);
+                    setUserId(profile.userId);
                 }).catch(err => console.error(err));
             } else {
                 liff.login();
@@ -48,7 +53,8 @@ export default function Handee() {
 
     return (
         <div>
-            <p>{profile}</p>
+            <p>{displayName}</p>
+            <p>{userId}</p>
             <Flex justifyContent="center">
                 <Flex flexDirection="column" textAlign="center" style={{ marginTop: 80, boxshadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }}>
                     <h1 style={{ color: "orange", marginTop: -30, marginLeft: -190, fontSize: 45, fontFamily: 'Prompt' }}><b>Handee</b></h1>
