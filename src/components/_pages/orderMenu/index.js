@@ -32,43 +32,13 @@ export default function orderMenu(props) {
       <Flex justifyContent="center" >
       <Tabs justifyContent="center" style={{alignItems: 'center'}} defaultActiveKey="1" onChange={callback}>
     <TabPane tab="progress" key="1">
-    <Flex justifyContent="center" style={{ marginTop:20}}>
+    <Flex justifyContent="center">
         <Flex flexDirection="column" textAlign="center">
           {progress.map((item, index) => {
             return (
             <Card key={index} onClick={()=>{router.push('orderMenu/orderDetail')}} style={{ width:"100%", height:"90%", marginTop: 20 , marginRight: 140 ,boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)"}}>
             <Flex>
               <img
-                  width={150}
-                  height={120}
-                  src={item.img}
-                />
-              <p style={{textAlign:"left" , marginLeft:15 , marginTop:20}}>
-                <p>ชื่อสินค้า : {item.productName}</p>
-                <p>ราคาสินค้า : {item.price}</p>
-                <p>สถานที่ซื้อสินค้า : {item.addressProduct}</p>
-              </p>
-            </Flex>
-            <Flex justifyContent="row" textAlign="center">
-              </Flex>
-          </Card>
-
-            )
-          })
-
-          }
-          
-        </Flex>
-      </Flex>
-    </TabPane>
-    <TabPane tab="success" key="2">
-    <Flex justifyContent="center" style={{ marginTop:20}}>
-        <Flex flexDirection="column" textAlign="center">
-          {success.map((item, index) => {
-            return (
-            <Card key={index} onClick={()=>{router.push('orderMenu/orderDetail')}} style={{ width:"100%", height:"90%", marginTop: 20 , marginRight: 140 ,boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)"}}>
-            <Flex>
-              <Image
                   width={150}
                   height={120}
                   src={item.img}

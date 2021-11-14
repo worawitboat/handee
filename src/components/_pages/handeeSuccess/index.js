@@ -21,7 +21,7 @@ export default function SelectHandOrder(props) {
                             </Flex>
                             ,
                             <Flex style={{marginTop:10}} justifyContent="center" >
-                                <Button onClick={()=>{router.push("/menuOrder/orderMenu")}} type="primary" style={{ width:100 , height:"100%", borderRadius:50}}><b>ตกลง</b></Button>
+                                <Button onClick={()=>{router.push("/menuOrder/orderMenu")}} type="primary" style={{ width:100 , height:"100%", borderRadius:50 , borderColor:"orange" , backgroundColor:"orange"}}><b>ตกลง</b></Button>
                             </Flex>
                             ,
                         ]

@@ -22,7 +22,7 @@ export default function DetailOrder(props) {
                 return(
                   
                     <Card key={index} justifyContent="center" textAlign="center" style={{ width:"100%" , height:"100%", marginTop: 20 ,marginBottom:20,boxShadow:"0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" , borderRadius:10 }} >
-                        <Flex justifyContent="left">
+                        <Flex justifyContent="center">
 
                             <Flex style={{marginTop:50}}>
                                 <Box><img style={{width:100 , borderRadius:10}} src="https://www.top13.net/wp-content/uploads/2017/03/cat-puss-boots-6.jpg"/></Box>
@@ -44,7 +44,9 @@ export default function DetailOrder(props) {
                 )})}
 
                         <Flex flexDirection="row" style={{marginTop:30}} justifyContent="center">
-                            <Box width={1/3}><Button style={{borderRadius:50}} type="primary" onClick={()=>{router.push('orderDetail/SuccessPage')}}><b>ส่งออเดอร์สำเร็จ</b></Button></Box>
+                            <Box width={1}><Button style={{borderRadius:50}} type="primary" onClick={()=>{router.push('orderDetail/SuccessPage')}}><b>ส่งออเดอร์สำเร็จ</b></Button></Box>
+                            <Box width={1/15}></Box>
+                            <Box width={1}><Button style={{borderRadius:50}} type="primary" danger onClick={()=>{router.push('/menuOrder/orderMenu')}}><b>ยกเลิกออเดอร์</b></Button></Box>
                         </Flex>
             </Flex>
         <Flex width={1/15}></Flex>  

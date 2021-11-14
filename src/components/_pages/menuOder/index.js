@@ -24,7 +24,7 @@ export default function menuOder(props) {
             {data.map((item,index)=>{
                 return(
                   
-                    <Card key={index} justifyContent="center" textAlign="center" style={{ width:"100%" , height:"100%", marginTop: 20 ,marginBottom:20,boxShadow:"0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" , borderRadius:10 }} >
+                    <Card key={index} justifyContent="center" textAlign="center" style={{ width:"100%" , height:"100%" ,marginBottom:20,boxShadow:"0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" , borderRadius:10 }} >
                         <Flex justifyContent="left">
 
                             <Flex style={{marginTop:50}}>
@@ -32,7 +32,7 @@ export default function menuOder(props) {
                             </Flex>
 
                             <Flex justifyContent="left" textAlign="left">
-                                                <Box style={{marginTop:20 , marginLeft:30}}>
+                                                <Box style={{ marginLeft:30}}>
                 
                                                     <p>
                                                     <h2><b>{item.nameproduct}</b></h2>
@@ -44,8 +44,8 @@ export default function menuOder(props) {
                                             </Flex>
                         </Flex>
 
-                        <Flex style={{marginTop:30}} justifyContent="center">
-                        <Button style={{borderRadius:50}} type="primary" onClick={()=>{router.push('menuOrder/orderMenu')}}><b>รับออเดอร์</b></Button>      
+                        <Flex style={{marginTop:30 , marginBottom:10}} justifyContent="center">
+                        <Button style={{borderRadius:50 , backgroundColor:"orange", borderColor:"orange"}} type="primary" onClick={()=>{router.push('menuOrder/orderMenu')}}><b>รับออเดอร์</b></Button>      
                         </Flex>
                                           
                     </Card>
