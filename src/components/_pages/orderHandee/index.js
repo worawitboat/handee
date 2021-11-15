@@ -5,6 +5,23 @@ import { ContactsOutlined  , UnorderedListOutlined , HistoryOutlined , ShoppingC
 import router from 'next/router';
 
 export default function index(props) {
+
+    const [userId, setUserId] = useState("");
+
+    useEffect(async () => {
+        const liff = (await import('@line/liff')).default
+        liff.init({ liffId: '1656624101-M972rAGm' }, async () => {
+            if (liff.isLoggedIn()) {
+                liff.getProfile().then(profile => {
+                    console.log(profile);
+                    setUserId(profile.userId);
+                }).catch(err => console.error(err));
+            } else {
+                liff.login();
+            }
+
+        }, err => console.error(err));
+    })
     
     function menuOrders(){
         router.push('/menuOrder')

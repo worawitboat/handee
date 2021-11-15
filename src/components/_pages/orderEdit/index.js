@@ -21,7 +21,7 @@ export default function edit(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(async () => {
         const liff = (await import('@line/liff')).default
-        liff.init({ liffId: '1656624101-Ng7Vpxwd' }, async () => {
+        liff.init({ liffId: '1656624101-M972rAGm' }, async () => {
             if (liff.isLoggedIn()) {
                 liff.getProfile().then(profile => {
                     console.log(profile);
