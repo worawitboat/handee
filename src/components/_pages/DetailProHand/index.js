@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Flex, Box } from 'reflexbox'
-import { Input, Button, Upload } from 'antd'
+import { Input, Button, Upload, Select } from 'antd'
 import { PlusOutlined } from '@ant-design/icons'
 import { useRouter } from 'next/router'
 import { userorder } from '../../../modules/_test/services'
 // import ImgCrop from 'antd-img-crop';
+
+const {Option} = Select
 
 export default function DetailProHand(props) {
     const { data } = props
@@ -96,6 +98,9 @@ export default function DetailProHand(props) {
         imgWindow.document.write(image.outerHTML);
     };
 
+
+
+
     return (
         <>
             <Flex width={1 / 15}></Flex>
@@ -118,7 +123,19 @@ export default function DetailProHand(props) {
                     <Flex justifyContent="center" flexDirection="column" style={{ marginTop: 20 }}>
                         <Box><Input type="text" placeholder="ชื่อสินค้า" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => { setNameProduct(e.target.value) }} /></Box>
                         <Box><Input type="number" placeholder="ราคาสินค้า" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => { setPriceProduct(e.target.value) }} /></Box>
-                        <Box><Input type="text" placeholder="จังหวัด" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => { setprovince(e.target.value) }} /></Box>
+                        <Box><Flex style={{ marginBottom: 20 }} justifyContent="center">
+                        <Select placeholder="โปรดเลือกจังหวัดของคุณ" labelInValue defaultValue={{ value: "เลือกจังหวัดที่สนใจรับหิ้ว" }} style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px"}} onChange={(e) => {setprovince(e.target.value) }}>
+                            {select.map((item, index) => {
+                                return (
+                                    // eslint-disable-next-line react/jsx-key
+                                    <Option value={item.county}>
+                                        {item.county}
+                                    </Option>
+                                )
+                            })}
+
+                        </Select>
+                    </Flex></Box>
                         <Box><Input type="text" placeholder="สถานที่ซื้อสินค้า" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => { setLocationProduct(e.target.value) }} /></Box>
                         <Box><Input type="text" placeholder="รายละเอียด" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => { setdetails(e.target.value) }} /></Box>
                     </Flex>
