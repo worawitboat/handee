@@ -55,25 +55,20 @@ export default function menuOder(props) {
         }
         order(data).then((res) => {
             success()
+            province(currentProvince).then((res) => {
+                setData([])
+                res.data.data.map((data) =>
+                    setData(element => [...element, {
+                        id: data.id,
+                        nameproduct: data.nameorder,
+                        address: data.address,
+                        phonenumber: data.phone,
+                        locationproduct: data.location,
+                        image: data.idimage
+                    }])
+                )
+            })
         })
-
-        province(currentProvince).then((res) => {
-            setData([])
-            res.data.data.map((data) =>
-                setData(element => [...element, {
-                    id: data.id,
-                    nameproduct: data.nameorder,
-                    address: data.address,
-                    phonenumber: data.phone,
-                    locationproduct: data.location,
-                    image: data.idimage
-                }])
-            )
-        })
-
-        
-
-
 
     }
 
@@ -165,6 +160,6 @@ export default function menuOder(props) {
 
 function success() {
     Modal.success({
-      content: 'รับออเดอร์เรียบร้อยแล้ว',
+        content: 'รับออเดอร์เรียบร้อยแล้ว',
     });
-  }
+}
