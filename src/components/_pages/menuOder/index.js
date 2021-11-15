@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 import { Flex, Box } from 'reflexbox'
 import { Button, Card, Image, Select, Modal } from 'antd'
 import { LeftOutlined, PlusOutlined } from '@ant-design/icons'
-import { order, province } from '../../../modules/_test/services'
+import { order, province, getUserInfo } from '../../../modules/_test/services'
 import router from 'next/router'
 import { getSortedRoutes } from 'next/dist/shared/lib/router/utils'
 
