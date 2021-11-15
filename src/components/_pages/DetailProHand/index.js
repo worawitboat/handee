@@ -53,7 +53,7 @@ export default function DetailProHand(props) {
                 'content-type': 'multipart/form-data'
             }
         };
-        axios.post('http://127.0.0.1:5000/uploader', formData, config)
+        axios.post('https://handee.tk/uploader', formData, config)
             .then((res) => {
                 console.log(res.data.idimage)
                 const DataPassToOrderHand = {
