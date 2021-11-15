@@ -2,7 +2,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState, useEffect } from 'react'
 import { Flex, Box } from 'reflexbox'
-import { Button, Card, Image, Select } from 'antd'
+import { Button, Card, Image, Select, Modal } from 'antd'
 import { LeftOutlined, PlusOutlined } from '@ant-design/icons'
 import { order, province } from '../../../modules/_test/services'
 import router from 'next/router'
@@ -13,11 +13,12 @@ const { Option } = Select;
 export default function menuOder(props) {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [data, setData] = useState([]);
+    const [currentProvince, setCurrentProvince] = useState("")
     const [userId, setUserId] = useState("");
 
     useEffect(async () => {
         const liff = (await import('@line/liff')).default
-        liff.init({ liffId: '1656624101-Ng7Vpxwd' }, async () => {
+        liff.init({ liffId: '1656624101-M972rAGm' }, async () => {
             if (liff.isLoggedIn()) {
                 liff.getProfile().then(profile => {
                     console.log(profile);
@@ -53,14 +54,34 @@ export default function menuOder(props) {
 
         }
         order(data).then((res) => {
-            console.log(res);
+            success()
+            province(currentProvince).then((res) => {
+                setData([])
+                res.data.data.map((data) =>
+                    setData(element => [...element, {
+                        id: data.id,
+                        nameproduct: data.nameorder,
+                        address: data.address,
+                        phonenumber: data.phone,
+                        locationproduct: data.location,
+                        image: data.idimage
+                    }])
+                )
+            })
         })
+
+
+
+
+
+
 
     }
 
 
     function handleChange(value) {
         setData([])
+        setCurrentProvince(value.value)
         province(value.value).then((res) => {
             console.log(res.data.data)
             res.data.data.map((data) =>
@@ -143,4 +164,8 @@ export default function menuOder(props) {
     )
 }
 
-
+function success() {
+    Modal.success({
+        content: 'รับออเดอร์เรียบร้อยแล้ว',
+    });
+}
