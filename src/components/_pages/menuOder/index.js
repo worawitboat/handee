@@ -58,7 +58,7 @@ export default function menuOder(props) {
         })
 
         province(currentProvince).then((res) => {
-            console.log(res.data.data)
+            setData([])
             res.data.data.map((data) =>
                 setData(element => [...element, {
                     id: data.id,
