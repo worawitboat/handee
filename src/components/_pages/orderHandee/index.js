@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { Flex } from 'reflexbox'
-import { Card } from 'antd';
-import { ContactsOutlined, UnorderedListOutlined, HistoryOutlined, ShoppingCartOutlined, ShoppingOutlined } from "@ant-design/icons";
+import { Button, Card, Result } from 'antd';
+import { ContactsOutlined, UnorderedListOutlined, HistoryOutlined, ShoppingCartOutlined, ShoppingOutlined, SyncOutlined, SmallDashOutlined, SmileOutlined } from "@ant-design/icons";
 import router from 'next/router';
 import { getUserInfo } from '../../../modules/_test/services'
 
 export default function OrderHandee(props) {
-    const [status, setStatus] = useState("")
+    const [status, setStatus] = useState("wait")
     const [userId, setUserId] = useState("");
 
     useEffect(async () => {
@@ -62,11 +62,26 @@ export default function OrderHandee(props) {
     }
     return (
         <div>
-            {status === 'wait' ?
-                <Flex>
-                    รอการตรวจสอบ
+            {status === 'wait' ? //ปป
+                <Flex justifyContent="center">
+                    
+                    <Flex style={{marginTop:50}} justifyContent="center">
+                    <Result icon={<SmileOutlined  />}
+                    extra={
+                        [
+                            <h1 key="1"><b>กำลังตรวจสอบ</b></h1>,
+                            <Flex key="2" justifyContent="center">
+                               <p style={{color:"gray"}}>
+                               ระบบกำลังทำการตรวจสอบข้อมูลและสถานะของคุณ ขอบคุณค่ะ
+                            </p> 
+                            </Flex>
+                            ,
+                           
+                        ]
+                    }/>
+            </Flex>
                 </Flex>
-
+//ปป 
                 :
                 <Flex justifyContent="center">
                     <Flex flexDirection="column" textAlign="center" style={{ marginTop: 80, boxshadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }}>

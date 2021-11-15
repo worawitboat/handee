@@ -73,7 +73,7 @@ export default function DetailProHand(props) {
 
                 }
                 userorder(DataPassToOrderHand).then(
-                    // router.push('DetailProHand/handeeSuccess')
+                    router.push('DetailProHand/handeeSuccess')
                 )
             });
 
