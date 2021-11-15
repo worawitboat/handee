@@ -28,7 +28,7 @@ export default function edit(props) {
                     setUserId(profile.userId);
                 }).catch(err => console.error(err));
             } else {
-                // liff.login();
+                liff.login();
             }
 
         }, err => console.error(err));

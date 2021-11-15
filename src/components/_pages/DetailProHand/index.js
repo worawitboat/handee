@@ -35,7 +35,7 @@ export default function DetailProHand(props) {
                     setUserId(profile.userId);
                 }).catch(err => console.error(err));
             } else {
-                // liff.login();
+                liff.login();
             }
 
         }, err => console.error(err));
