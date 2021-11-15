@@ -1,7 +1,7 @@
 import React from 'react'
 import { Flex } from 'reflexbox'
 import { Card } from 'antd';
-import { ContactsOutlined  , UnorderedListOutlined , HistoryOutlined , ShoppingCartOutlined } from "@ant-design/icons";
+import { ContactsOutlined  , UnorderedListOutlined , HistoryOutlined , ShoppingCartOutlined, ShoppingOutlined } from "@ant-design/icons";
 import router from 'next/router';
 
 export default function index(props) {
@@ -38,14 +38,14 @@ export default function index(props) {
 
                 <Card onClick={()=>{getOrder()}} style={{ width: 405 , height: 190 , backgroundColor: 'rgba(235, 107, 86, 86)' }}>
                     <div style={{ fontSize: "90px" , marginLeft:-230 }}>
-                        <ContactsOutlined />
+                        <ShoppingOutlined />
                      </div>
                     <h1 style={{ marginTop: -100 , marginLeft:100}}>ออเดอร์ที่รับ</h1>
                 </Card>
 
-                <Card onClick={()=>{historys()}} style={{ width: 405 , height: 190 , backgroundColor: 'rgba(235, 107, 86, 86)' }}>
+                <Card onClick={()=>{historys()}} style={{ width: 405 , height: 190 , backgroundColor: 'rgba(235, 150, 80, 80)' }}>
                     <div style={{ fontSize: "90px" , marginLeft:-230 }}>
-                        <ContactsOutlined />
+                    <ContactsOutlined />
                      </div>
                     <h1 style={{ marginTop: -100 , marginLeft:100}}>ประวัติการใช้งาน</h1>
                 </Card>
