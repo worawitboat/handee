@@ -42,7 +42,7 @@ export default function contact() {
       {data.map((item , index)=>{
                 return(
                    
-                    <Flex flexDirection="row" textAlign="left">
+                    <Flex key={index} flexDirection="row" textAlign="left">
   
                       <Box>
                         <img style={{ width: 60,height: 60,borderRadius: 600}} src={item.image}/>

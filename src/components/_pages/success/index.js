@@ -13,14 +13,14 @@ export default function Success(props) {
                 <Result status="success"
                     extra={
                         [
-                            <h1><b>ชำระเงินสำเร็จแล้ว</b></h1>,
-                            <Flex justifyContent="center">
+                            <h1 key="1"><b>ชำระเงินสำเร็จแล้ว</b></h1>,
+                            <Flex key="2" justifyContent="center">
                                <p style={{color:"gray"}}>
                                ระบบจะทำการตรวจสอบและจัดส่งออเดอร์ของคุณ ขอบคุณค่ะ
                             </p> 
                             </Flex>
                             ,
-                            <Flex style={{marginTop:10}} justifyContent="center" >
+                            <Flex key="3" style={{marginTop:10}} justifyContent="center" >
                                 <Button onClick={()=>{router.push("/order")}} type="primary" style={{ width:100 , height:"100%", borderRadius:50}}><b>ตกลง</b></Button>
                             </Flex>
                             ,

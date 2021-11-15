@@ -35,7 +35,7 @@ export default function DetailProHand(props) {
                     setUserId(profile.userId);
                 }).catch(err => console.error(err));
             } else {
-                // liff.login();
+                liff.login();
             }
 
         }, err => console.error(err));
@@ -53,7 +53,7 @@ export default function DetailProHand(props) {
                 'content-type': 'multipart/form-data'
             }
         };
-        axios.post('http://127.0.0.1:5000/uploader', formData, config)
+        axios.post('https://handee.tk/uploader', formData, config)
             .then((res) => {
                 console.log(res.data.idimage)
                 const DataPassToOrderHand = {

@@ -24,7 +24,7 @@ export default function menuOder(props) {
                     setUserId(profile.userId);
                 }).catch(err => console.error(err));
             } else {
-                // liff.login();
+                liff.login();
             }
 
         }, err => console.error(err));
@@ -60,14 +60,6 @@ export default function menuOder(props) {
 
 
     function handleChange(value) {
-<<<<<<< HEAD
-        console.log(value); // { value: "lucy", key: "lucy", label: "Lucy (101)" }
-      }
-
-    
-    function getOrder(){
-        router.push('orderMenu')
-=======
         setData([])
         province(value.value).then((res) => {
             console.log(res.data.data)
@@ -90,7 +82,6 @@ export default function menuOder(props) {
             //     image:idimage
             // }])
         })
->>>>>>> 99H
     }
     return (
         <>
@@ -109,46 +100,6 @@ export default function menuOder(props) {
                             })}
 
                         </Select>
-<<<<<<< HEAD
-</Flex> 
-                
-            
-            
-            {data.map((item,index)=>{
-                return(
-                  
-                    <Card key={index} justifyContent="center" textAlign="center" style={{ width:"100%" , height:"100%" ,marginBottom:20,boxShadow:"0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" , borderRadius:10 }} >
-                        <Flex justifyContent="left">
-
-                            <Flex style={{marginTop:50}}>
-                                <Box><img style={{width:100 , borderRadius:10}} src="https://www.top13.net/wp-content/uploads/2017/03/cat-puss-boots-6.jpg"/></Box>
-                            </Flex>
-
-                            <Flex justifyContent="left" textAlign="left">
-                                                <Box style={{ marginLeft:30}}>
-                
-                                                    <p>
-                                                    <h2><b>{item.nameproduct}</b></h2>
-                                                        <h5><b>ที่อยู่จัดส่ง : {item.address}</b></h5>
-                                                        <h5><b>เบอร์โทร : {item.phonenumber}</b></h5>
-                                                        <h5><b>และสถานที่ซื้อสินค้า : {item.locationproduct} </b> </h5>
-                                                    </p>
-                                                </Box>    
-                                            </Flex>
-                        </Flex>
-
-                        <Flex style={{marginTop:30 , marginBottom:10}} justifyContent="center">
-                        <Button style={{borderRadius:50 , backgroundColor:"orange", borderColor:"orange"}} type="primary" onClick={()=>{getOrder()}}><b>รับออเดอร์</b></Button>      
-                        </Flex>
-                                          
-                    </Card>
-                )})}
-                            
-            
-        </Flex>
-        </Flex> 
-                
-=======
                     </Flex>
 
 
@@ -188,7 +139,6 @@ export default function menuOder(props) {
                 </Flex>
             </Flex>
 
->>>>>>> 99H
         </>
     )
 }

@@ -28,7 +28,7 @@ export default function edit(props) {
                     setUserId(profile.userId);
                 }).catch(err => console.error(err));
             } else {
-                // liff.login();
+                liff.login();
             }
 
         }, err => console.error(err));
@@ -43,7 +43,7 @@ export default function edit(props) {
                 'content-type': 'multipart/form-data'
             }
         };
-        await axios.post('http://127.0.0.1:5000/uploader', formData, config)
+        await axios.post('https://handee.tk/uploader', formData, config)
             .then(async (res) => {
                 console.log(res.data.idimage)
                 imagesid.push("https://drive.google.com/uc?export=view&id=" + res.data.idimage)
@@ -54,7 +54,7 @@ export default function edit(props) {
                         'content-type': 'multipart/form-data'
                     }
                 };
-                await axios.post('http://127.0.0.1:5000/uploader', formData, config)
+                await axios.post('https://handee.tk/uploader', formData, config)
                     .then((res) => {
                         console.log(res.data.idimage)
                         imagesid.push("https://drive.google.com/uc?export=view&id=" + res.data.idimage)
