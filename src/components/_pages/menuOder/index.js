@@ -14,6 +14,7 @@ export default function menuOder(props) {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [data, setData] = useState([]);
     const [currentProvince, setCurrentProvince] = useState("")
+    const [status, setStatus] = useState('');
     const [userId, setUserId] = useState("");
 
     useEffect(async () => {
@@ -23,12 +24,32 @@ export default function menuOder(props) {
                 liff.getProfile().then(profile => {
                     console.log(profile);
                     setUserId(profile.userId);
+                    getUserInfo(profile).then(res => {
+                        if(res.data.data === 'rejected') {
+                           router.push('/orderEdit')
+                        }else if(res.data.data === 'wait'){
+                            setStatus(res.data.data)
+                        }else if(res.data.data === 'notfound') {
+                            router.push('/orderEdit')
+                        }
+                    })
                 }).catch(err => console.error(err));
             } else {
-                liff.login();
+                await liff.login();
+                getUserInfo(profile).then(res => {
+                    if(res.data.data === 'rejected') {
+                        router.push('/orderEdit')
+                     }else if(res.data.data === 'wait'){
+                        setStatus(res.data.data)
+                     }else if(res.data.data === 'notfound') {
+                        router.push('/orderEdit')
+                     }
+                })
             }
 
         }, err => console.error(err));
+
+        
     })
 
     const select = [
@@ -99,7 +120,11 @@ export default function menuOder(props) {
         })
     }
     return (
-        <>
+        <> { status === 'wait'?
+            <Flex>
+                รอการตรวจสอบ
+            </Flex>
+        :
             <Flex justifyContent="center" style={{ marginTop: 50 }}>
                 <Flex flexDirection="column" textAlign="center">
                     <h1><b>ออเดอร์</b></h1>
@@ -153,8 +178,10 @@ export default function menuOder(props) {
 
                 </Flex>
             </Flex>
+}
 
         </>
+        
     )
 }
 

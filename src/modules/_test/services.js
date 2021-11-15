@@ -58,3 +58,11 @@ export function order(data) {
             throw new Error(response.data.message)
         })
 }
+
+export function getUserInfo(data) {
+
+    return axios.get(`${apiUrl}/handee/${data.userId}`)
+        .catch(({ response }) => {
+            throw new Error(response.data.message)
+        })
+}
