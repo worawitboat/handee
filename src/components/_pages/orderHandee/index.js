@@ -4,7 +4,7 @@ import { Card } from 'antd';
 import { ContactsOutlined  , UnorderedListOutlined , HistoryOutlined , ShoppingCartOutlined, ShoppingOutlined } from "@ant-design/icons";
 import router from 'next/router';
 
-export default function index(props) {
+export default function OrderHandee(props) {
 
     const [userId, setUserId] = useState("");
 
