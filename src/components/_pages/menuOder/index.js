@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 import { Flex, Box } from 'reflexbox'
 import { Button, Card, Image, Select, Modal } from 'antd'
 import { LeftOutlined, PlusOutlined } from '@ant-design/icons'
-import { order, province, getUserInfo } from '../../../modules/_test/services'
+import { order, province } from '../../../modules/_test/services'
 import router from 'next/router'
 import { getSortedRoutes } from 'next/dist/shared/lib/router/utils'
 
@@ -14,7 +14,6 @@ export default function menuOder(props) {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [data, setData] = useState([]);
     const [currentProvince, setCurrentProvince] = useState("")
-    const [status, setStatus] = useState('');
     const [userId, setUserId] = useState("");
 
     useEffect(async () => {
@@ -24,32 +23,12 @@ export default function menuOder(props) {
                 liff.getProfile().then(profile => {
                     console.log(profile);
                     setUserId(profile.userId);
-                    getUserInfo(profile).then(res => {
-                        if(res.data.data === 'rejected') {
-                           router.push('/orderEdit')
-                        }else if(res.data.data === 'wait'){
-                            setStatus(res.data.data)
-                        }else if(res.data.data === 'notfound') {
-                            router.push('/orderEdit')
-                        }
-                    })
                 }).catch(err => console.error(err));
             } else {
-                await liff.login();
-                getUserInfo(profile).then(res => {
-                    if(res.data.data === 'rejected') {
-                        router.push('/orderEdit')
-                     }else if(res.data.data === 'wait'){
-                        setStatus(res.data.data)
-                     }else if(res.data.data === 'notfound') {
-                        router.push('/orderEdit')
-                     }
-                })
+                liff.login();
             }
 
         }, err => console.error(err));
-
-        
     })
 
     const select = [
@@ -91,6 +70,12 @@ export default function menuOder(props) {
             })
         })
 
+
+
+
+
+
+
     }
 
 
@@ -120,11 +105,7 @@ export default function menuOder(props) {
         })
     }
     return (
-        <> { status === 'wait'?
-            <Flex>
-                รอการตรวจสอบ
-            </Flex>
-        :
+        <>
             <Flex justifyContent="center" style={{ marginTop: 50 }}>
                 <Flex flexDirection="column" textAlign="center">
                     <h1><b>ออเดอร์</b></h1>
@@ -178,10 +159,8 @@ export default function menuOder(props) {
 
                 </Flex>
             </Flex>
-}
 
         </>
-        
     )
 }
 
