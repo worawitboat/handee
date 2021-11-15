@@ -6,7 +6,7 @@ import router from 'next/router';
 import { getUserInfo } from '../../../modules/_test/services'
 
 export default function OrderHandee(props) {
-    const [status, setStatus] = useState("wait")
+    const [status, setStatus] = useState("")
     const [userId, setUserId] = useState("");
 
     useEffect(async () => {
