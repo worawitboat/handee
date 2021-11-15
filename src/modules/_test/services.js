@@ -28,7 +28,31 @@ export function deleteTest(id) {
 
 export function userorder(data) {
 
-    return axios.post(`${apiUrl}/userorder`,data )
+    return axios.post(`${apiUrl}/userorder`, data)
+        .catch(({ response }) => {
+            throw new Error(response.data.message)
+        })
+}
+export function province(data) {
+
+    return axios.get(`${apiUrl}/userorder/${data}`)
+        .catch(({ response }) => {
+            throw new Error(response.data.message)
+        })
+}
+
+export function handee(data) {
+
+    return axios.post(`${apiUrl}/handee`, data)
+        .catch(({ response }) => {
+            throw new Error(response.data.message)
+        })
+}
+
+
+export function order(data) {
+
+    return axios.post(`${apiUrl}/order`, data)
         .catch(({ response }) => {
             throw new Error(response.data.message)
         })
