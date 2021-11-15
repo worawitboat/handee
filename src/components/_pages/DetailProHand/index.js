@@ -24,6 +24,21 @@ export default function DetailProHand(props) {
     const [userId, setUserId] = useState("");
     const router = useRouter();
 
+    const select = [
+        {
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'อุบลราชธานี'
+        },
+        {
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'บุรีรัมย์'
+        },
+        {
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'นนทบุรี'
+        },
+    ]
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(async () => {
         const liff = (await import('@line/liff')).default
