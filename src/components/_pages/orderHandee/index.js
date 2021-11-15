@@ -13,10 +13,11 @@ export default function OrderHandee(props) {
         const liff = (await import('@line/liff')).default
         liff.init({ liffId: '1656624101-M972rAGm' }, async () => {
             if (liff.isLoggedIn()) {
-                liff.getProfile().then(profile => {
+                liff.getProfile().then(async (profile) => {
                     console.log(profile);
                     setUserId(profile.userId);
-                    getUserInfo(profile).then(res => {
+                    await getUserInfo(profile).then(res => {
+                        console.log("res.data ==",res.data);
                         if (res.data.data === 'rejected') {
                             router.push('/orderEdit')
                         } else if (res.data.data === 'wait') {
@@ -28,7 +29,7 @@ export default function OrderHandee(props) {
                 }).catch(err => console.error(err));
             } else {
                 await liff.login();
-                getUserInfo(profile).then(res => {
+                await getUserInfo(profile).then(res => {
                     if (res.data.data === 'rejected') {
                         router.push('/orderEdit')
                     } else if (res.data.data === 'wait') {
