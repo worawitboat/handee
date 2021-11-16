@@ -37,7 +37,7 @@ export default function History(props) {
             <Flex justifyContent="center" style={{ marginTop: 50, marginBottom: 50 }}>
                 <Flex flexDirection="column" textAlign="center">
                     <h1><b>ประวัติการใช้งาน</b></h1>
-                    <Flex textAlign="Left">
+                    <Flex textAlign="Left" flexDirection="column">
                         {data.map((item, index) => {
                             return (
                                 <Card key={index} style={{ width: "100%", height: "100%", marginTop: 20, boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }} >
