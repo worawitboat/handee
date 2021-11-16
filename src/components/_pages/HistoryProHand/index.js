@@ -18,10 +18,10 @@ export default function HistoryProHand(props) {
         getUserOrderById(JSON.parse(data).id).then(res => {
             console.log(res);
             setOrderinfo({
-                nameorder: res.nameorder,
-                province: res.province,
-                location: res.location,
-                address: res.address
+                nameorder: res.data.data.nameorder,
+                province: res.data.data.province,
+                location: res.data.data.location,
+                address: res.data.data.address
             })
         })
     }, [])
@@ -59,7 +59,7 @@ export default function HistoryProHand(props) {
                     <Flex flexDirection="column" textAlign="center">
                         <h1><b>รายละเอียดออเดอร์</b></h1>
                         <h3 style={{ marginTop: 10 }}><b>ออเดอร์</b></h3>
-                        <Card style={{ width: "100%", height: 200, marginTop: 10, boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }} >
+                        <Card style={{ width: "100%", height: 150, marginTop: 10, boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }} >
                             <Flex>
                                 <Flex>
                                     <Box>
