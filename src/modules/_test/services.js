@@ -102,7 +102,7 @@ export function paymentimage(data) {
 
 export function getUserOrderById(id) {
 
-    return axios.get(`${apiUrl}/userorder/getbyId/${id}`)
+    return axios.post(`${apiUrl}/userorder/${id}`)
         .catch(({ response }) => {
             throw new Error(response.data.message)
         })
