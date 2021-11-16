@@ -15,7 +15,7 @@ export default function HistoryProHand(props) {
     const [orderinfo, setOrderinfo] = useState({})
 
     useEffect(() => {
-        const data = await getUserOrderById(JSON.parse(data).id).then(res => {
+        getUserOrderById(JSON.parse(data).id).then(res => {
             setOrderinfo(res)
         })
     }, [input])
