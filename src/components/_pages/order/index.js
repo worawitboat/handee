@@ -21,7 +21,7 @@ export default function order(props) {
 
   useEffect(async () => {
     const liff = (await import('@line/liff')).default
-    liff.init({ liffId: '1656624101-M972rAGm' }, async () => {
+    liff.init({ liffId: '1656624101-Ng7Vpxwd' }, async () => {
       if (liff.isLoggedIn()) {
         liff.getProfile().then(async (profile) => {
           console.log(profile);
