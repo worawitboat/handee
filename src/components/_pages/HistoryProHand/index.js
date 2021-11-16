@@ -18,6 +18,7 @@ export default function HistoryProHand(props) {
         getUserOrderById(JSON.parse(data).id).then(res => {
             console.log(res);
             setOrderinfo({
+                idimage: res.data.data.idimage,
                 nameorder: res.data.data.nameorder,
                 province: res.data.data.province,
                 location: res.data.data.location,
