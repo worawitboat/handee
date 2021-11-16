@@ -44,9 +44,9 @@ export default function DetailOrder(props) {
                 )})}
 
                         <Flex flexDirection="row" style={{marginTop:30}} justifyContent="center">
-                            <Box width={1}><Button style={{borderRadius:50}} type="primary" onClick={()=>{router.push('orderDetail/orderSuccess')}}><b>ส่งออเดอร์สำเร็จ</b></Button></Box>
+                            <Box width={1}><Button style={{borderRadius:50}} type="primary" onClick={()=>{router.push('orderDetail/SuccessPage')}}><b>ส่งออเดอร์สำเร็จ</b></Button></Box>
                             <Box width={1/15}></Box>
-                            <Box width={1}><Button style={{borderRadius:50}} type="primary" danger onClick={()=>{router.push('/orderMenu')}}><b>ยกเลิกออเดอร์</b></Button></Box>
+                            <Box width={1}><Button style={{borderRadius:50}} type="primary" danger onClick={()=>{router.push('/menuOrder/orderMenu')}}><b>ยกเลิกออเดอร์</b></Button></Box>
                         </Flex>
             </Flex>
         <Flex width={1/15}></Flex>  

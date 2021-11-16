@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-// const apiUrl = 'http://localhost:4000'
-const apiUrl = 'https://handee.tk'
+const apiUrl = 'http://localhost:4000'
+// const apiUrl = 'https://handee.tk'
 
 export function getTest() {
     return axios.get(`${apiUrl}/test`)
@@ -62,6 +62,39 @@ export function order(data) {
 export function getUserInfo(data) {
 
     return axios.get(`${apiUrl}/handee/${data.userId}`)
+        .catch(({ response }) => {
+            throw new Error(response.data.message)
+        })
+}
+
+export function statusorder(data) {
+
+    return axios.patch(`${apiUrl}/userorder/${data}`)
+        .catch(({ response }) => {
+            throw new Error(response.data.message)
+        })
+}
+
+
+export function handeeinfo(data) {
+
+    return axios.patch(`${apiUrl}/order/${data}`)
+        .catch(({ response }) => {
+            throw new Error(response.data.message)
+        })
+}
+
+export function paymentqrcode(data) {
+
+    return axios.post(`${apiUrl}/payment`, data)
+        .catch(({ response }) => {
+            throw new Error(response.data.message)
+        })
+}
+
+export function paymentimage(data) {
+
+    return axios.patch(`${apiUrl}/payment`, data)
         .catch(({ response }) => {
             throw new Error(response.data.message)
         })
