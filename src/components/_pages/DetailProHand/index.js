@@ -15,7 +15,7 @@ export default function DetailProHand(props) {
     const [Priceproduct, setPriceProduct] = useState();
     const [Locationproduct, setLocationProduct] = useState();
     const [details, setdetails] = useState()
-    const [province, setprovince] = useState()
+    const [province, setprovince] = useState("อุบลราชธานี")
     const [fileList, setFileList] = useState([]);
     const [idToken, setIdToken] = useState("");
     const [pictureUrl, setPictureUrl] = useState("");
@@ -139,7 +139,7 @@ export default function DetailProHand(props) {
                         <Box><Input type="text" placeholder="ชื่อสินค้า" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => { setNameProduct(e.target.value) }} /></Box>
                         <Box><Input type="number" placeholder="ราคาสินค้า" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => { setPriceProduct(e.target.value) }} /></Box>
                         <Box><Flex style={{ marginBottom: 20 }} justifyContent="center">
-                        <Select placeholder="โปรดเลือกจังหวัดของคุณ" labelInValue defaultValue={{ value: select[0].county }} style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px"}} onChange={(e) => {setprovince(e.target.value) }}>
+                        <Select placeholder="โปรดเลือกจังหวัดของคุณ" labelInValue style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px"}} onChange={(e) => {setprovince(e.target.value) }}>
                             {select.map((item, index) => {
                                 return (
                                     // eslint-disable-next-line react/jsx-key
