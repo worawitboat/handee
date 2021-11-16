@@ -4,7 +4,7 @@ import { Card, Image, Tag } from 'antd'
 import { getOrderHistory } from '../../../modules/_test/services'
 
 export default function History(props) {
-    const data = []
+    const [data, setData] = useState([])
 
     useEffect(async () => {
         const liff = (await import('@line/liff')).default
