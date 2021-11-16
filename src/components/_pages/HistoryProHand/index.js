@@ -11,14 +11,17 @@ export default function HistoryProHand(props) {
 
     const [detail, setDetail] = useState([])
     const [handeeid, setHandeeid] = useState()
+    const [status, setStatus] = useState('')
 
     useEffect(() => {
+        console.log(data);
+        setStatus(data.status)
         handeeinfo(JSON.parse(data).id).then((res) => {
             setHandeeid(res.data.data.userid)
             setDetail({
                 fullname: res.data.data.fname + " " + res.data.data.lname,
                 phoneNum: res.data.data.phone,
-                address: res.data.data.address
+                address: res.data.data.address,
             })
         })
     }, [])
@@ -58,7 +61,6 @@ export default function HistoryProHand(props) {
                                             <p>
                                                 <h5><b>ชื่อ-สกุล : {detail.fullname}</b></h5>
                                                 <h5><b>เบอร์โทรศัพท์ : {detail.phoneNum}</b></h5>
-                                                <h5><b>ที่อยู่ : {detail.address}</b></h5>
                                             </p>
                                         </Box>
                                     </Flex>
