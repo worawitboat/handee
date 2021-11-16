@@ -50,13 +50,13 @@ export default function order(props) {
   function submit(id, status) {
     console.log(id, status)
     const data = {
-      id:id,
-      status:status
+      id: id,
+      status: status
     }
     router.push({
       pathname: 'order/HistoryProHand',
-      query:{data: JSON.stringify(data) }
-  })  
+      query: { data: JSON.stringify(data) }
+    })
     // router.push('order/HistoryProHand')
   }
 
@@ -77,7 +77,7 @@ export default function order(props) {
                 <Flex flexDirection="column">
                   {data.map((item, index) => {
                     return (
-                      <Card key={index} onClick={() => { submit(item.id, item.status) }} style={{ width: "100%", height: "90%", marginTop: 20, marginBottom: 30, marginRight: 140, boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)" }}>
+                      <Card key={index} onClick={() => { if (item.status !== 'wait') { submit(item.id, item.status) } }} style={{ width: "100%", height: "90%", marginTop: 20, marginBottom: 30, marginRight: 140, boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)" }}>
                         <Flex justifyContent="right">
                           {item.status === 'wait' ? <Tag icon={<ClockCircleOutlined />} color="warning">waiting</Tag>
                             : item.status === 'progress' ? <Tag icon={<SyncOutlined spin />} color="processing">progress</Tag>

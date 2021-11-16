@@ -99,3 +99,11 @@ export function paymentimage(data) {
             throw new Error(response.data.message)
         })
 }
+
+export function getUserOrderById(id) {
+
+    return axios.get(`${apiUrl}/userorder/${id}`)
+        .catch(({ response }) => {
+            throw new Error(response.data.message)
+        })
+}
