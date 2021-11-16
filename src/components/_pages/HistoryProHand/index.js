@@ -3,7 +3,7 @@ import { Flex, Box } from 'reflexbox'
 import { Button, Card, Avatar, Image } from 'antd';
 import { LeftOutlined, HeartOutlined, HeartFilled } from '@ant-design/icons';
 import router from 'next/router'
-import { handeeinfo } from '../../../modules/_test/services';
+import { handeeinfo, getUserOrderById } from '../../../modules/_test/services';
 
 
 export default function HistoryProHand(props) {
@@ -52,7 +52,7 @@ export default function HistoryProHand(props) {
                 <Flex justifyContent="center" style={{ marginTop: 25, marginBottom: 50 }}>
                     <Flex flexDirection="column" textAlign="center">
                         <h1><b>รายละเอียดออเดอร์</b></h1>
-                        <h3 style={{marginTop: 10}}><b>ออเดอร์</b></h3>
+                        <h3 style={{ marginTop: 10 }}><b>ออเดอร์</b></h3>
                         <Card style={{ width: "100%", height: 130, marginTop: 10, boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }} >
                             <Flex>
                                 <Flex>
@@ -74,7 +74,7 @@ export default function HistoryProHand(props) {
                                 </Flex>
                             </Flex>
                         </Card>
-                        <h3 style={{marginTop: 10}}><b>ข้อมูลคนรับหิ้ว</b></h3>
+                        <h3 style={{ marginTop: 10 }}><b>ข้อมูลคนรับหิ้ว</b></h3>
                         <Card style={{ width: "100%", height: 130, marginTop: 10, boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }} >
                             <Flex>
                                 <Flex>
