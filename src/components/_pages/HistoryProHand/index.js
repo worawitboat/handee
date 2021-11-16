@@ -29,7 +29,7 @@ export default function HistoryProHand(props) {
 
     useEffect(() => {
         console.log(data);
-        setStatus(data.status)
+        setStatus(JSON.parse(data).status)
         handeeinfo(JSON.parse(data).id).then((res) => {
             setHandeeid(res.data.data.userid)
             setDetail({
