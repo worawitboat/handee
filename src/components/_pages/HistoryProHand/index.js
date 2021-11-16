@@ -60,50 +60,31 @@ export default function HistoryProHand(props) {
                     <Flex flexDirection="column" textAlign="center">
                         <h1><b>รายละเอียดออเดอร์</b></h1>
                         <h3 style={{ marginTop: 10 }}><b>ออเดอร์</b></h3>
-                        <Card style={{ width: "100%", height: 150, marginTop: 10, boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }} >
-                            <Flex>
-                                <Flex>
-                                    <Box>
-                                        <Image style={{ width: 80, borderRadius: 10 }} src={orderinfo.idimage} />
-                                    </Box>
-                                </Flex>
-
-                                <Flex justifyContent="center" textAlign="Left">
-                                    <Box style={{ marginLeft: 10 }}>
-                                        <p>
-                                            <h5><b>ชื่อออเดอร์: {orderinfo.nameorder}</b></h5>
-                                            <h5><b>จังหวัด : {orderinfo.province}</b></h5>
-                                            <h5><b>ตำแหน่ง : {orderinfo.location}</b></h5>
-                                            <h5><b>ที่อยู่จัดส่ง : {orderinfo.address}</b></h5>
-                                        </p>
-                                    </Box>
-                                </Flex>
-                            </Flex>
+                        <Card style={{ width: "100%", height: 150, marginTop: 10, boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }}
+                            cover={<img alt="example" src={orderinfo.idimage}
+                            />}>
+                            <Meta title={orderinfo.nameorder} description={
+                                <p>
+                                    <h5><b>ชื่อออเดอร์: {orderinfo.nameorder}</b></h5>
+                                    <h5><b>จังหวัด : {orderinfo.province}</b></h5>
+                                    <h5><b>ตำแหน่ง : {orderinfo.location}</b></h5>
+                                    <h5><b>ที่อยู่จัดส่ง : {orderinfo.address}</b></h5>
+                                </p>
+                            } />
                         </Card>
                         <h3 style={{ marginTop: 10 }}><b>ข้อมูลคนรับหิ้ว</b></h3>
-                        <Card style={{ width: "100%", height: 130, marginTop: 10, boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }} >
-                            <Flex>
-                                <Flex>
-                                    <Box>
-                                        <Image style={{ width: 80, borderRadius: 10 }} src="https://www.top13.net/wp-content/uploads/2017/03/cat-puss-boots-6.jpg" />
-                                    </Box>
-                                </Flex>
-
-                                <Flex justifyContent="center" textAlign="Left">
-                                    <Box style={{ marginLeft: 10 }}>
-                                        <p>
-                                            <h5><b>ชื่อ-สกุล : {detail.fullname}</b></h5>
-                                            <h5><b>เบอร์โทรศัพท์ : {detail.phoneNum}</b></h5>
-                                        </p>
-                                    </Box>
-                                </Flex>
-                            </Flex>
+                        <Card style={{ width: "100%", height: 130, marginTop: 10, boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }} 
+                        cover={<img alt="example" src="https://www.top13.net/wp-content/uploads/2017/03/cat-puss-boots-6.jpg"/>}
+                        >
+                            <Meta title={orderinfo.nameorder} description={
+                                <>
+                                    <p><b>ชื่อออเดอร์: {detail.fullname}</b></p>
+                                    <p><b>จังหวัด : {detail.phoneNum}</b></p>
+                                </>
+                            } 
+                            />
                         </Card>
-
-
-
-
-                        {data === 'payment' ?
+                        {status === 'payment' ?
 
                             <Flex justifyContent="center" style={{ marginTop: 40 }}>
                                 <Box ><Button style={{ width: "130px", height: "40px", fontWeight: "bold", fontSize: "15px", borderRadius: "50px" }} type="primary" onClick={() => { Pay() }}>ชำระเงิน</Button></Box>
