@@ -9,7 +9,7 @@ export default function Success(props) {
 
     return (
         <>
-            <Flex justifyContent="center">
+            <Flex style={{marginTop:150}} justifyContent="center">
                 <Result status="success"
                     extra={
                         [

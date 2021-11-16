@@ -7,7 +7,7 @@ import router from 'next/router';
 import { getUserInfo } from '../../../modules/_test/services'
 
 export default function OrderHandee(props) {
-    const [status, setStatus] = useState("")
+    const [status, setStatus] = useState("wait")
     const [userId, setUserId] = useState("");
 
     useEffect(async () => {
@@ -64,9 +64,9 @@ export default function OrderHandee(props) {
     return (
         <div>
             {status === 'wait' ? //ปป
-                <Flex justifyContent="center">
+                <Flex style={{marginTop:150}} justifyContent="center">
                     
-                    <Flex style={{marginTop:50}} justifyContent="center">
+                    <Flex  justifyContent="center">
                     <Result icon={<SmileOutlined  />}
                     extra={
                         [
