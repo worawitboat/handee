@@ -16,12 +16,12 @@ export default function HistoryProHand(props) {
 
     useEffect(() => {
         getUserOrderById(JSON.parse(data).id).then(res => {
+            console.log(res);
             setOrderinfo({
                 nameorder: res.nameorder,
                 province: res.province,
                 location: res.location,
-                address: res.address,
-                details: res.details
+                address: res.address
             })
         })
     }, [])
@@ -74,7 +74,6 @@ export default function HistoryProHand(props) {
                                             <h5><b>จังหวัด : {orderinfo.province}</b></h5>
                                             <h5><b>ตำแหน่ง : {orderinfo.location}</b></h5>
                                             <h5><b>ที่อยู่จัดส่ง : {orderinfo.address}</b></h5>
-                                            <h5><b>รายละเอียด : {orderinfo.details}</b></h5>
                                         </p>
                                     </Box>
                                 </Flex>
