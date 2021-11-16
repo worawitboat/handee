@@ -5,6 +5,7 @@ import { LeftOutlined, HeartOutlined, HeartFilled } from '@ant-design/icons';
 import router from 'next/router'
 import { handeeinfo, getUserOrderById } from '../../../modules/_test/services';
 
+const { Meta } = Card;
 
 export default function HistoryProHand(props) {
     const { data } = props
