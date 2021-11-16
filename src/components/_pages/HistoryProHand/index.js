@@ -3,7 +3,7 @@ import { Flex, Box } from 'reflexbox'
 import { Button, Card, Avatar, Image } from 'antd';
 import { LeftOutlined, HeartOutlined, HeartFilled } from '@ant-design/icons';
 import router from 'next/router'
-import { handeeinfo } from '../../../modules/_test/services';
+import { handeeinfo, getUserOrderById } from '../../../modules/_test/services';
 
 
 export default function HistoryProHand(props) {
@@ -12,6 +12,20 @@ export default function HistoryProHand(props) {
     const [detail, setDetail] = useState([])
     const [handeeid, setHandeeid] = useState()
     const [status, setStatus] = useState('')
+    const [orderinfo, setOrderinfo] = useState({})
+
+    useEffect(() => {
+        getUserOrderById(JSON.parse(data).id).then(res => {
+            console.log(res);
+            setOrderinfo({
+                idimage: res.data.data.idimage,
+                nameorder: res.data.data.nameorder,
+                province: res.data.data.province,
+                location: res.data.data.location,
+                address: res.data.data.address
+            })
+        })
+    }, [])
 
     useEffect(() => {
         console.log(data);
@@ -30,7 +44,7 @@ export default function HistoryProHand(props) {
 
         const data1 = {
             id: JSON.parse(data).id,
-            handeeid:handeeid
+            handeeid: handeeid
         }
         router.push({
             pathname: 'HistoryProHand/DetailShop',
@@ -44,37 +58,58 @@ export default function HistoryProHand(props) {
             <Flex width={1} justifyContent="center">
                 <Flex justifyContent="center" style={{ marginTop: 25, marginBottom: 50 }}>
                     <Flex flexDirection="column" textAlign="center">
-                        <h1><b>ประวัติคนรับหิ้ว</b></h1>
-                        <Flex flexDirection="column" textAlign="Left">
-
-
-                            <Card style={{ width: "100%", height: 130, marginTop: 20, boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }} >
+                        <h1><b>รายละเอียดออเดอร์</b></h1>
+                        <h3 style={{ marginTop: 10 }}><b>ออเดอร์</b></h3>
+                        <Card style={{ width: "100%", height: 150, marginTop: 10, boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }} >
+                            <Flex>
                                 <Flex>
-                                    <Flex>
-                                        <Box>
-                                            <Image style={{ width: 80, borderRadius: 10 }} src="https://www.top13.net/wp-content/uploads/2017/03/cat-puss-boots-6.jpg" />
-                                        </Box>
-                                    </Flex>
-
-                                    <Flex justifyContent="center" textAlign="Left">
-                                        <Box style={{ marginLeft: 10 }}>
-                                            <p>
-                                                <h5><b>ชื่อ-สกุล : {detail.fullname}</b></h5>
-                                                <h5><b>เบอร์โทรศัพท์ : {detail.phoneNum}</b></h5>
-                                            </p>
-                                        </Box>
-                                    </Flex>
+                                    <Box>
+                                        <Image style={{ width: 80, borderRadius: 10 }} src={orderinfo.idimage} />
+                                    </Box>
                                 </Flex>
-                            </Card>
+
+                                <Flex justifyContent="center" textAlign="Left">
+                                    <Box style={{ marginLeft: 10 }}>
+                                        <p>
+                                            <h5><b>ชื่อออเดอร์: {orderinfo.nameorder}</b></h5>
+                                            <h5><b>จังหวัด : {orderinfo.province}</b></h5>
+                                            <h5><b>ตำแหน่ง : {orderinfo.location}</b></h5>
+                                            <h5><b>ที่อยู่จัดส่ง : {orderinfo.address}</b></h5>
+                                        </p>
+                                    </Box>
+                                </Flex>
+                            </Flex>
+                        </Card>
+                        <h3 style={{ marginTop: 10 }}><b>ข้อมูลคนรับหิ้ว</b></h3>
+                        <Card style={{ width: "100%", height: 130, marginTop: 10, boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }} >
+                            <Flex>
+                                <Flex>
+                                    <Box>
+                                        <Image style={{ width: 80, borderRadius: 10 }} src="https://www.top13.net/wp-content/uploads/2017/03/cat-puss-boots-6.jpg" />
+                                    </Box>
+                                </Flex>
+
+                                <Flex justifyContent="center" textAlign="Left">
+                                    <Box style={{ marginLeft: 10 }}>
+                                        <p>
+                                            <h5><b>ชื่อ-สกุล : {detail.fullname}</b></h5>
+                                            <h5><b>เบอร์โทรศัพท์ : {detail.phoneNum}</b></h5>
+                                        </p>
+                                    </Box>
+                                </Flex>
+                            </Flex>
+                        </Card>
 
 
 
-                        </Flex>
 
-                        <Flex justifyContent="center" style={{ marginTop: 40 }}>
-                            <Box ><Button style={{ width: "130px", height: "40px", fontWeight: "bold", fontSize: "15px", borderRadius: "50px" }} type="primary" onClick={() => { Pay() }}>ชำระเงิน</Button></Box>
-                        </Flex>
+                        {data === 'payment' ?
 
+                            <Flex justifyContent="center" style={{ marginTop: 40 }}>
+                                <Box ><Button style={{ width: "130px", height: "40px", fontWeight: "bold", fontSize: "15px", borderRadius: "50px" }} type="primary" onClick={() => { Pay() }}>ชำระเงิน</Button></Box>
+                            </Flex>
+                            : <></>
+                        }
 
                     </Flex>
                 </Flex>

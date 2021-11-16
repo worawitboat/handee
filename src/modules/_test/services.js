@@ -99,3 +99,18 @@ export function paymentimage(data) {
             throw new Error(response.data.message)
         })
 }
+
+export function getUserOrderById(id) {
+
+    return axios.post(`${apiUrl}/userorder/${id}`)
+        .catch(({ response }) => {
+            throw new Error(response.data.message)
+        })
+}
+
+export function getOrderHistory(id){
+    return axios.get(`${apiUrl}/history/${id}`)
+        .catch(({ response }) => {
+            throw new Error(response.data.message)
+        })
+}
