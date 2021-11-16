@@ -10,7 +10,7 @@ export default function History(props) {
         const liff = (await import('@line/liff')).default
         liff.init({ liffId: '1656624101-Ng7Vpxwd' }, async () => {
             if (liff.isLoggedIn()) {
-                liff.getProfile().then(profile => {
+                liff.getProfile().then(async (profile) => {
                     await getOrderHistory(profile.userId).then(async (res) => {
                         setData([])
                         await res.data.data.map((data) =>
