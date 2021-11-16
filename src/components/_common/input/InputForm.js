@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Input} from 'antd';
-import styled from '@emotion/styled';;
+import styled from '@emotion/styled';
 
 const Inputer = styled(Input)`
     width:100%;

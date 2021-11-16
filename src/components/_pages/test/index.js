@@ -91,7 +91,6 @@
 
 
 
-
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Flex, Box } from 'reflexbox'
@@ -104,6 +103,7 @@ import { userorder } from '../../../modules/_test/services'
 const {Option} = Select
 
 export default function DetailProHand(props) {
+
     const { data } = props
     const [Nameproduct, setNameProduct] = useState();
     const [Priceproduct, setPriceProduct] = useState();
@@ -233,7 +233,8 @@ export default function DetailProHand(props) {
                         <Box><Input type="number" placeholder="ราคาสินค้า" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => { setPriceProduct(e.target.value) }} /></Box>
                         <Box>
                         <Flex style={{ marginTop: 20 , width:300 , borderRadius:50 }} justifyContent="center">
-                        <Select placeholder="โปรดเลือกจังหวัดของคุณ" labelInValue defaultValue={{ value: "เลือกจังหวัดที่สนใจรับหิ้ว" }} style={{ width: "100%" }} onChange={(e) => { setPriceProduct(e.target.value) }} >
+                            
+                        <Select placeholder="โปรดเลือกจังหวัดของคุณ" labelInValue defaultValue={{ value: "เลือกจังหวัดที่สนใจรับหิ้ว" }} style={{ width: "100%", textAlign:"left" ,border: 50 }} onChange={(e) => { setPriceProduct(e.target.value) }} >
                             {select.map((item, index) => {
                                 return (
                                     // eslint-disable-next-line react/jsx-key
