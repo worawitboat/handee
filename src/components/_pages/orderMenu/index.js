@@ -10,11 +10,6 @@ export default function orderMenu(props) {
   const progress = [
     {img:'https://ci.lnwfile.com/cupnjk.jpg', productName: 'hh', addressProduct: 'qqq' , price: '100' , status:"payment" },
     {img:'https://ci.lnwfile.com/cupnjk.jpg', productName: 'hฟ', addressProduct: 'qเดเ' , price: '10000' , status:"progress"},
-    {img:'https://ci.lnwfile.com/cupnjk.jpg', productName: 'หฟกh', addressProduct: 'เดq' , price: '1000'}
-  ]
-
-  const success = [
-    {img:'https://ci.lnwfile.com/cupnjk.jpg', productName: 'hh', addressProduct: 'sss' , price: '10,000,000'},
   ]
 
   function callback(key) {
@@ -24,7 +19,7 @@ export default function orderMenu(props) {
   return (
 
     <>
-    <Flex justifyContent="center" flexDirection="column" style={{fontWeight:"bold"}}>
+    <Flex justifyContent="center" flexDirection="column" style={{fontWeight:"bold" }}>
     <Flex justifyContent="center" flexDirection="column" textAlign="center" style={{ marginTop:20}}>
         <Flex flexDirection="column" textAlign="center">
           <h2><b>ออเดอร์</b></h2>
@@ -35,7 +30,7 @@ export default function orderMenu(props) {
       <Tabs justifyContent="center" style={{alignItems: 'center'}} defaultActiveKey="1" onChange={callback}>
     <TabPane tab="progress" key="1">
     <Flex justifyContent="center">
-        <Flex flexDirection="column" textAlign="center">
+        <Flex flexDirection="column" textAlign="center" >
           
           {progress.map((item, index) => {
             return (

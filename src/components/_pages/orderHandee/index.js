@@ -7,7 +7,7 @@ import router from 'next/router';
 import { getUserInfo } from '../../../modules/_test/services'
 
 export default function OrderHandee(props) {
-    const [status, setStatus] = useState("wait")
+    const [status, setStatus] = useState("")
     const [userId, setUserId] = useState("");
 
     useEffect(async () => {
@@ -97,14 +97,14 @@ export default function OrderHandee(props) {
                             <h1 style={{ marginTop: -100, marginLeft: 75 }}>ออเดอร์</h1>
                         </Card>
 
-                        <Card onClick={() => { getOrder() }} style={{ width: 405, height: 190, backgroundColor: 'rgba(235, 107, 86, 86)' }}>
+                        <Card onClick={() => { getOrder() }} style={{ width: 405, height: 190, backgroundColor: 'rgba(1, 192, 160, 0.8)' }}>
                             <div style={{ fontSize: "90px", marginLeft: -230 }}>
                                 <ShoppingOutlined />
                             </div>
                             <h1 style={{ marginTop: -100, marginLeft: 100 }}>ออเดอร์ที่รับ</h1>
                         </Card>
 
-                        <Card onClick={() => { historys() }} style={{ width: 405, height: 190, backgroundColor: 'rgba(235, 150, 80, 80)' }}>
+                        <Card onClick={() => { historys() }} style={{ width: 405, height: 190, backgroundColor: 'rgba(235, 107, 86, 86)' }}>
                             <div style={{ fontSize: "90px", marginLeft: -230 }}>
                                 <ContactsOutlined />
                             </div>
