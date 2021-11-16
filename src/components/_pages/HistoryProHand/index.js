@@ -7,11 +7,18 @@ import { handeeinfo } from '../../../modules/_test/services';
 
 
 export default function HistoryProHand(props) {
-    const { data, orderinfo } = props
+    const { data } = props
 
     const [detail, setDetail] = useState([])
     const [handeeid, setHandeeid] = useState()
     const [status, setStatus] = useState('')
+    const [orderinfo, setOrderinfo] = useState({})
+
+    useEffect(() => {
+        const data = await getUserOrderById(JSON.parse(data).id).then(res => {
+            setOrderinfo(res)
+        })
+    }, [input])
 
     useEffect(() => {
         console.log(data);
