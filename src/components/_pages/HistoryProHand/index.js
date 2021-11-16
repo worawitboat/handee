@@ -29,7 +29,7 @@ export default function HistoryProHand(props) {
 
     useEffect(() => {
         console.log(data);
-        setStatus(data.status)
+        setStatus(JSON.parse(data).status)
         handeeinfo(JSON.parse(data).id).then((res) => {
             setHandeeid(res.data.data.userid)
             setDetail({
@@ -103,7 +103,7 @@ export default function HistoryProHand(props) {
 
 
 
-                        {data === 'payment' ?
+                        {status === 'payment' ?
 
                             <Flex justifyContent="center" style={{ marginTop: 40 }}>
                                 <Box ><Button style={{ width: "130px", height: "40px", fontWeight: "bold", fontSize: "15px", borderRadius: "50px" }} type="primary" onClick={() => { Pay() }}>ชำระเงิน</Button></Box>
