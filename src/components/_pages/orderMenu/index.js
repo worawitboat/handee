@@ -19,7 +19,7 @@ export default function orderMenu(props) {
     liff.init({ liffId: '1656624101-M972rAGm' }, async () => {
       if (liff.isLoggedIn()) {
         liff.getProfile().then(async (profile) => {
-          await getMyOrder(profile.userId).then((res) => {
+          await getMyOrder(profile.userId).then(async (res) => {
             setData([])
             await res.data.data.map((data) =>
               setData(element => [...element, {
