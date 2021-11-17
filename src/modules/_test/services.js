@@ -123,7 +123,7 @@ export function getMyOrder(id) {
 }
 
 export function orderSuccess(data) {
-    return axios.delete(`${apiUrl}/userorder/${data.id}`,null,data)
+    return axios.delete(`${apiUrl}/userorder`,null,data)
         .catch(({ response }) => {
             throw new Error(response.data.message)
         })
