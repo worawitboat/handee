@@ -108,8 +108,15 @@ export function getUserOrderById(id) {
         })
 }
 
-export function getOrderHistory(id){
+export function getOrderHistory(id) {
     return axios.get(`${apiUrl}/history/${id}`)
+        .catch(({ response }) => {
+            throw new Error(response.data.message)
+        })
+}
+
+export function getMyOrder(id) {
+    return axios.post(`${apiUrl}/history/${id}`)
         .catch(({ response }) => {
             throw new Error(response.data.message)
         })
