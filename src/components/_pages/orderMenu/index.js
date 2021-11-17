@@ -14,7 +14,7 @@ export default function orderMenu(props) {
     { img: 'https://ci.lnwfile.com/cupnjk.jpg', productName: 'hฟ', addressProduct: 'qเดเ', price: '10000', status: "progress" },
   ]
 
-  useEffect(() => {
+  useEffect(async() => {
     const liff = (await import('@line/liff')).default
     liff.init({ liffId: '1656624101-M972rAGm' }, async () => {
       if (liff.isLoggedIn()) {
