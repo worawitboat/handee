@@ -121,3 +121,10 @@ export function getMyOrder(id) {
             throw new Error(response.data.message)
         })
 }
+
+export function orderSuccess(data) {
+    return axios.delete(`${apiUrl}/userorder/${data.id}`,data)
+        .catch(({ response }) => {
+            throw new Error(response.data.message)
+        })
+}

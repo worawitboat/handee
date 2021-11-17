@@ -1,7 +1,9 @@
 export { default } from '../../../../components/_pages/Tracking'
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
 
-  return { props: { appName: "handee" } }
+  const { data } = context.query
+
+  return { props: { appName: "handee", data: JSON.parse(data)} }
 
 }
