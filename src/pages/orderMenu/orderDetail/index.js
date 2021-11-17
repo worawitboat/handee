@@ -1,6 +1,6 @@
 export { default } from '../../../components/_pages/orderDetail'
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
 
   const { data } = context.query
 
