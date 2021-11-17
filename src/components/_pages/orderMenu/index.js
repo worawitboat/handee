@@ -7,7 +7,7 @@ import { getMyOrder } from '../../../modules/_test/services';
 
 const { TabPane } = Tabs;
 
-export default function orderMenu(props) {
+export default function OrderMenu(props) {
   const [data, setData] = useState([])
   const progress = [
     { img: 'https://ci.lnwfile.com/cupnjk.jpg', productName: 'hh', addressProduct: 'qqq', price: '100', status: "payment" },
