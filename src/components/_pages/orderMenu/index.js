@@ -3,7 +3,7 @@ import { Box, Flex } from 'reflexbox'
 import { Button, Card, Image, Tabs, Tag } from 'antd';
 import router from 'next/router'
 import { ClockCircleOutlined, CloseCircleOutlined, MoneyCollectFilled, SyncOutlined } from '@ant-design/icons';
-import { getMyOrder } from '../../../modules/_test/services';
+import { getMyHandeeOrder } from '../../../modules/_test/services';
 
 const { TabPane } = Tabs;
 
