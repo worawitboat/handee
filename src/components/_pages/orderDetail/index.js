@@ -3,21 +3,18 @@ import { Flex, Box } from 'reflexbox'
 import { Input, Button, Upload, Card, Modal, Space } from 'antd'
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 import router from 'next/router'
+import { orderReject } from '../../../modules/_test/services';
 
 export default function DetailOrder(props) {
     const { data } = props
-    const [visible, setVisible] = useState(false)
-
-    const Confirm = () => {
-        setVisible(false)
-    };
 
     function confirm() {
         Modal.confirm({
             title: 'ต้องการยกเลิกออเดอร์หรือไม่',
             icon: <ExclamationCircleOutlined />,
             onOk: () => {
-                
+                orderReject(data.id)
+                router.push('/menuOrder/orderMenu') 
             },
             okText: 'ยืนยัน',
             cancelText: 'ยกเลิก',
@@ -58,7 +55,6 @@ export default function DetailOrder(props) {
                     <Box width={1 / 15}></Box>
                     <Box width={1}><Button style={{ borderRadius: 50 }} type="primary" danger onClick={() => {
                         confirm()
-                        // router.push('/menuOrder/orderMenu') 
                     }}><b>ยกเลิกออเดอร์</b></Button></Box>
                 </Flex>
             </Flex>

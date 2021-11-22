@@ -128,3 +128,10 @@ export function orderSuccess(data) {
             throw new Error(response.data.message)
         })
 }
+
+export function orderReject(id) {
+    return axios.patch(`${apiUrl}/userorder2/${id}`)
+        .catch(({ response }) => {
+            throw new Error(response.data.message)
+        })
+}
