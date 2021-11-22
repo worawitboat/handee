@@ -51,7 +51,7 @@ export default function DetailOrder(props) {
             </Flex>
             <Flex width={1 / 15}></Flex>
             <Modal
-                title="Modal"
+                title={<Flex><ExclamationCircleOutlined /><p>ต้องการยกเลิกออเดอร์หรือไม่</p></Flex>}
                 visible={visible}
                 onOk={Confirm}
                 onCancel={() => setVisible(false)}
