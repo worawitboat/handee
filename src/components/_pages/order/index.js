@@ -12,7 +12,8 @@ const { TabPane } = Tabs;
 export default function order(props) {
 
   const [userId, setUserId] = useState("");
-  const [data, setData] = useState([])
+  const [data, setData] = useState("");
+
 
 
   function callback(key) {
@@ -77,7 +78,7 @@ export default function order(props) {
                 <Flex flexDirection="column">
                   {data.map((item, index) => {
                     return (
-                      <Card key={index} onClick={() => { if (item.status !== 'wait') { submit(item.id, item.status) } }} style={{ width: "100%", height: "90%", marginTop: 20, marginBottom: 30, marginRight: 140, boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)" }}>
+                      <Card key={index} onClick={() => { if (item.status !== 'wait') { submit(item.id, item.status) } }} style={{ width: "100%", height: "90%", marginTop: 10, marginBottom: 30, marginRight: 140, boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)" }}>
                         <Flex justifyContent="right">
                           {item.status === 'wait' ? <Tag icon={<ClockCircleOutlined />} color="warning">waiting</Tag>
                             : item.status === 'progress' ? <Tag icon={<SyncOutlined spin />} color="processing">progress</Tag>
@@ -87,16 +88,20 @@ export default function order(props) {
                           }
                         </Flex>
                         <Flex>
-                          <img
-                            width={150}
-                            height={120}
-                            src={item.img}
-                          />
-                          <p style={{ textAlign: "left", marginLeft: 15, marginTop: 20 }}>
+                          
+                        <Flex style={{marginTop:10}}>
+                            <div style={{width:120 , height:115}}>
+                            <img style={{ width: "100%" , height:"100%", borderRadius: 10 }} src={item.img}/>
+                            </div>
+                        </Flex>
+
+                        <Flex justifyContent="left" textAlign="left">
+                        <p style={{ textAlign: "left", marginLeft: 15, marginTop: 20 }}>
                             <p>ชื่อสินค้า : {item.productName}</p>
                             <p>ราคาสินค้า : {item.price}</p>
                             <p>สถานที่ซื้อสินค้า : {item.addressProduct}</p>
                           </p>
+                        </Flex>
                           <Flex>
                           </Flex>
                         </Flex>
@@ -116,16 +121,19 @@ export default function order(props) {
                     return (
                       <Card key={index} onClick={() => { router.push('order/rate') }} style={{ width: "100%", height: "90%", marginTop: 20, marginRight: 140, boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)" }}>
                         <Flex>
-                          <img
-                            width={150}
-                            height={120}
-                            src={item.img}
-                          />
-                          <p style={{ textAlign: "left", marginLeft: 15, marginTop: 20 }}>
+                        <Flex style={{marginTop:10}}>
+                            <div style={{width:120 , height:115}}>
+                            <img style={{ width: "100%" , height:"100%", borderRadius: 10 }} src={item.img}/>
+                            </div>
+                        </Flex>
+
+                        <Flex justifyContent="left" textAlign="left">
+                        <p style={{ textAlign: "left", marginLeft: 15, marginTop: 20 }}>
                             <p>ชื่อสินค้า : {item.productName}</p>
                             <p>ราคาสินค้า : {item.price}</p>
                             <p>สถานที่ซื้อสินค้า : {item.addressProduct}</p>
                           </p>
+                        </Flex>
                         </Flex>
                         <Flex justifyContent="row" textAlign="center">
                         </Flex>

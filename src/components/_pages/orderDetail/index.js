@@ -5,24 +5,26 @@ import { PlusOutlined } from '@ant-design/icons'
 import router from 'next/router'
 import ImgCrop from 'antd-img-crop';
 
-export default function DetailOrder(props) {
+export default function orderDetail(props) {
     const { data } = props
 
 
     return (
         <>
             <Flex width={1 / 15}></Flex>
-            <Flex flexDirection="column" width={1} style={{ marginTop: 50 }} justifyContent="center" textAlign="center">
+            <Flex flexDirection="column" width={1} style={{ marginTop: 30 }} justifyContent="center" textAlign="center">
                 <h1><b>รายละเอียดออเดอร์</b></h1>
-                <Card key={data.id} justifyContent="center" textAlign="center" style={{ width: "100%", height: "100%", marginTop: 20, marginBottom: 20, boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)", borderRadius: 10 }} >
+                <Card key={data.id} justifyContent="center" textAlign="center" style={{ width: "100%", height: "100%", marginTop: 10, marginBottom: 20, boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)", borderRadius: 10 }} >
                     <Flex justifyContent="center">
 
-                        <Flex style={{ marginTop: 50 }}>
-                            <Box><img style={{ width: 100, borderRadius: 10 }} src={data.img} /></Box>
+                        <Flex style={{ marginTop: 10 }}>
+                        <div style={{width:100 , height:120}}>
+                        <img style={{ width: "100%" , height:"100%", borderRadius: 10 }} src={data.img} />
+                        </div>
                         </Flex>
 
                         <Flex justifyContent="left" textAlign="left">
-                            <Box style={{ marginTop: 20, marginLeft: 30 }}>
+                            <Box style={{ marginTop: 10, marginLeft: 30 }}>
 
                                 <p>
                                     <h2><b>{data.nameproduct}</b></h2>

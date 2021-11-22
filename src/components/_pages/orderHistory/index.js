@@ -21,10 +21,10 @@ export default function orderHistory(props) {
                         return(
                         <Card key={index}  style={{ width:"100%" , height:"100%", marginTop: 20 ,boxShadow:"0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }} >
                         <Flex>
-                            <Flex>
-                                <Box>
-                                    <Image style={{width:80 , borderRadius:10}} src="https://www.top13.net/wp-content/uploads/2017/03/cat-puss-boots-6.jpg"/>
-                                </Box>
+                        <Flex style={{ marginTop: 10 }}>
+                                    <div style={{width:100 , height:120}}>
+                                    <Image style={{ width: "100%" , height:"100%", borderRadius: 10 }} src="https://www.top13.net/wp-content/uploads/2017/03/cat-puss-boots-6.jpg"/>
+                                </div>
                             </Flex>
                             
                             <Flex justifyContent="center" textAlign="Left">

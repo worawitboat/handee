@@ -75,18 +75,18 @@ export default function OrderMenu(props) {
                         </Flex>
 
                         <Flex>
-                          <img
-                            width={150}
-                            height={120}
-                            src={item.img}
-                          />
-                          <p style={{ textAlign: "left", marginLeft: 15, marginTop: 20 }}>
+                        <Flex style={{marginTop:5}}>
+                            <div style={{width:140 , height:120}}>
+                            <img style={{ width: "100%" , height:"100%", borderRadius: 10 }} src={item.img}/>
+                            </div>
+                            </Flex>
+                            <Flex justifyContent="left" textAlign="left">
+                            <p style={{ textAlign: "left", marginLeft: 20, marginTop: 20 }}>
                             <p>ชื่อสินค้า : {item.productName}</p>
                             <p>ราคาสินค้า : {item.price}</p>
                             <p>สถานที่ซื้อสินค้า : {item.addressProduct}</p>
                           </p>
-                        </Flex>
-                        <Flex justifyContent="row" textAlign="center">
+                            </Flex>
                         </Flex>
                       </Card>
 
@@ -103,5 +103,4 @@ export default function OrderMenu(props) {
       </Flex>
 
     </>
-  )
-}
+  )}
