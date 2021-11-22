@@ -122,6 +122,14 @@ export function getMyOrder(id) {
         })
 }
 
+export function getMyHandeeOrder(id) {
+    return axios.post(`${apiUrl}/order/${id}`)
+        .catch(({ response }) => {
+            throw new Error(response.data.message)
+        })
+}
+
+
 export function orderSuccess(data) {
     return axios.post(`${apiUrl}/userorder2`,data)
         .catch(({ response }) => {
