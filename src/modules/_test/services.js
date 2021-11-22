@@ -123,7 +123,7 @@ export function getMyOrder(id) {
 }
 
 export function orderSuccess(data) {
-    return axios.post(`${apiUrl}/userorder/success`,data)
+    return axios.post(`${apiUrl}/userorder2`,data)
         .catch(({ response }) => {
             throw new Error(response.data.message)
         })
