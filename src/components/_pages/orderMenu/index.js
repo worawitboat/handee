@@ -23,14 +23,14 @@ export default function OrderMenu(props) {
             setData([])
             await res.data.data.map((data) =>
               setData(element => [...element, {
-                id: data.id,
-                productName: data.nameorder,
-                phone: data.phone,
-                addressProduct: data.address,
-                location: data.location,
-                price: data.price,
-                img: data.idimage,
-                status: data.status
+                id: data.userorderid.id,
+                productName: data.userorderid.nameorder,
+                phone: data.userorderid.phone,
+                addressProduct: data.userorderid.address,
+                location: data.userorderid.location,
+                price: data.userorderid.price,
+                img: data.userorderid.idimage,
+                status: data.userorderid.status
               }]))
 
           })
