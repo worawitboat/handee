@@ -14,27 +14,32 @@ export default function OrderMenu(props) {
     { img: 'https://ci.lnwfile.com/cupnjk.jpg', productName: 'hฟ', addressProduct: 'qเดเ', price: '10000', status: "progress" },
   ]
 
-  useEffect(async() => {
+  useEffect(async () => {
     const liff = (await import('@line/liff')).default
     liff.init({ liffId: '1656624101-M972rAGm' }, async () => {
       if (liff.isLoggedIn()) {
         liff.getProfile().then(async (profile) => {
           await getMyHandeeOrder(profile.userId).then(async (res) => {
-            if(res.data.data.userorderid.status !== 'rejected' && res.data.data.userorderid.status !== 'success'){
+
             setData([])
-            await res.data.data.map((data) =>
-              setData(element => [...element, {
-                id: data.userorderid.id,
-                productName: data.userorderid.nameorder,
-                phone: data.userorderid.phone,
-                addressProduct: data.userorderid.address,
-                location: data.userorderid.location,
-                price: data.userorderid.price,
-                img: data.userorderid.idimage,
-                status: data.userorderid.status
-              }]))
-}
-          })
+            await res.data.data.map((data) => {
+              if (data.userorderid.status !== 'rejected' && data.userorderid.status !== 'success') {
+                setData(element => [...element, {
+                  id: data.userorderid.id,
+                  productName: data.userorderid.nameorder,
+                  phone: data.userorderid.phone,
+                  addressProduct: data.userorderid.address,
+                  location: data.userorderid.location,
+                  price: data.userorderid.price,
+                  img: data.userorderid.idimage,
+                  status: data.userorderid.status
+                }])
+              }
+            }
+            )
+
+          }
+          )
         }).catch(err => console.error(err));
       } else {
         liff.login();
