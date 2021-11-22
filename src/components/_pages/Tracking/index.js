@@ -17,12 +17,6 @@ export default function Tracking(props) {
             nameCompany: NameCompany
         }
         orderSuccess(payload).then(res =>{
-            const data = {
-                NameCompany: NameCompany,
-                Tracking: Tracking,
-            }
-                console.log(data);
-
             router.push({
                 pathname: 'Tracking/orderSuccess',
             })
