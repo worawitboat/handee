@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Flex, Box } from 'reflexbox'
 import { Card, Image, Tag } from 'antd'
 import { getOrderHistory } from '../../../modules/_test/services'
+import { ClockCircleOutlined, CloseCircleOutlined, MoneyCollectFilled, SyncOutlined } from '@ant-design/icons';
 
 export default function History(props) {
     const [data, setData] = useState([])
@@ -53,7 +54,10 @@ export default function History(props) {
                                                 <p>
                                                     <h2><b>{item.productName}</b></h2>
                                                     <h5>ราคา: {item.price}</h5>
-                                                    <Tag color="green">Success</Tag>
+                                                    {item.status === 'success'?<Tag color="green">Success</Tag>
+                                                    : <Tag icon={<CloseCircleOutlined />} color="error">rejected</Tag>
+                                                }
+                                                    
 
                                                 </p>
                                             </Box>
