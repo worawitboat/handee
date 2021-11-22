@@ -26,7 +26,7 @@ export default function order(props) {
         liff.getProfile().then(async (profile) => {
           console.log(profile);
           setUserId(profile.userId);
-          await statusorder(profile.userId).then(async (res) => {
+          await getMyOrder(profile.userId).then(async (res) => {
             setData([])
             console.log(res.data)
             await res.data.data.map((data) =>
@@ -109,7 +109,7 @@ export default function order(props) {
                 </Flex>
               </Flex>
             </TabPane>
-            <TabPane tab="success" key="2">
+            {/* <TabPane tab="success" key="2">
               <Flex justifyContent="center" style={{ marginTop: 20 }}>
                 <Flex flexDirection="column" textAlign="center">
                   {data.map((item, index) => {
@@ -138,7 +138,7 @@ export default function order(props) {
 
                 </Flex>
               </Flex>
-            </TabPane>
+            </TabPane> */}
           </Tabs>
         </Flex>
       </Flex>

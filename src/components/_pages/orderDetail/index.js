@@ -14,7 +14,7 @@ export default function DetailOrder(props) {
             icon: <ExclamationCircleOutlined />,
             onOk: () => {
                 orderReject(data.id)
-                router.push('/menuOrder/orderMenu') 
+                router.push('/orderMenu') 
             },
             okText: 'ยืนยัน',
             cancelText: 'ยกเลิก',
