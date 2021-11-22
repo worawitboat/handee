@@ -12,6 +12,18 @@ export default function DetailOrder(props) {
         setVisible(false)
     };
 
+    function confirm() {
+        Modal.confirm({
+            title: 'ต้องการยกเลิกออเดอร์หรือไม่',
+            icon: <ExclamationCircleOutlined />,
+            onOk: () => {
+                
+            },
+            okText: 'ยืนยัน',
+            cancelText: 'ยกเลิก',
+        });
+    }
+
 
 
     return (
@@ -44,21 +56,13 @@ export default function DetailOrder(props) {
                 <Flex flexDirection="row" style={{ marginTop: 30 }} justifyContent="center">
                     <Box width={1}><Button style={{ borderRadius: 50 }} type="primary" onClick={() => { router.push({ pathname: 'orderDetail/Tracking', query: { data: JSON.stringify(data) } }) }}><b>ส่งออเดอร์สำเร็จ</b></Button></Box>
                     <Box width={1 / 15}></Box>
-                    <Box width={1}><Button style={{ borderRadius: 50 }} type="primary" danger onClick={() => { setVisible(true)
+                    <Box width={1}><Button style={{ borderRadius: 50 }} type="primary" danger onClick={() => {
+                        confirm()
                         // router.push('/menuOrder/orderMenu') 
-                        }}><b>ยกเลิกออเดอร์</b></Button></Box>
+                    }}><b>ยกเลิกออเดอร์</b></Button></Box>
                 </Flex>
             </Flex>
             <Flex width={1 / 15}></Flex>
-            <Modal
-                title={<Flex><ExclamationCircleOutlined /><p>ต้องการยกเลิกออเดอร์หรือไม่</p></Flex>}
-                visible={visible}
-                onOk={Confirm}
-                onCancel={() => setVisible(false)}
-                okText="ยืนยัน"
-                cancelText="ยกเลิก"
-            >
-            </Modal>
         </>
     )
 }
