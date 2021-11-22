@@ -20,6 +20,7 @@ export default function OrderMenu(props) {
       if (liff.isLoggedIn()) {
         liff.getProfile().then(async (profile) => {
           await getMyHandeeOrder(profile.userId).then(async (res) => {
+            if(res.userorderid.status !== 'rejected' && res.userorderid.status !== 'success'){
             setData([])
             await res.data.data.map((data) =>
               setData(element => [...element, {
@@ -32,7 +33,7 @@ export default function OrderMenu(props) {
                 img: data.userorderid.idimage,
                 status: data.userorderid.status
               }]))
-
+}
           })
         }).catch(err => console.error(err));
       } else {
