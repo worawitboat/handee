@@ -67,9 +67,9 @@ export default function DetailShop(props) {
                         <Card style={{ width: 400, height: 450 }} >
                             <Flex justifyContent="center" textAlign="Left" style={{ marginTop: 10 }}>
                                 <Flex justifyContent="center" >
-                                    <Box width={1 / 2}>
-                                        <Image style={{ width: 100, borderRadius: 20 }} src="https://www.top13.net/wp-content/uploads/2017/03/cat-puss-boots-6.jpg" />
-                                    </Box>
+                                    <div style={{width:100 , height:100}}>
+                                    <img style={{ width: "100%" , height:"100%", borderRadius: 10 }} src="https://www.top13.net/wp-content/uploads/2017/03/cat-puss-boots-6.jpg" />
+                                    </div>
                                 </Flex>
 
                                 <Flex>

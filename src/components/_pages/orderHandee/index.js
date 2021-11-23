@@ -86,7 +86,7 @@ export default function OrderHandee(props) {
                 :
                 <Flex justifyContent="center">
                     <Flex flexDirection="column" textAlign="center" style={{ marginTop: 80, boxshadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }}>
-                        <h1 style={{ color: "orange", marginTop: -30, marginLeft: -190, fontSize: 45 }}>Handee</h1>
+                        <h1 style={{ color: "orange", marginTop: -30, marginLeft: -190, fontSize: 45, fontFamily: 'Prompt' }}><b>Handee</b></h1>
                         <div style={{ fontSize: "70px", marginLeft: 60, marginTop: -110 }}>
                             <ShoppingCartOutlined />
                         </div>

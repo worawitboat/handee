@@ -10,7 +10,7 @@ import { getSortedRoutes } from 'next/dist/shared/lib/router/utils'
 
 
 const { Option } = Select;
-export default function menuOder(props) {
+export default function menuOrder(props) {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [data, setData] = useState([]);
     const [currentProvince, setCurrentProvince] = useState("")
@@ -131,13 +131,14 @@ export default function menuOder(props) {
                             <Card key={index} justifyContent="center" textAlign="center" style={{ width: "100%", height: "100%", marginBottom: 20, boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)", borderRadius: 10 }} >
                                 <Flex justifyContent="left">
 
-                                    <Flex >
-                                        <Box><img style={{ width: 150, borderRadius: 10 }} src={item.image} /></Box>
+                                    <Flex style={{ marginTop: 10 }}>
+                                        <div style={{width:100 , height:120}}>
+                                            <img style={{ width: "100%" , height:"100%", borderRadius: 10 }} src={item.image} />
+                                        </div>
                                     </Flex>
 
                                     <Flex justifyContent="left" textAlign="left">
                                         <Box style={{ marginLeft: 30 }}>
-
                                             <p>
                                                 <h2><b>{item.nameproduct}</b></h2>
                                                 <h5><b>ที่อยู่จัดส่ง : {item.address}</b></h5>

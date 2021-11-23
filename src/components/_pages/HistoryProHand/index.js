@@ -60,16 +60,17 @@ export default function HistoryProHand(props) {
                     <Flex flexDirection="column" textAlign="center">
                         <h1><b>รายละเอียดออเดอร์</b></h1>
                         <h3 style={{ marginTop: 10 }}><b>ออเดอร์</b></h3>
-                        <Card style={{ width: "100%", height: 150, marginTop: 10, boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }} >
+                        <Card style={{ width: "100%", height: "100%", marginTop: 10, boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }} >
                             <Flex>
-                                <Flex>
-                                    <Box>
-                                        <Image style={{ width: 80, borderRadius: 10 }} src={orderinfo.idimage} />
-                                    </Box>
-                                </Flex>
 
-                                <Flex justifyContent="center" textAlign="Left">
-                                    <Box style={{ marginLeft: 10 }}>
+                            <Flex style={{ marginTop: 5 }}>
+                                        <div style={{width:100 , height:100}}>
+                                            <img style={{ width: "100%" , height:"100%", borderRadius: 10 }} src={orderinfo.idimage} />
+                                        </div>
+                                    </Flex>
+
+                                <Flex justifyContent="left" textAlign="Left">
+                                    <Box style={{ marginLeft: 20 }}>
                                         <p>
                                             <h5><b>ชื่อออเดอร์: {orderinfo.nameorder}</b></h5>
                                             <h5><b>จังหวัด : {orderinfo.province}</b></h5>
@@ -81,16 +82,16 @@ export default function HistoryProHand(props) {
                             </Flex>
                         </Card>
                         <h3 style={{ marginTop: 10 }}><b>ข้อมูลคนรับหิ้ว</b></h3>
-                        <Card style={{ width: "100%", height: 130, marginTop: 10, boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }} >
+                        <Card style={{ width: "100%", height: "100%", marginTop: 10, boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }} >
                             <Flex>
-                                <Flex>
-                                    <Box>
-                                        <Image style={{ width: 80, borderRadius: 10 }} src="https://www.top13.net/wp-content/uploads/2017/03/cat-puss-boots-6.jpg" />
-                                    </Box>
-                                </Flex>
+                            <Flex style={{ marginTop: 5 }}>
+                                        <div style={{width:100 , height:100}}>
+                                            <img style={{ width: "100%" , height:"100%", borderRadius: 10 }} src="https://www.top13.net/wp-content/uploads/2017/03/cat-puss-boots-6.jpg" />
+                                        </div>
+                                    </Flex>
 
-                                <Flex justifyContent="center" textAlign="Left">
-                                    <Box style={{ marginLeft: 10 }}>
+                                <Flex justifyContent="left" textAlign="Left">
+                                    <Box style={{ marginLeft: 20 }}>
                                         <p>
                                             <h5><b>ชื่อ-สกุล : {detail.fullname}</b></h5>
                                             <h5><b>เบอร์โทรศัพท์ : {detail.phoneNum}</b></h5>

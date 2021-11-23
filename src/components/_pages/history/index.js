@@ -43,13 +43,14 @@ export default function History(props) {
                             return (
                                 <Card key={index} style={{ width: "100%", height: "100%", marginTop: 20, boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }} >
                                     <Flex>
-                                        <Flex>
-                                            <Box>
-                                                <img style={{ width: 80, borderRadius: 10 }} src={item.img} />
-                                            </Box>
-                                        </Flex>
 
-                                        <Flex justifyContent="center" textAlign="Left">
+                                    <Flex style={{ marginTop: 10 }}>
+                                        <div style={{width:100 , height:100}}>
+                                            <img style={{ width: "100%" , height:"100%", borderRadius: 10 }} src={item.img} />
+                                        </div>
+                                    </Flex>
+
+                                        <Flex justifyContent="left" textAlign="Left">
                                             <Box style={{ marginTop: 10, marginLeft: 20 }}>
                                                 <p>
                                                     <h2><b>{item.productName}</b></h2>
