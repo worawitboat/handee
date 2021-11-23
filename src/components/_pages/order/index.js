@@ -13,7 +13,7 @@ const { TabPane } = Tabs;
 export default function order(props) {
 
   const [userId, setUserId] = useState("");
-  const [data, setData] = useState("");
+  const [data, setData] = useState([]);
 
 
 
