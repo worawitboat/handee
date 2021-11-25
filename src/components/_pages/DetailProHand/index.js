@@ -93,6 +93,9 @@ export default function DetailProHand(props) {
             });
 
     }
+    function handleChange(value) {
+        setprovince(value.value)
+    }
 
     const onChange = ({ fileList: newFileList }) => {
         setFileList(newFileList);
@@ -137,7 +140,7 @@ export default function DetailProHand(props) {
                     </Flex>
                     <Flex justifyContent="center" flexDirection="column" style={{ marginTop: 20 }}>
                     <Box><Flex style={{ marginBottom: 20 }} justifyContent="center">
-                        <Select placeholder="โปรดเลือกจังหวัดของคุณ" labelInValue defaultValue={{ value: province }} style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px"}} onChange={(e) => {setprovince(e.target.value) }}>
+                        <Select placeholder="โปรดเลือกจังหวัดของคุณ" labelInValue defaultValue={{ value: province }} style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px"}} onChange={handleChange}>
                             {select.map((item, index) => {
                                 return (
                                     // eslint-disable-next-line react/jsx-key
