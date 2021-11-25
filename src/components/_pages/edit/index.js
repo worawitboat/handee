@@ -16,14 +16,14 @@ export default function edit(props) {
     const [idimage, setIdimage] = useState([]);
     const [userId, setUserId] = useState("");
     const [numberBank, setNumberBank] = useState("")
-    const [bank, setBank] = useState("โปรดเลือกธนาคารของคุณ")
+    const [bank, setBank] = useState("ธนาคารไทยพาณิชย์")
     let imagesid = []
 
    
 const select = [
         {
             namebank: 'โปรดเลือกจังหวัดของคุณ',
-            bank: 'ธนาคารไทยพาณิชนย์'
+            bank: 'ธนาคารไทยพาณิชย์'
         },
         {
             namebank: 'โปรดเลือกจังหวัดของคุณ',
@@ -83,7 +83,9 @@ const select = [
                             lname: lastName,
                             address: address,
                             phone: phone,
-                            infoimage: imagesid
+                            infoimage: imagesid,
+                            namebank: bank,
+                            bank: numberBank
                         }
 
                         handee(data).then(
