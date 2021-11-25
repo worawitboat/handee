@@ -1,30 +1,55 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState, useEffect } from 'react'
-import { Flex, Box } from 'reflexbox'
 import axios from 'axios'
-import { Button, Input, Upload } from 'antd';
-import router from 'next/router'
-import { handee } from '../../../modules/_test/services';
+import { Flex, Box } from 'reflexbox'
+import { Input, Button, Upload, Select } from 'antd'
+import { PlusOutlined } from '@ant-design/icons'
+import { useRouter } from 'next/router'
+import { userorder } from '../../../modules/_test/services'
+// import ImgCrop from 'antd-img-crop';
 
-export default function edit(props) {
-    const [firstName, setFirstName] = useState();
-    const [lastName, setLastName] = useState();
-    const [address, setAddress] = useState();
-    const [phone, setPhone] = useState();
+const {Option} = Select
+
+export default function DetailProHand(props) {
+    const { data } = props
+    const [Nameproduct, setNameProduct] = useState();
+    const [Priceproduct, setPriceProduct] = useState();
+    const [Locationproduct, setLocationProduct] = useState();
+    const [details, setdetails] = useState()
+    const [province, setprovince] = useState("อุบลราชธานี")
     const [fileList, setFileList] = useState([]);
-    const [idimage, setIdimage] = useState([]);
+    const [idToken, setIdToken] = useState("");
+    const [pictureUrl, setPictureUrl] = useState("");
+    const [displayName, setDisplayName] = useState("");
+    const [statusMessage, setStatusMessage] = useState("");
     const [userId, setUserId] = useState("");
-    let imagesid = []
+    const [checkprice , setCheckprice] = useState("")
+    const router = useRouter();
 
+    const select = [
+        {
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'อุบลราชธานี'
+        },
+        {
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'บุรีรัมย์'
+        },
+        {
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'นนทบุรี'
+        },
+    ]
 
-
-    // // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     // useEffect(async () => {
     //     const liff = (await import('@line/liff')).default
-    //     liff.init({ liffId: '1656624101-M972rAGm' }, async () => {
+    //     liff.init({ liffId: '1656624101-Ng7Vpxwd' }, async () => {
     //         if (liff.isLoggedIn()) {
     //             liff.getProfile().then(profile => {
     //                 console.log(profile);
+    //                 setDisplayName(profile.displayName);
+    //                 setPictureUrl(profile.pictureUrl);
+    //                 setStatusMessage(profile.statusMessage);
     //                 setUserId(profile.userId);
     //             }).catch(err => console.error(err));
     //         } else {
@@ -34,56 +59,58 @@ export default function edit(props) {
     //     }, err => console.error(err));
     // })
 
-    // async function CommitForm() {
-    //     imagesid = []
-    //     const formData = new FormData();
-    //     formData.append('file', fileList[0].originFileObj);
-    //     const config = {
-    //         headers: {
-    //             'content-type': 'multipart/form-data'
-    //         }
-    //     };
-    //     await axios.post('https://handee.tk/uploader', formData, config)
-    //         .then(async (res) => {
-    //             console.log(res.data.idimage)
-    //             imagesid.push("https://drive.google.com/uc?export=view&id=" + res.data.idimage)
-    //             const formData = new FormData();
-    //             formData.append('file', fileList[1].originFileObj);
-    //             const config = {
-    //                 headers: {
-    //                     'content-type': 'multipart/form-data'
-    //                 }
-    //             };
-    //             await axios.post('https://handee.tk/uploader', formData, config)
-    //                 .then((res) => {
-    //                     console.log(res.data.idimage)
-    //                     imagesid.push("https://drive.google.com/uc?export=view&id=" + res.data.idimage)
-    //                     console.log("idimageee", imagesid)
-    //                     const data = {
-    //                         userid: userId || "yy",
-    //                         fname: firstName,
-    //                         lname: lastName,
-    //                         address: address,
-    //                         phone: phone,
-    //                         infoimage: imagesid
-    //                     }
-
-    //                     handee(data).then(
-    //                          router.push({
-    //                             pathname: '/orderHandee',
-    //                         })
-    //                     )
 
 
-    //                 })
-    //         })
 
-    // }
+    const Deal = () => {
+        if(Priceproduct <= 499){
+            alert("ราคาขั้นต่ำคือ 500 บาทกรุณาตรวจสอบราคาอีกครั้ง")
+            setCheckprice("error")
+            
+        }
+        if(Priceproduct >= 500){
+            alert('ok เช็คแล้วต่อเลยๆ')
+            setCheckprice("ok pass")
+        //     console.log(fileList[0].originFileObj)
+        // const formData = new FormData();
+        // formData.append('file', fileList[0].originFileObj);
+        // const config = {
+        //     headers: {
+        //         'content-type': 'multipart/form-data'
+        //     }
+        // };
+        // axios.post('https://handee.tk/uploader', formData, config)
+        //     .then((res) => {
+        //         console.log(res.data.idimage)
+        //         const DataPassToOrderHand = {
+        //             userid: userId || 'kk',
+        //             fname: JSON.parse(data).firstName,
+        //             lname: JSON.parse(data).lastName,
+        //             address: JSON.parse(data).address,
+        //             phone: JSON.parse(data).phone,
+        //             idimage: res.data.idimage,
+        //             nameorder: Nameproduct,
+        //             price: Priceproduct,
+        //             province: province,
+        //             location: Locationproduct,
+        //             details: details,
 
+        //         }
+        //         userorder(DataPassToOrderHand).then(
+        //             router.push('DetailProHand/handeeSuccess')
+        //         )
+        //     });
+        }
+        else if(Priceproduct == null){
+            alert("กรุณากรอกราคา")
+            setCheckprice("error")
+        }
+    }
 
     const onChange = ({ fileList: newFileList }) => {
         setFileList(newFileList);
     };
+
     const onPreview = async file => {
         let src = file.url;
         if (!src) {
@@ -100,50 +127,67 @@ export default function edit(props) {
     };
 
 
+
+
     return (
-        <Flex justifyContent="center">
-            <Flex width={1} justifyContent="center" textAlign="right">
-                <Flex justifyContent="center" style={{ marginTop: 50 }}>
-                    <Flex flexDirection="column" textAlign="center">
-                        <h2><b>กรอกข้อมูลสำหรับคนรับหิ้ว</b></h2>
-                        <Flex justifyContent="center" flexDirection="column" >
-                            <Input type="text" placeholder="ชื่อ" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 25px" }} onChange={(e) => setFirstName(e.target.value)} />
-                            <Input type="text" placeholder="นามสกุล" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => setLastName(e.target.value)} />
-                            <Input type="text" placeholder="ที่อยู่" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => setAddress(e.target.value)} />
-                            <Input type="text" placeholder="เบอร์โทรศัพท์" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => setPhone(e.target.value)} />
-                        </Flex>
+        <>
+            <Flex width={1 / 15}></Flex>
+            <Flex width={1} style={{ marginTop: 50 }} justifyContent="center" textAlign="center">
 
-                        <Flex justifyContent="center" style={{ marginTop: 30, marginBottom: 30 }}>
-                            <Box>
+                <Flex flexDirection="column" textAlign="center">
+                    <h2><b>รายละเอียดสินค้าที่ต้องการฝากหิ้ว</b></h2>
+                    <Flex justifyContent="center" style={{ marginTop: 30 }}>
+                        <Box>
+                            <Upload
+                                listType="picture-card"
+                                fileList={fileList}
+                                onChange={onChange}
+                                onPreview={onPreview}
+                            >
+                                {fileList.length < 1 && '+ Upload'}
+                            </Upload>
+                        </Box>
+                    </Flex>
+                    <Flex justifyContent="center" flexDirection="column" style={{ marginTop: 20 }}>
+                    <Box><Flex style={{ marginBottom: 20 }} justifyContent="center">
+                        <Select placeholder="โปรดเลือกจังหวัดของคุณ" labelInValue defaultValue={{ value: province }} style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px"}} onChange={(e) => {setprovince(e.target.value) }}>
+                            {select.map((item, index) => {
+                                return (
+                                    // eslint-disable-next-line react/jsx-key
+                                    <Option key={index} value={item.county}>
+                                        {item.county}
+                                    </Option>
+                                )
+                            })}
 
-                                <Upload
-                                    listType="picture-card"
-                                    fileList={fileList}
-                                    onChange={onChange}
-                                    onPreview={onPreview}
-                                >
-                                    {fileList.length < 2 && '+ Upload'}
-                                </Upload>
-                            </Box>
-                        </Flex>
+                        </Select>
+                    </Flex></Box>
+                        <Box><Input type="text" placeholder="ชื่อสินค้า" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => { setNameProduct(e.target.value) }} /></Box>
+                        
+                        {checkprice === "error" ? 
+                        <Box><Input type="number" placeholder="ราคาสินค้า" style={{borderColor:"red", marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => { setPriceProduct(e.target.value) }} /></Box> :
+                        checkprice === "ok pass" ? 
+                        <Box><Input type="number" placeholder="ราคาสินค้า" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => { setPriceProduct(e.target.value) }} /></Box> 
+                        : <Box><Input type="number" placeholder="ราคาสินค้า" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => { setPriceProduct(e.target.value) }} /></Box> }
 
-                        <Flex>
-                            <p style={{ color: "red" }}><b>* หมายเหตุ : รูปถ่ายบัตรประชาชน และ รูปถ่ายหน้าตรง  </b></p>
-                        </Flex>
-
-                        <Flex width={1} justifyContent="center" style={{ marginTop: 25 }}>
-                            <Box width={1}>
-                                <Button style={{ width: "130px", height: "40px", fontWeight: "bold", fontSize: "15px", borderRadius: "50px" }} onClick={() => { CommitForm() }} type="primary">ยืนยัน</Button>
-                            </Box>
-                            <Box width={1 / 3}>
-                            </Box>
-                            <Box width={1}>
-                                <Button style={{ width: "130px", height: "40px", fontWeight: "bold", fontSize: "15px", borderRadius: "50px" }} onClick={() => { router.push('/orderHandee') }} type="danger">ยกเลิก</Button>
-                            </Box>
-                        </Flex>
+                        
+                        <Box><Input type="text" placeholder="สถานที่ซื้อสินค้า" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => { setLocationProduct(e.target.value) }} /></Box>
+                        <Box><Input type="text" placeholder="รายละเอียด" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => { setdetails(e.target.value) }} /></Box>
+                    </Flex>
+                    <Flex justifyContent="center" style={{ marginTop: 30 }}>
+                            <p>
+                                <p style={{color:"red"}}><b>* หมายเหตุ : ราคาฝากหิ้วขั้นต่ำ 500 บาท</b></p>
+                            </p>
+                    </Flex>
+                    <Flex justifyContent="center" style={{marginBottom:10}}>
+                        <Box width={1 / 2}><Button onClick={() => { Deal() }} type="primary" style={{ borderRadius: 50, width: 120, height: 40, fontWeight: "bold" }}>ยืนยัน</Button></Box>
+                        <Box width={1 / 2}><Button onClick={() => { router.push('/edit') }} type="primary" danger style={{ borderRadius: 50, width: 120, height: 40, fontWeight: "bold" }}>ยกเลิก</Button></Box>
                     </Flex>
                 </Flex>
             </Flex>
-        </Flex>
+            <Flex width={1 / 15}></Flex>
+        </>
     )
 }
+
+
