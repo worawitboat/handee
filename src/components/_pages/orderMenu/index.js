@@ -25,7 +25,7 @@ export default function OrderMenu(props) {
             await res.data.data.map((data) => {
               if (data.userorderid.status !== 'rejected' && data.userorderid.status !== 'success') {
                 setData(element => [...element, {
-                  id: data.userorderid.id,
+                  id: data.userorderid._id,
                   productName: data.userorderid.nameorder,
                   phone: data.userorderid.phone,
                   addressProduct: data.userorderid.address,
