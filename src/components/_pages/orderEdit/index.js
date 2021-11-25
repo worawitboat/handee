@@ -16,7 +16,7 @@ export default function OrderEdit(props) {
     const [idimage, setIdimage] = useState([]);
     const [userId, setUserId] = useState("");
     const [numberBank, setNumberBank] = useState("")
-    const [bank, setBank] = useState("โปรดเลือกธนาคารของคุณ")
+    const [bank, setBank] = useState("ธนาคารไทยพาณิชย์")
     let imagesid = []
 
     
@@ -25,7 +25,7 @@ export default function OrderEdit(props) {
     const select = [
         {
             namebank: 'โปรดเลือกจังหวัดของคุณ',
-            bank: 'ธนาคารไทยพาณิชนย์'
+            bank: 'ธนาคารไทยพาณิชย์'
         },
         {
             namebank: 'โปรดเลือกจังหวัดของคุณ',
@@ -85,7 +85,9 @@ export default function OrderEdit(props) {
                             lname: lastName,
                             address: address,
                             phone: phone,
-                            infoimage: imagesid
+                            infoimage: imagesid,
+                            bank: numberBank,
+                            namebank: bank
                         }
 
                         handee(data).then(
