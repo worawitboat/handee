@@ -2,11 +2,10 @@
 import React, { useState, useEffect } from 'react'
 import { Flex, Box } from 'reflexbox'
 import axios from 'axios'
-import { Button, Input, Upload,Select } from 'antd';
+import { Button, Input, Upload } from 'antd';
 import router from 'next/router'
 import { handee } from '../../../modules/_test/services';
 
-const {Option} = Select
 export default function edit(props) {
     const [firstName, setFirstName] = useState();
     const [lastName, setLastName] = useState();
@@ -15,25 +14,8 @@ export default function edit(props) {
     const [fileList, setFileList] = useState([]);
     const [idimage, setIdimage] = useState([]);
     const [userId, setUserId] = useState("");
-    const [numberBank, setNumberBank] = useState("")
-    const [bank, setBank] = useState("โปรดเลือกธนาคารของคุณ")
     let imagesid = []
 
-   
-const select = [
-        {
-            namebank: 'โปรดเลือกจังหวัดของคุณ',
-            bank: 'ธนาคารไทยพาณิชนย์'
-        },
-        {
-            namebank: 'โปรดเลือกจังหวัดของคุณ',
-            bank: 'ธนาคารกสิกรไทย'
-        },
-        {
-            namebank: 'โปรดเลือกจังหวัดของคุณ',
-            bank: 'ธนาคารกรุงไทย'
-        },
-    ]
 
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -129,20 +111,6 @@ const select = [
                             <Input type="text" placeholder="นามสกุล" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => setLastName(e.target.value)} />
                             <Input type="text" placeholder="ที่อยู่" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => setAddress(e.target.value)} />
                             <Input type="text" placeholder="เบอร์โทรศัพท์" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => setPhone(e.target.value)} />
-                            <Input type="text" placeholder="เลขบัญชี" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => setNumberBank(e.target.value)} />
-                            <Box><Flex justifyContent="center" textAlign="center">
-                        <Select placeholder="โปรดเลือกธนาคารของคุณ" labelInValue defaultValue={{ value: bank }} style={{ marginTop: 20, width: "100%", fontsize: "10px", borderRadius: " 50px", padding: "10px 10px 10px 20px"}} onChange={(e) => {setBank(e.target.value) }}>
-                            {select.map((item, index) => {
-                                return (
-                                    // eslint-disable-next-line react/jsx-key
-                                    <Option key={index} value={item.bank}>
-                                        {item.bank}
-                                    </Option>
-                                )
-                            })}
-
-                        </Select>
-                    </Flex></Box>
                         </Flex>
 
                         <Flex justifyContent="center" style={{ marginTop: 30, marginBottom: 30 }}>
@@ -179,5 +147,3 @@ const select = [
         </Flex>
     )
 }
-
-
