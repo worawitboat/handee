@@ -1,55 +1,27 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
 import { Flex, Box } from 'reflexbox'
-import { Input, Button, Upload, Select } from 'antd'
-import { PlusOutlined } from '@ant-design/icons'
-import { useRouter } from 'next/router'
-import { userorder } from '../../../modules/_test/services'
-// import ImgCrop from 'antd-img-crop';
+import { Button, Card, Image, Select, Modal } from 'antd'
+import { LeftOutlined, PlusOutlined } from '@ant-design/icons'
+import { order, province } from '../../../modules/_test/services'
+import router from 'next/router'
+import { getSortedRoutes } from 'next/dist/shared/lib/router/utils'
 
-const {Option} = Select
 
-export default function DetailProHand(props) {
-    const { data } = props
-    const [Nameproduct, setNameProduct] = useState();
-    const [Priceproduct, setPriceProduct] = useState();
-    const [Locationproduct, setLocationProduct] = useState();
-    const [details, setdetails] = useState()
-    const [province, setprovince] = useState("อุบลราชธานี")
-    const [fileList, setFileList] = useState([]);
-    const [idToken, setIdToken] = useState("");
-    const [pictureUrl, setPictureUrl] = useState("");
-    const [displayName, setDisplayName] = useState("");
-    const [statusMessage, setStatusMessage] = useState("");
+const { Option } = Select;
+export default function menuOrder(props) {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [data, setData] = useState([]);
+    const [currentProvince, setCurrentProvince] = useState("")
     const [userId, setUserId] = useState("");
-    const [checkprice , setCheckprice] = useState("")
-    const router = useRouter();
 
-    const select = [
-        {
-            namecounty: 'โปรดเลือกจังหวัดของคุณ',
-            county: 'อุบลราชธานี'
-        },
-        {
-            namecounty: 'โปรดเลือกจังหวัดของคุณ',
-            county: 'บุรีรัมย์'
-        },
-        {
-            namecounty: 'โปรดเลือกจังหวัดของคุณ',
-            county: 'นนทบุรี'
-        },
-    ]
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     // useEffect(async () => {
     //     const liff = (await import('@line/liff')).default
-    //     liff.init({ liffId: '1656624101-Ng7Vpxwd' }, async () => {
+    //     liff.init({ liffId: '1656624101-M972rAGm' }, async () => {
     //         if (liff.isLoggedIn()) {
     //             liff.getProfile().then(profile => {
     //                 console.log(profile);
-    //                 setDisplayName(profile.displayName);
-    //                 setPictureUrl(profile.pictureUrl);
-    //                 setStatusMessage(profile.statusMessage);
     //                 setUserId(profile.userId);
     //             }).catch(err => console.error(err));
     //         } else {
@@ -59,135 +31,191 @@ export default function DetailProHand(props) {
     //     }, err => console.error(err));
     // })
 
+    const select = [
+        {
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'นครราชสีมา'
+        },{
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'กาฬสินธุ์'
+        },{
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'ขอนแก่น'
+        },{
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'ชัยภูมิ'
+        },{
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'นครพนม'
+        },{
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'บึงกาฬ'
+        },{
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'บุรีรัมย์'
+        },{
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'มหาสารคาม'
+        },{
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'มุกดาหาร'
+        },{
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'ยโสธร'
+        },{
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'ร้อยเอ็ด'
+        },{
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'ศรีสะเกษ'
+        },{
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'เลย'
+        },{
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'สกลนคร'
+        },{
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'สุรินทร์'
+        },{
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'หนองคาย'
+        },{
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'หนองบัวลำภู'
+        },{
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'อุดรธานี'
+        },{
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'อุบลราชธานี'
+        },{
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'อำนาจเจริญ'
+        },
+    ]
 
+    function submit(value) {
+        console.log(value)
+        const data = {
+            userorderid: value,
+            handeeid: userId || "yy"
 
-
-    const Deal = () => {
-        if(Priceproduct <= 499){
-            alert("ราคาขั้นต่ำคือ 500 บาทกรุณาตรวจสอบราคาอีกครั้ง")
-            setCheckprice("error")
-            
         }
-        if(Priceproduct >= 500){
-            alert('ok เช็คแล้วต่อเลยๆ')
-            setCheckprice("ok pass")
-        //     console.log(fileList[0].originFileObj)
-        // const formData = new FormData();
-        // formData.append('file', fileList[0].originFileObj);
-        // const config = {
-        //     headers: {
-        //         'content-type': 'multipart/form-data'
-        //     }
-        // };
-        // axios.post('https://handee.tk/uploader', formData, config)
-        //     .then((res) => {
-        //         console.log(res.data.idimage)
-        //         const DataPassToOrderHand = {
-        //             userid: userId || 'kk',
-        //             fname: JSON.parse(data).firstName,
-        //             lname: JSON.parse(data).lastName,
-        //             address: JSON.parse(data).address,
-        //             phone: JSON.parse(data).phone,
-        //             idimage: res.data.idimage,
-        //             nameorder: Nameproduct,
-        //             price: Priceproduct,
-        //             province: province,
-        //             location: Locationproduct,
-        //             details: details,
+        order(data).then((res) => {
+            success()
+            province(currentProvince).then((res) => {
+                setData([])
+                res.data.data.map((data) =>
+                    setData(element => [...element, {
+                        id: data.id,
+                        nameproduct: data.nameorder,
+                        address: data.address,
+                        phonenumber: data.phone,
+                        locationproduct: data.location,
+                        image: data.idimage
+                    }])
+                )
+            })
+        })
 
-        //         }
-        //         userorder(DataPassToOrderHand).then(
-        //             router.push('DetailProHand/handeeSuccess')
-        //         )
-        //     });
-        }
-        else if(Priceproduct == null){
-            alert("กรุณากรอกราคา")
-            setCheckprice("error")
-        }
+
+
+
+
+
+
     }
 
-    const onChange = ({ fileList: newFileList }) => {
-        setFileList(newFileList);
-    };
 
-    const onPreview = async file => {
-        let src = file.url;
-        if (!src) {
-            src = await new Promise(resolve => {
-                const reader = new FileReader();
-                reader.readAsDataURL(file.originFileObj);
-                reader.onload = () => resolve(reader.result);
-            });
-        }
-        const image = new Image();
-        image.src = src;
-        const imgWindow = window.open(src);
-        imgWindow.document.write(image.outerHTML);
-    };
-
-
-
-
+    function handleChange(value) {
+        setData([])
+        setCurrentProvince(value.value)
+        province(value.value).then((res) => {
+            console.log(res.data.data)
+            res.data.data.map((data) =>
+                setData(element => [...element, {
+                    id: data.id,
+                    nameproduct: data.nameorder,
+                    address: data.address,
+                    phonenumber: data.phone,
+                    locationproduct: data.location,
+                    image: data.idimage
+                }])
+            )
+            // const { nameorder, address, phone, location, idimage } = res.data.data[0]
+            // setData([{
+            //     nameproduct: nameorder,
+            //     address: address,
+            //     phonenumber: phone,
+            //     locationproduct: location,
+            //     image:idimage
+            // }])
+        })
+    }
     return (
         <>
-            <Flex width={1 / 15}></Flex>
-            <Flex width={1} style={{ marginTop: 50 }} justifyContent="center" textAlign="center">
-
+            <Flex justifyContent="center" style={{ marginTop: 50 }}>
                 <Flex flexDirection="column" textAlign="center">
-                    <h2><b>รายละเอียดสินค้าที่ต้องการฝากหิ้ว</b></h2>
-                    <Flex justifyContent="center" style={{ marginTop: 30 }}>
-                        <Box>
-                            <Upload
-                                listType="picture-card"
-                                fileList={fileList}
-                                onChange={onChange}
-                                onPreview={onPreview}
-                            >
-                                {fileList.length < 1 && '+ Upload'}
-                            </Upload>
-                        </Box>
-                    </Flex>
-                    <Flex justifyContent="center" flexDirection="column" style={{ marginTop: 20 }}>
-                    <Box><Flex style={{ marginBottom: 20 }} justifyContent="center">
-                        <Select placeholder="โปรดเลือกจังหวัดของคุณ" labelInValue defaultValue={{ value: province }} style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px"}} onChange={(e) => {setprovince(e.target.value) }}>
+                    <h1><b>ออเดอร์</b></h1>
+                    <Flex style={{ marginBottom: 20 }} justifyContent="center">
+                        <Select placeholder="โปรดเลือกจังหวัดของคุณ" labelInValue defaultValue={{ value: "เลือกจังหวัดที่สนใจรับหิ้ว" }} style={{ width: 200 }} onChange={handleChange} >
                             {select.map((item, index) => {
                                 return (
                                     // eslint-disable-next-line react/jsx-key
-                                    <Option key={index} value={item.county}>
+                                    <Option value={item.county}>
                                         {item.county}
                                     </Option>
                                 )
                             })}
 
                         </Select>
-                    </Flex></Box>
-                        <Box><Input type="text" placeholder="ชื่อสินค้า" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => { setNameProduct(e.target.value) }} /></Box>
-                        
-                        {checkprice === "error" ? 
-                        <Box><Input type="number" placeholder="ราคาสินค้า" style={{borderColor:"red", marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => { setPriceProduct(e.target.value) }} /></Box> :
-                        checkprice === "ok pass" ? 
-                        <Box><Input type="number" placeholder="ราคาสินค้า" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => { setPriceProduct(e.target.value) }} /></Box> 
-                        : <Box><Input type="number" placeholder="ราคาสินค้า" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => { setPriceProduct(e.target.value) }} /></Box> }
+                    </Flex>
 
-                        
-                        <Box><Input type="text" placeholder="สถานที่ซื้อสินค้า" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => { setLocationProduct(e.target.value) }} /></Box>
-                        <Box><Input type="text" placeholder="รายละเอียด" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => { setdetails(e.target.value) }} /></Box>
-                    </Flex>
-                    <Flex justifyContent="center" style={{ marginTop: 30 }}>
-                            <p>
-                                <p style={{color:"red"}}><b>* หมายเหตุ : ราคาฝากหิ้วขั้นต่ำ 500 บาท</b></p>
-                            </p>
-                    </Flex>
-                    <Flex justifyContent="center" style={{marginBottom:10}}>
-                        <Box width={1 / 2}><Button onClick={() => { Deal() }} type="primary" style={{ borderRadius: 50, width: 120, height: 40, fontWeight: "bold" }}>ยืนยัน</Button></Box>
-                        <Box width={1 / 2}><Button onClick={() => { router.push('/edit') }} type="primary" danger style={{ borderRadius: 50, width: 120, height: 40, fontWeight: "bold" }}>ยกเลิก</Button></Box>
-                    </Flex>
+
+
+                    {data.map((item, index) => {
+                        return (
+
+                            <Card key={index} justifyContent="center" textAlign="center" style={{ width: "100%", height: "100%", marginBottom: 20, boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)", borderRadius: 10 }} >
+                                <Flex justifyContent="left">
+
+                                    <Flex style={{ marginTop: 10 }}>
+                                        <div style={{width:100 , height:120}}>
+                                            <img style={{ width: "100%" , height:"100%", borderRadius: 10 }} src={item.image} />
+                                        </div>
+                                    </Flex>
+
+                                    <Flex justifyContent="left" textAlign="left">
+                                        <Box style={{ marginLeft: 30 }}>
+                                            <p>
+                                                <h2><b>{item.nameproduct}</b></h2>
+                                                <h5><b>ที่อยู่จัดส่ง : {item.address}</b></h5>
+                                                <h5><b>เบอร์โทร : {item.phonenumber}</b></h5>
+                                                <h5><b>และสถานที่ซื้อสินค้า : {item.locationproduct} </b> </h5>
+                                            </p>
+                                        </Box>
+                                    </Flex>
+                                </Flex>
+
+                                <Flex style={{ marginTop: 30, marginBottom: 10 }} justifyContent="center">
+                                    <Button style={{ borderRadius: 50, backgroundColor: "orange", borderColor: "orange" }} type="primary" onClick={() => submit(item.id)}><b>รับออเดอร์</b></Button>
+                                </Flex>
+
+                            </Card>
+                        )
+                    })}
+
+
                 </Flex>
             </Flex>
-            <Flex width={1 / 15}></Flex>
+
         </>
     )
 }
 
-
+function success() {
+    Modal.success({
+        content: 'รับออเดอร์เรียบร้อยแล้ว',
+    });
+}

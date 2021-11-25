@@ -22,20 +22,70 @@ export default function DetailProHand(props) {
     const [displayName, setDisplayName] = useState("");
     const [statusMessage, setStatusMessage] = useState("");
     const [userId, setUserId] = useState("");
+    const [checkprice , setCheckprice] = useState("")
     const router = useRouter();
 
     const select = [
         {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
-            county: 'อุบลราชธานี'
-        },
-        {
+            county: 'นครราชสีมา'
+        },{
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'กาฬสินธุ์'
+        },{
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'ขอนแก่น'
+        },{
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'ชัยภูมิ'
+        },{
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'นครพนม'
+        },{
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'บึงกาฬ'
+        },{
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'บุรีรัมย์'
-        },
-        {
+        },{
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
-            county: 'นนทบุรี'
+            county: 'มหาสารคาม'
+        },{
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'มุกดาหาร'
+        },{
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'ยโสธร'
+        },{
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'ร้อยเอ็ด'
+        },{
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'ศรีสะเกษ'
+        },{
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'เลย'
+        },{
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'สกลนคร'
+        },{
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'สุรินทร์'
+        },{
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'หนองคาย'
+        },{
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'หนองบัวลำภู'
+        },{
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'อุดรธานี'
+        },{
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'อุบลราชธานี'
+        },{
+            namecounty: 'โปรดเลือกจังหวัดของคุณ',
+            county: 'อำนาจเจริญ'
         },
     ]
 
@@ -62,7 +112,13 @@ export default function DetailProHand(props) {
 
 
     const Deal = () => {
-        console.log(fileList[0].originFileObj)
+        if(Priceproduct <= 499){
+            setCheckprice("error")
+            
+        }
+        if(Priceproduct >= 500){
+            setCheckprice("ok pass")
+            console.log(fileList[0].originFileObj)
         const formData = new FormData();
         formData.append('file', fileList[0].originFileObj);
         const config = {
@@ -91,6 +147,11 @@ export default function DetailProHand(props) {
                     router.push('DetailProHand/handeeSuccess')
                 )
             });
+        }
+        
+            else if(Priceproduct == null){
+                setCheckprice("error")
+            }
 
     }
     function handleChange(value) {
@@ -153,11 +214,24 @@ export default function DetailProHand(props) {
                         </Select>
                     </Flex></Box>
                         <Box><Input type="text" placeholder="ชื่อสินค้า" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => { setNameProduct(e.target.value) }} /></Box>
-                        <Box><Input type="number" placeholder="ราคาสินค้า" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => { setPriceProduct(e.target.value) }} /></Box>
+                        
+                        {checkprice === "error" ? 
+                        <Box><Input type="number" placeholder="ราคาสินค้า" style={{borderColor:"red", marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => { setPriceProduct(e.target.value) }} /></Box> :
+                        checkprice === "ok pass" ? 
+                        <Box><Input type="number" placeholder="ราคาสินค้า" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => { setPriceProduct(e.target.value) }} /></Box> 
+                        : <Box><Input type="number" placeholder="ราคาสินค้า" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => { setPriceProduct(e.target.value) }} /></Box> }
+                        
                         <Box><Input type="text" placeholder="สถานที่ซื้อสินค้า" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => { setLocationProduct(e.target.value) }} /></Box>
                         <Box><Input type="text" placeholder="รายละเอียด" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => { setdetails(e.target.value) }} /></Box>
                     </Flex>
-                    <Flex justifyContent="center" style={{ marginTop: 60 }}>
+
+                    <Flex justifyContent="center" style={{ marginTop: 30 }}>
+                            <p>
+                                <p style={{color:"red"}}><b>* หมายเหตุ : ราคาฝากหิ้วขั้นต่ำ 500 บาท</b></p>
+                            </p>
+                    </Flex>
+
+                    <Flex justifyContent="center" style={{ marginTop: 10 }}>
                         <Box width={1 / 2}><Button onClick={() => { Deal() }} type="primary" style={{ borderRadius: 50, width: 120, height: 40, fontWeight: "bold" }}>ยืนยัน</Button></Box>
                         <Box width={1 / 2}><Button onClick={() => { router.push('/edit') }} type="primary" danger style={{ borderRadius: 50, width: 120, height: 40, fontWeight: "bold" }}>ยกเลิก</Button></Box>
                     </Flex>
