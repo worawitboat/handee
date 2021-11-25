@@ -16,7 +16,7 @@ export default function OrderEdit(props) {
     const [idimage, setIdimage] = useState([]);
     const [userId, setUserId] = useState("");
     const [numberBank, setNumberBank] = useState("")
-    const [bank, setBank] = useState("ธนาคารไทยพาณิชย์")
+    const [bank, setBank] = useState("")
     let imagesid = []
 
     
@@ -36,6 +36,10 @@ export default function OrderEdit(props) {
             bank: 'ธนาคารกรุงไทย'
         },
     ]
+
+    function handleChange(value) {
+        setBank(value.value)
+    }
 
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -136,7 +140,7 @@ export default function OrderEdit(props) {
                             <Input type="text" placeholder="เบอร์โทรศัพท์" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => setPhone(e.target.value)} />
                             <Input type="text" placeholder="เลขบัญชี" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => setNumberBank(e.target.value)} />
                             <Box><Flex justifyContent="center" textAlign="center">
-                        <Select placeholder="โปรดเลือกธนาคารของคุณ" labelInValue defaultValue={{ value: bank }} style={{ marginTop: 20, width: "100%", fontsize: "10px", borderRadius: " 50px", padding: "10px 10px 10px 20px"}} onChange={(e) => {setBank(e.target.value) }}>
+                        <Select placeholder="โปรดเลือกธนาคารของคุณ" labelInValue defaultValue={{ value: bank }} style={{ marginTop: 20, width: "100%", fontsize: "10px", borderRadius: " 50px", padding: "10px 10px 10px 20px"}} onChange={handleChange}>
                             {select.map((item, index) => {
                                 return (
                                     // eslint-disable-next-line react/jsx-key
