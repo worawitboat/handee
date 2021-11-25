@@ -16,7 +16,7 @@ export default function OrderEdit(props) {
     const [idimage, setIdimage] = useState([]);
     const [userId, setUserId] = useState("");
     const [numberBank, setNumberBank] = useState("")
-    const [bank, setBank] = useState("")
+    const [bank, setBank] = useState("ธนาคารไทยพาณิชย์")
     let imagesid = []
 
     
