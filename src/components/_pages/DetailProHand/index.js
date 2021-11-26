@@ -7,7 +7,7 @@ import { useRouter } from 'next/router'
 import { userorder } from '../../../modules/_test/services'
 // import ImgCrop from 'antd-img-crop';
 
-const {Option} = Select
+const { Option } = Select
 
 export default function DetailProHand(props) {
     const { data } = props
@@ -22,68 +22,68 @@ export default function DetailProHand(props) {
     const [displayName, setDisplayName] = useState("");
     const [statusMessage, setStatusMessage] = useState("");
     const [userId, setUserId] = useState("");
-    const [checkprice , setCheckprice] = useState("")
+    const [checkprice, setCheckprice] = useState("")
     const router = useRouter();
 
     const select = [
         {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'นครราชสีมา'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'กาฬสินธุ์'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'ขอนแก่น'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'ชัยภูมิ'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'นครพนม'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'บึงกาฬ'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'บุรีรัมย์'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'มหาสารคาม'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'มุกดาหาร'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'ยโสธร'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'ร้อยเอ็ด'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'ศรีสะเกษ'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'เลย'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'สกลนคร'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'สุรินทร์'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'หนองคาย'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'หนองบัวลำภู'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'อุดรธานี'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'อุบลราชธานี'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'อำนาจเจริญ'
         },
@@ -112,46 +112,46 @@ export default function DetailProHand(props) {
 
 
     const Deal = () => {
-        if(Priceproduct <= 499){
+        if (Priceproduct < 500) {
             setCheckprice("error")
-            
+
         }
-        if(Priceproduct >= 500){
+        if (Priceproduct >= 500) {
             setCheckprice("ok pass")
             console.log(fileList[0].originFileObj)
-        const formData = new FormData();
-        formData.append('file', fileList[0].originFileObj);
-        const config = {
-            headers: {
-                'content-type': 'multipart/form-data'
-            }
-        };
-        axios.post('https://handee.tk/uploader', formData, config)
-            .then((res) => {
-                console.log(res.data.idimage)
-                const DataPassToOrderHand = {
-                    userid: userId || 'kk',
-                    fname: JSON.parse(data).firstName,
-                    lname: JSON.parse(data).lastName,
-                    address: JSON.parse(data).address,
-                    phone: JSON.parse(data).phone,
-                    idimage: res.data.idimage,
-                    nameorder: Nameproduct,
-                    price: Priceproduct,
-                    province: province,
-                    location: Locationproduct,
-                    details: details,
-
+            const formData = new FormData();
+            formData.append('file', fileList[0].originFileObj);
+            const config = {
+                headers: {
+                    'content-type': 'multipart/form-data'
                 }
-                userorder(DataPassToOrderHand).then(
-                    router.push('DetailProHand/handeeSuccess')
-                )
-            });
+            };
+            axios.post('https://handee.tk/uploader', formData, config)
+                .then((res) => {
+                    console.log(res.data.idimage)
+                    const DataPassToOrderHand = {
+                        userid: userId || 'kk',
+                        fname: JSON.parse(data).firstName,
+                        lname: JSON.parse(data).lastName,
+                        address: JSON.parse(data).address,
+                        phone: JSON.parse(data).phone,
+                        idimage: res.data.idimage,
+                        nameorder: Nameproduct,
+                        price: Priceproduct,
+                        province: province,
+                        location: Locationproduct,
+                        details: details,
+
+                    }
+                    userorder(DataPassToOrderHand).then(
+                        router.push('DetailProHand/handeeSuccess')
+                    )
+                });
         }
-        
-            else if(Priceproduct == null){
-                setCheckprice("error")
-            }
+
+        else if (Priceproduct == null) {
+            setCheckprice("error")
+        }
 
     }
     function handleChange(value) {
@@ -200,35 +200,35 @@ export default function DetailProHand(props) {
                         </Box>
                     </Flex>
                     <Flex justifyContent="center" flexDirection="column" style={{ marginTop: 20 }}>
-                    <Box><Flex style={{ marginBottom: 20 }} justifyContent="center">
-                        <Select placeholder="โปรดเลือกจังหวัดของคุณ" labelInValue defaultValue={{ value: province }} style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px"}} onChange={handleChange}>
-                            {select.map((item, index) => {
-                                return (
-                                    // eslint-disable-next-line react/jsx-key
-                                    <Option key={index} value={item.county}>
-                                        {item.county}
-                                    </Option>
-                                )
-                            })}
+                        <Box><Flex style={{ marginBottom: 20 }} justifyContent="center">
+                            <Select placeholder="โปรดเลือกจังหวัดของคุณ" labelInValue defaultValue={{ value: province }} style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={handleChange}>
+                                {select.map((item, index) => {
+                                    return (
+                                        // eslint-disable-next-line react/jsx-key
+                                        <Option key={index} value={item.county}>
+                                            {item.county}
+                                        </Option>
+                                    )
+                                })}
 
-                        </Select>
-                    </Flex></Box>
+                            </Select>
+                        </Flex></Box>
                         <Box><Input type="text" placeholder="ชื่อสินค้า" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => { setNameProduct(e.target.value) }} /></Box>
-                        
-                        {checkprice === "error" ? 
-                        <Box><Input type="number" placeholder="ราคาสินค้า" style={{borderColor:"red", marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => { setPriceProduct(e.target.value) }} /></Box> :
-                        checkprice === "ok pass" ? 
-                        <Box><Input type="number" placeholder="ราคาสินค้า" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => { setPriceProduct(e.target.value) }} /></Box> 
-                        : <Box><Input type="number" placeholder="ราคาสินค้า" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => { setPriceProduct(e.target.value) }} /></Box> }
-                        
+
+                        {checkprice === "error" ?
+                            <Box><Input type="number" placeholder="ราคาสินค้า" style={{ borderColor: "red", marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => { setPriceProduct(e.target.value) }} /></Box> :
+                            checkprice === "ok pass" ?
+                                <Box><Input type="number" placeholder="ราคาสินค้า" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => { setPriceProduct(e.target.value) }} /></Box>
+                                : <Box><Input type="number" placeholder="ราคาสินค้า" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => { setPriceProduct(e.target.value) }} /></Box>}
+
                         <Box><Input type="text" placeholder="สถานที่ซื้อสินค้า" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => { setLocationProduct(e.target.value) }} /></Box>
                         <Box><Input type="text" placeholder="รายละเอียด" style={{ marginTop: 20, width: "100%", fontsize: "12px", borderRadius: " 50px", padding: "10px 10px 10px 20px" }} onChange={(e) => { setdetails(e.target.value) }} /></Box>
                     </Flex>
 
                     <Flex justifyContent="center" style={{ marginTop: 30 }}>
-                            <p>
-                                <p style={{color:"red"}}><b>* หมายเหตุ : ราคาฝากหิ้วขั้นต่ำ 500 บาท</b></p>
-                            </p>
+                        <p>
+                            <p style={{ color: "red" }}><b>* หมายเหตุ : ราคาฝากหิ้วขั้นต่ำ 500 บาท</b></p>
+                        </p>
                     </Flex>
 
                     <Flex justifyContent="center" style={{ marginTop: 10 }}>
