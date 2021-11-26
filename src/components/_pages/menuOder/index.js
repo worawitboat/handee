@@ -197,9 +197,8 @@ export default function menuOrder(props) {
                                                 <h5><b>ที่อยู่จัดส่ง : {item.address}</b></h5>
                                                 <h5><b>เบอร์โทร : {item.phonenumber}</b></h5>
                                                 <h5><b>สถานที่ซื้อสินค้า : {item.locationproduct} </b> </h5>
-                                                <h5><b>ราคา : {item.price} บาท</b></h5>
+                                                <h5><b>ราคาสินค้า : {item.price - item.cost} บาท</b></h5>
                                                 <h5><b>เงินค่าหิ้วที่ได้ : {item.cost - (0.25 * item.cost)} บาท</b></h5>
-
                                             </p>
                                         </Box>
                                     </Flex>
