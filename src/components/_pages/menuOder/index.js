@@ -113,7 +113,8 @@ export default function menuOrder(props) {
                         address: data.address,
                         phonenumber: data.phone,
                         locationproduct: data.location,
-                        image: data.idimage
+                        image: data.idimage,
+                        price:data.price
                     }])
                 )
             })
@@ -140,7 +141,8 @@ export default function menuOrder(props) {
                     address: data.address,
                     phonenumber: data.phone,
                     locationproduct: data.location,
-                    image: data.idimage
+                    image: data.idimage,
+                    price: data.price
                 }])
             )
             // const { nameorder, address, phone, location, idimage } = res.data.data[0]
@@ -192,7 +194,8 @@ export default function menuOrder(props) {
                                                 <h2><b>{item.nameproduct}</b></h2>
                                                 <h5><b>ที่อยู่จัดส่ง : {item.address}</b></h5>
                                                 <h5><b>เบอร์โทร : {item.phonenumber}</b></h5>
-                                                <h5><b>และสถานที่ซื้อสินค้า : {item.locationproduct} </b> </h5>
+                                                <h5><b>สถานที่ซื้อสินค้า : {item.locationproduct} </b> </h5>
+                                                <h5><b>ราคา : {item.price} </b> </h5>
                                             </p>
                                         </Box>
                                     </Flex>
