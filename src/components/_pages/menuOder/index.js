@@ -35,61 +35,61 @@ export default function menuOrder(props) {
         {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'นครราชสีมา'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'กาฬสินธุ์'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'ขอนแก่น'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'ชัยภูมิ'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'นครพนม'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'บึงกาฬ'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'บุรีรัมย์'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'มหาสารคาม'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'มุกดาหาร'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'ยโสธร'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'ร้อยเอ็ด'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'ศรีสะเกษ'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'เลย'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'สกลนคร'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'สุรินทร์'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'หนองคาย'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'หนองบัวลำภู'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'อุดรธานี'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'อุบลราชธานี'
-        },{
+        }, {
             namecounty: 'โปรดเลือกจังหวัดของคุณ',
             county: 'อำนาจเจริญ'
         },
@@ -114,7 +114,8 @@ export default function menuOrder(props) {
                         phonenumber: data.phone,
                         locationproduct: data.location,
                         image: data.idimage,
-                        price:data.price
+                        price: data.price,
+                        cost: data.cost
                     }])
                 )
             })
@@ -142,7 +143,8 @@ export default function menuOrder(props) {
                     phonenumber: data.phone,
                     locationproduct: data.location,
                     image: data.idimage,
-                    price: data.price
+                    price: data.price,
+                    cost: data.cost
                 }])
             )
             // const { nameorder, address, phone, location, idimage } = res.data.data[0]
@@ -183,8 +185,8 @@ export default function menuOrder(props) {
                                 <Flex justifyContent="left">
 
                                     <Flex style={{ marginTop: 10 }}>
-                                        <div style={{width:100 , height:120}}>
-                                            <img style={{ width: "100%" , height:"100%", borderRadius: 10 }} src={item.image} />
+                                        <div style={{ width: 100, height: 120 }}>
+                                            <img style={{ width: "100%", height: "100%", borderRadius: 10 }} src={item.image} />
                                         </div>
                                     </Flex>
 
@@ -195,7 +197,9 @@ export default function menuOrder(props) {
                                                 <h5><b>ที่อยู่จัดส่ง : {item.address}</b></h5>
                                                 <h5><b>เบอร์โทร : {item.phonenumber}</b></h5>
                                                 <h5><b>สถานที่ซื้อสินค้า : {item.locationproduct} </b> </h5>
-                                                <h5><b>ราคา : {item.price} </b> </h5>
+                                                <h5><b>ราคา : {item.price} บาท</b></h5>
+                                                <h5><b>เงินค่าหิ้วที่ได้ : {item.cost - (0.25 * item.cost)} บาท</b></h5>
+
                                             </p>
                                         </Box>
                                     </Flex>
