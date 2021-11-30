@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Flex, Box } from 'reflexbox'
-import { Card, Image } from 'antd'
+import { Card, Image, Tag  } from 'antd'
 import { getHistory } from '../../../modules/_test/services'
 
 export default function orderHistory(props) {
