@@ -143,3 +143,10 @@ export function orderReject(id) {
             throw new Error(response.data.message)
         })
 }
+
+export function getHistory(id) {
+    return axios.patch(`${apiUrl}/history/${id}`)
+        .catch(({ response }) => {
+            throw new Error(response.data.message)
+        })
+}
