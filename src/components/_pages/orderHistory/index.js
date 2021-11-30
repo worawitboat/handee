@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Flex, Box } from 'reflexbox'
 import { Card, Image, Tag  } from 'antd'
 import { getHistory } from '../../../modules/_test/services'
+import { ClockCircleOutlined, CloseCircleOutlined, MoneyCollectFilled, SyncOutlined } from '@ant-design/icons';
 
 export default function orderHistory(props) {
     const [data, setData] = useState([])
