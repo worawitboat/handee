@@ -4,7 +4,7 @@ import { Card, Image, Tag  } from 'antd'
 import { getHistory } from '../../../modules/_test/services'
 import { ClockCircleOutlined, CloseCircleOutlined, MoneyCollectFilled, SyncOutlined } from '@ant-design/icons';
 
-export default function orderHistory(props) {
+export default function OrderHistory(props) {
     const [data, setData] = useState([])
 
 
